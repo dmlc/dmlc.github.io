@@ -32,7 +32,7 @@
 <a id="machine-learning-libraries" class="anchor" href="#machine-learning-libraries" aria-hidden="true"><span class="octicon octicon-link"></span></a>Machine Learning Libraries</h3>
 
 <ul>
-<li>Boosted Trees (GBDT): <a href="https://github.com/dmlc/xgboost">XGBoost</a>
+<li>Boosted Trees (GBDT or GBM): <a href="https://github.com/dmlc/xgboost">XGBoost</a>
 </li>
 <li>Linear method (Sparse logistic regression, and others..): <a href="https://github.com/dmlc/wormhole/tree/master/learn/linear">SGD</a>, <a href="https://github.com/dmlc/wormhole/tree/master/learn/lbfgs-linear">L-BFGS</a>, <a href="https://github.com/dmlc/parameter_server/tree/master/example/linear">Block CD</a>
 </li>
@@ -48,7 +48,14 @@
 <ul>
 <li>I/O (local disk, HDFS, Amazon S3) and Job launchers (Yarn, MPI, ...) <a href="https://github.com/dmlc/dmlc-core">dmlc-core</a>
 </li>
-<li>Data communication: <a href="https://github.com/dmlc/rabit">rabbit</a>, <a href="https://github.com/dmlc/ps-lite">parameter server</a>
+<li>Data communication
+
+<ul>
+<li>
+<a href="https://github.com/dmlc/rabit">rabbit</a> for BSP synchronization(allreduce)</li>
+<li>
+<a href="https://github.com/dmlc/ps-lite">parameter server</a> for asynchronous parameter update</li>
+</ul>
 </li>
 </ul>
       </section>
