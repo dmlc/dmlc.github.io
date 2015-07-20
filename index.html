@@ -1,73 +1,121 @@
-<!doctype html>
-<html>
-  <head>
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Distributed Machine Learning Common by dmlc</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://avatars2.githubusercontent.com/u/11508361?v=3&s=100">
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/github-light.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>DMLC | Distributed (Deep) Machine Learning Common</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="dmlc.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
+
   <body>
-    <div class="wrapper">
-      <header>
-        <h1>Distributed Machine Learning Common</h1>
-        <p></p>
 
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>DMLC  <small>| Distributed (Deep) Machine Learning Common </small></h1>
+        <p class="lead">DMLC is a community hosting and developing portable, scalable and
+        reliable open source libraries for distributed machine learning. All
+        projects are licenced under Apache 2.0. Contributors come
+        from learning universities and companies. We are looking forward new
+        contributors and projects to join it. </p>
+        <p><a class="btn btn-primary btn-lg" href="https://github.com/dmlc" role="button">View in Github</a></p>
+      </div>
+    </div>
 
-        <p class="view"><a href="https://github.com/dmlc">View My GitHub Profile</a></p>
+    <div class="container">
+      <h2>Machine Learning Libraries</h2>
+      <div class="row">
+        <div class="col-md-3">
+          <h2>Wormhole</h2>
+          <p>Wormhole is a place where DMLC projects works together to provide
+          scalable and reliable machine learning toolkits that can run on
+          various platforms such as Hadoop Yarn, Amazon EC2, MPI, etc. <p>
+          <p><a class="btn btn-default" href="https://github.com/dmlc/wormhole" role="button">View details »</a></p>
+        </div>
+        <div class="col-md-3">
+          <h2>XGBoost</h2>
+          <p>An optimized general purpose gradient boosting library, including
+          Generalized Linear Model (GLM) and Gradient Boosted Decision Trees
+          (GBDT). XGBoost is parallelized, and also be distributed and scale to Terascale data</p>
+          <p><a class="btn btn-default" href="https://github.com/dmlc/xgboost" role="button">View details »</a></p>
+        </div>
+        <div class="col-md-3">
+          <h2>CXXNET</h2>
+          <p>A fast, concise, distributed deep learning framework. It provides
+          ready-to-use configure files and trained models for Alexnet, Google
+          Inception network, and others. </p>
+          <p><a class="btn btn-default" href="https://github.com/dmlc/cxxnet" role="button">View details »</a></p>
+        </div>
 
-      </header>
-      <section>
-        <h3>
-<a id="welcome-to-dmlc" class="anchor" href="#welcome-to-dmlc" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome to DMLC</h3>
+        <div class="col-md-3">
+          <h2>Minerva</h2>
+          <p>A fast and flexible system for deep learning. It provides NDarray
+          programming interface, just like Numpy. Python bindings and C++
+          bindings are both available. The resulting code can be run on both
+          multi-CPU and multi-GPU. </p>
+          <p><a class="btn btn-default" href="" role="button">View details »</a></p>
+        </div>
+      </div>
 
-<p>DMLC is a community hosting and developing portable, scalable and reliable libraries for distributed machine learning. Contributors come from (in alphabetical order) Baidu, CMU, HKUST, Microsoft, NYU, PKU, UW, ... We are looking forward new contributors and projects to join it.</p>
+      <hr>
 
-<h3>
-<a id="machine-learning-libraries" class="anchor" href="#machine-learning-libraries" aria-hidden="true"><span class="octicon octicon-link"></span></a>Machine Learning Libraries</h3>
+      <h2>System components</h2>
+      <div class="row">
+        <div class="col-md-3">
+          <h2>dmlc-core</h2>
+          <p>High-performance data I/O libraries for various filesystems
+          including local disks, HDFS, Amazon S3. It also provides job launchers
+          for Yarn, MPI, ...</p>
+          <p><a class="btn btn-default" href="https://github.com/dmlc/dmlc-core" role="button">View details »</a></p>
+        </div>
+        <div class="col-md-3">
+          <h2>ps-lite</h2>
+          <p>A light weight implementation of the parameter server framework. It
+          provides asynchronous key-value push and pull, communication-efficient
+          data synchronization and flexible data consistency model.  </p>
+          <p><a class="btn btn-default" href="https://github.com/dmlc/ps-lite" role="button">View details »</a></p>
+        </div>
+        <div class="col-md-3">
+          <h2>rabbit</h2>
+          <p>Rabit is a light weight library that provides a fault tolerant
+          interface of Allreduce and Broadcast. The goal of rabit is to support
+          portable , scalable and reliable distributed machine learning
+          programs.</p>
+          <p><a class="btn btn-default" href="https://github.com/dmlc/rabit" role="button">View details »</a></p>
+        </div>
 
-<ul>
-<li>Boosted Trees (GBDT or GBM): <a href="https://github.com/dmlc/xgboost">XGBoost</a>
-</li>
-<li>Linear method (Sparse logistic regression, and others..): <a href="https://github.com/dmlc/wormhole/tree/master/learn/linear">SGD</a>, <a href="https://github.com/dmlc/wormhole/tree/master/learn/lbfgs-linear">L-BFGS</a>, <a href="https://github.com/dmlc/parameter_server/tree/master/example/linear">Block CD</a>
-</li>
-<li>Deep learning
-  <ul> 
-    <li> <a href="https://github.com/dmlc/cxxnet">CXXNET</a>: on-hand neural network training using config file on multi-gpu (c++) </li>
-    <li> <a href="https://github.com/dmlc/minerva">Minerva</a>: ndarray programming interface and multi-gpu support (python/c++) </li>
-  </ul>
-</li>
-<li>Topic Model <a href="https://github.com/dmlc/lda">LDA</a>
-</li>
-</ul>
+        <div class="col-md-3">
+          <h2>mshadow</h2>
+          <p>MShadow is a lightweight CPU/GPU Matrix/Tensor Template Library in
+          C++/CUDA. It aims for maximum performance and control, while also
+          emphasize simplicity.</p>
+          <p><a class="btn btn-default" href="https://github.com/dmlc/mshadow" role="button">View details »</a></p>
+        </div>
+      </div>
 
-<h3>
-<a id="system-components" class="anchor" href="#system-components" aria-hidden="true"><span class="octicon octicon-link"></span></a>System Components</h3>
+      <hr>
+      <h2>Major Contributors (in alphabet order)</h2>
 
-<ul>
-<li>I/O (local disk, HDFS, Amazon S3) and Job launchers (Yarn, MPI, ...) <a href="https://github.com/dmlc/dmlc-core">dmlc-core</a>
-</li>
-<li>Data communication
-
-<ul>
-<li>
-<a href="https://github.com/dmlc/rabit">rabit</a> for BSP synchronization(allreduce)</li>
-<li>
-<a href="https://github.com/dmlc/ps-lite">parameter server</a> for asynchronous parameter update</li>
-</ul>
-</li>
-</ul>
-      </section>
+      <hr>
       <footer>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+        <p>© DMLC 2014</p>
       </footer>
     </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
-  </body>
-</html>
+
+</body><div></div></html>
