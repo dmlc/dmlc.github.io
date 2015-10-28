@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DMLC</title>
+    <description>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+</description>
+    <link>http://yourdomain.com/</link>
+    <atom:link href="http://yourdomain.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Tue, 27 Oct 2015 22:38:29 -0400</pubDate>
+    <lastBuildDate>Tue, 27 Oct 2015 22:38:29 -0400</lastBuildDate>
+    <generator>Jekyll v3.0.0</generator>
+    
+      <item>
+        <title>Training Deep Net on 14 Million Images by Using A Single Machine</title>
+        <description>&lt;p&gt;This blog describes how to train a neural network on Full ImageNet Dataset [1]
+with 14,197,087 images in 21,841 classes. &lt;strong&gt;We achieved a state-of-art model by
+using 4 GeForce GTX 980 cards on a single machine in 8.5 days.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;There are several technical challenges in this problem.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;How to pack and store the massive data.&lt;/li&gt;
+  &lt;li&gt;How to minimize the memory consumption of the network, so we can use net with more capacity than those used for ImageNet 1K&lt;/li&gt;
+  &lt;li&gt;How to train the model fast.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;We also released our pre-trained model for this full ImageNet dataset.&lt;/p&gt;
+
+&lt;h2 id=&quot;data-preprocessing&quot;&gt;Data Preprocessing&lt;/h2&gt;
+&lt;p&gt;The raw full ImageNet dataset is more than 1TB. Before training the network, we need to shuffle these images then load batch of images to feed the neural network. Before we describe how we solve it, let’s do some calculation first:&lt;/p&gt;
+
+&lt;p&gt;Assume we have two good storage device [2]:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Device&lt;/th&gt;
+      &lt;th&gt;4K Random Seek&lt;/th&gt;
+      &lt;th&gt;Sequential Seek&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;WD Black (HDD)&lt;/td&gt;
+      &lt;td&gt;0.43 MB /s (110 IOPS)&lt;/td&gt;
+      &lt;td&gt;170 MB/s&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Samsung 850 PRO (SSD)&lt;/td&gt;
+      &lt;td&gt;40 MB/s (10,000 IOPS)&lt;/td&gt;
+      &lt;td&gt;550 MB/s&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;A very naive approach is loading from a list by random seeking. If use this approach, we will spend 677 hours with HDD or 6.7 hours with SSD respectively. This is only about read. Although SSD looks not bad, but 1TB SSD is not affordable for everyone.&lt;/p&gt;
+
+&lt;p&gt;But we notice sequential seek is much faster than random seek. Also, loading batch by batch is a sequential action. Can we make a change? The answer is we can’t do sequential seek directly. We need random shuffle the training data first, then pack them into a sequential binary package.&lt;/p&gt;
+
+&lt;p&gt;This is the normal solution used by most deep learning packages. However, unlike ImageNet 1K dataset, where we &lt;strong&gt;&lt;em&gt;cannot&lt;/em&gt;&lt;/strong&gt; store the images in raw pixels format.  Because otherwise we will need more than 1TB space. Instead, we need to pack the images in compressed format.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;The key ingredients are&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Store the images in jpeg format, and pack them into binary record.&lt;/li&gt;
+  &lt;li&gt;Split the list, and pack several record files, instead of one file.
+    &lt;ul&gt;
+      &lt;li&gt;This allows us to pack the images in distributed fashion, because we will be eventually bounded by the IO cost during packing.&lt;/li&gt;
+      &lt;li&gt;We need to make the package being able to read from several record files, which is not too hard.
+This will allow us to store the entire imagenet dataset in around 250G space.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;After packing, together with threaded buffer iterator, we can simply achieve an IO speed of around 3,000 images/sec on a normal HDD.&lt;/p&gt;
+
+&lt;h2 id=&quot;training-the-model&quot;&gt;Training the model&lt;/h2&gt;
+
+&lt;p&gt;Now we have data. We need to consider which network structure to use. We use
+Inception-BN [3] style model, compared to other models such as VGG, it has fewer
+parameters, less parameters simplified sync problem. Considering our problem is
+much more challenging than 1k classes problem, we add suitable capacity into
+original Inception-BN structure, by increasing the size of filter by factor of
+1.5 in bottom layers of original Inception-BN network.  This however, creates a
+challenge for GPU memory. As GTX980 only have 4G of GPU RAM. We really need to
+minimize the memory consumption to fit larger batch-size into the training. To
+solve this problem we use the techniques such as node memory reuse, and inplace
+optimization, which reduces the memory consumption by half, more details can be
+found in
+&lt;a href=&quot;http://mxnet.readthedocs.org/en/latest/developer-guide/note_memory.html&quot;&gt;memory optimization note&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Finally, we cannot train the model using a single GPU because this is a really
+large net, and a lot of data. We use data parallelism on four GPUs to train this
+model, which involves smart synchronization of parameters between different
+GPUs, and overlap the communication and computation. A
+&lt;a href=&quot;https://mxnet.readthedocs.org/en/latest/developer-guide/note_engine.html&quot;&gt;runtime denpdency engine&lt;/a&gt;
+is used to simplify this task, allowing us to run the training at around 170
+images/sec.&lt;/p&gt;
+
+&lt;p&gt;Here is a learning cureve of the training process:
+&lt;img src=&quot;https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/imagenet_full/curve.png&quot; alt=&quot;alt text&quot; title=&quot;Learning Curve&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;evaluate-the-performance&quot;&gt;Evaluate the Performance&lt;/h2&gt;
+&lt;p&gt;Train Top-1 Accuracy over 21,841 classes: 37.19%&lt;/p&gt;
+
+&lt;p&gt;There is no official validation set over 21,841 classes, so we are using ILVRC2012 validation set to check the performance. Here is the result:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Accuracy&lt;/th&gt;
+      &lt;th&gt;Over 1,000 classes&lt;/th&gt;
+      &lt;th&gt;Over 21,841 classes&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Top-1&lt;/td&gt;
+      &lt;td&gt;68.3%&lt;/td&gt;
+      &lt;td&gt;41.9%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Top-5&lt;/td&gt;
+      &lt;td&gt;89.0%&lt;/td&gt;
+      &lt;td&gt;69.6%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Top=20&lt;/td&gt;
+      &lt;td&gt;96.0%&lt;/td&gt;
+      &lt;td&gt;83.6%&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;As we can see we get quite reasonable result after 9 iterations. Notably much less number of iterations is needed to achieve a stable performance, mainly due to we are facing a larger dataset.&lt;/p&gt;
+
+&lt;p&gt;We should note that this result is by no means optimal, as we did not carefully pick the parameters and the experiment cycle is longer than the 1k dataset. We think there is definite space for improvement, and you are welcomed to try it out by yourself!&lt;/p&gt;
+
+&lt;h2 id=&quot;the-code-and-model&quot;&gt;The Code and Model&lt;/h2&gt;
+&lt;p&gt;The code and step guide is publically available at &lt;a href=&quot;https://github.com/dmlc/mxnet/tree/master/example/imagenet&quot;&gt;https://github.com/dmlc/mxnet/tree/master/example/imagenet&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;We also release a pretrained model under &lt;a href=&quot;https://github.com/dmlc/mxnet-model-gallery/tree/master/imagenet-21k-inception&quot;&gt;https://github.com/dmlc/mxnet-model-gallery/tree/master/imagenet-21k-inception&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;how-to-use-the-model&quot;&gt;How to Use The Model&lt;/h2&gt;
+&lt;p&gt;We should point out it 21k classes is much more challenging than 1k. Directly use the raw prediction is not a reasonable way.&lt;/p&gt;
+
+&lt;p&gt;Look at this picture which I took in Mount Rainier this summer:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/imagenet_full/rainier.png&quot; alt=&quot;alt text&quot; title=&quot;Mount Rainer&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We can figure out there is a mountain, valley, tree and bridge. And the prediction probability is :&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/imagenet_full/prob.png&quot; alt=&quot;alt text&quot; title=&quot;Probability&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We notice there are several peaks. Let’s print out the label text in among 21k classes and ImageNet 1k classes:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Rank&lt;/th&gt;
+      &lt;th&gt;Over 1,000 classes&lt;/th&gt;
+      &lt;th&gt;Over 21,841 classes&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Top-1&lt;/td&gt;
+      &lt;td&gt;n09468604 valley&lt;/td&gt;
+      &lt;td&gt;n11620673 Fir&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Top-2&lt;/td&gt;
+      &lt;td&gt;n09332890 lakeside&lt;/td&gt;
+      &lt;td&gt;n11624531 Spruce&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Top-3&lt;/td&gt;
+      &lt;td&gt;n04366367 suspension bridge&lt;/td&gt;
+      &lt;td&gt;n11621281 Amabilis fir&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Top-4&lt;/td&gt;
+      &lt;td&gt;n09193705 alp&lt;/td&gt;
+      &lt;td&gt;n11628456 Douglas fir&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Top-5&lt;/td&gt;
+      &lt;td&gt;n09428293 seashore&lt;/td&gt;
+      &lt;td&gt;n11627908 Mountain hemlock&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;There is no doubt that directly use probability over 21k classes loss diversity of prediction. If you carefully choose a subset by using WordNet hierarchy relation, I am sure you will find more interesting results.&lt;/p&gt;
+
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+&lt;p&gt;[1] Deng, Jia, et al. “Imagenet: A large-scale hierarchical image database.” &lt;em&gt;Computer Vision and Pattern Recognition&lt;/em&gt;, 2009. CVPR 2009. IEEE Conference on. IEEE, 2009.&lt;/p&gt;
+
+&lt;p&gt;[2] HDD/SSD data is from public website may not be accurate.&lt;/p&gt;
+
+&lt;p&gt;[3] Ioffe, Sergey, and Christian Szegedy. “Batch normalization: Accelerating deep network training by reducing internal covariate shift.” &lt;em&gt;arXiv preprint arXiv:1502.03167&lt;/em&gt; (2015).&lt;/p&gt;
+</description>
+        <pubDate>Tue, 27 Oct 2015 17:40:42 -0400</pubDate>
+        <link>http://yourdomain.com/mxnet/2015/10/27/training-deep-net-on-14-million-images.html</link>
+        <guid isPermaLink="true">http://yourdomain.com/mxnet/2015/10/27/training-deep-net-on-14-million-images.html</guid>
+        
+        
+        <category>mxnet</category>
+        
+      </item>
+    
+  </channel>
+</rss>
