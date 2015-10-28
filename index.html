@@ -1,57 +1,54 @@
 ---
 layout: front
+comments: true
 ---
 
-<div class="jumbotron">
+<div class="dmlc-head">
   <div class="container">
-    <h1><img src="https://avatars2.githubusercontent.com/u/11508361?v=3&s=80" alt="DMLC" class="img-rounded"> <small> Distributed (Deep) Machine Learning Common </small></h1>
-    <p class="lead">DMLC develops scalable and reliable open source libraries for machine learning. </p>
-    <p><a class="btn btn-primary btn-lg" href="https://github.com/dmlc" role="button">View in Github »</a></p>
+    <h1><img src="https://avatars2.githubusercontent.com/u/11508361?v=3&s=60"
+    alt="DMLC" class="img-rounded"> <a href="https://github.com/dmlc" >DMLC</a> for Scalable and Reliable Machine Learning </h1>
   </div>
 </div>
 
 <div class="container">
-  <h2>News (<a href="{{ "/feed.xml" | prepend: site.baseurl }}">RSS</a>)</h2>
+  <h2>News (<a href="feed.xml">RSS</a>, <a href="archive">Archive</a>)</h2>
+
+  <div class="row">
   <ul class="post-list">
     {% for post in site.posts %}
-    <li> <h3> {{ post.date | date: "%b %-d, %Y" }} :
+    <li> <h4>{{ post.date | date: "%b %-d, %Y" }} :
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h3>
+        </h4>
     {% endfor %}
       </li>
   </ul>
-
+  </div>
   <hr>
 
   <h2>Machine Learning Libraries</h2>
   <div class="row">
     <div class="col-md-3">
       <h2><a href="https://github.com/dmlc/wormhole" >Wormhole</a></h2>
-      <p>Wormhole provides toolkits, including sparse logistic regression
-        and factorization machine, to process large-scale sparse datasets
-        with billions of examples and features. </p>
-      <p><a class="btn btn-default" href="https://github.com/dmlc/wormhole" role="button">View details »</a></p>
+      <p>Toolkits such as sparse logistic regression
+        and factorization machine for large-scale sparse datasets
+       </p>
     </div>
     <div class="col-md-3">
       <h2><a href="https://github.com/dmlc/xgboost" >XGBoost</a></h2>
-      <p>An optimized general purpose gradient boosting library, including
-        Generalized Linear Model (GLM) and Gradient Boosted Decision Trees
-        (GBDT), scale to Terascale data.</p>
-      <p><a class="btn btn-default" href="https://github.com/dmlc/xgboost" role="button">View details »</a></p>
+      <p>General purpose gradient boosting library, including
+        generalized linear model and gradient boosted decision trees
+      </p>
     </div>
     <div class="col-md-3">
       <h2><a href="https://github.com/dmlc/mxnet">MXNet</a></h2>
-      <p>Distributed deep learning framework for efficiency and
+      <p> Distributed deep learning framework aiming for efficiency and
 		flexibility. </p>
-      <p><a class="btn btn-default" href="https://github.com/dmlc/mxnet" role="button">View details »</a></p>
     </div>
 
     <div class="col-md-3">
       <h2><a href="https://github.com/dmlc/minerva">Minerva</a></h2>
-      <p>A fast and flexible system for deep learning. It provides NDarray
-        programming interface, just like Numpy.
+      <p> NDarray programming interface (like Numpy) for deep learning
       </p>
-      <p><a class="btn btn-default" href="https://github.com/dmlc/minerva" role="button">View details »</a></p>
     </div>
   </div>
 
@@ -61,26 +58,30 @@ layout: front
   <div class="row">
     <div class="col-md-3">
       <h2><a href="https://github.com/dmlc/dmlc-core">dmlc-core</a></h2>
-      <p>High-performance data I/O libraries for various filesystems
-        including local disks, HDFS, Amazon S3. It also provides job launchers
+      <p>Data I/O for filesystems
+        such as HDFS and Amazon S3, with job launchers
         for Yarn, MPI, ...</p>
-      <p><a class="btn btn-default" href="https://github.com/dmlc/dmlc-core" role="button">View details »</a></p>
     </div>
     <div class="col-md-3">
       <h2><a href="https://github.com/dmlc/ps-lite" >ps-lite</a></h2>
-      <p>The parameter server framework providing asynchronous key-value push and pull. </p>
-      <p><a class="btn btn-default" href="https://github.com/dmlc/ps-lite" role="button">View details »</a></p>
+      <p>The parameter server framework for asynchronous key-value push and pull </p>
     </div>
     <div class="col-md-3">
       <h2><a href="https://github.com/dmlc/rabit">Rabit</a></h2>
       <p>A light weight library providing fault tolerant
-        Allreduce and Broadcast. </p>
-      <p><a class="btn btn-default" href="https://github.com/dmlc/rabit" role="button">View details »</a></p>
+        Allreduce and Broadcast </p>
     </div>
 
     <div class="col-md-3">
       <h2><a href="https://github.com/dmlc/mshadow">mshadow</a></h2>
       <p>A lightweight CPU/GPU Matrix/Tensor Template Library. </p>
-      <p><a class="btn btn-default" href="https://github.com/dmlc/mshadow" role="button">View details »</a></p>
     </div>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="col-md-7">
+        {% include comments.html %}
+</div>
   </div>
