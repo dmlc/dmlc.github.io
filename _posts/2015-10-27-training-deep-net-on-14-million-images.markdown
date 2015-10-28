@@ -4,6 +4,7 @@ title:  "Training Deep Net on 14 Million Images by Using A Single Machine"
 date:   2015-10-27 17:40:42 -0400
 author: Bing Xu
 categories: mxnet
+comments: true
 ---
 
 This blog describes how to train a neural network on Full ImageNet Dataset [1]
