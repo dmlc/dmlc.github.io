@@ -13,4 +13,9 @@ description: > # this means to ignore newlines
 url: "http://dmlc.ml"
 
 # Build settings
-markdown: kramdown
+markdown: redcarpet
+
+redcarpet:
+  extensions: ["fenced_code_blocks"]
+
+

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Training Deep Net With R"
-date:   2015-11-03
+date:   2015-11-03 13:17:00 -0800
 author: Tong He
 categories: mxnet
 tags: [mxnet, R]
