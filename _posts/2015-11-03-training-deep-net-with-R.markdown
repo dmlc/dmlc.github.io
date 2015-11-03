@@ -704,7 +704,7 @@ mean.img = as.array(mx.nd.load("Inception/mean_224.nd")[["mean_img"]])
 ### Load and Preprocess the Image
 
 Now we are ready to classify a real image. In this example, we simply take the parrots image
-from imager package. But you can always change it to other images. Firstly we will test it on a photo of Mt. Baker in north WA, but taken in Vancouver.
+from imager package. But you can always change it to other images. Firstly we will test it on a photo of Mt. Baker in north WA.
 
 Load and plot the image:
 
@@ -769,7 +769,7 @@ dim(prob)
 ## [1] 1000    1
 ```
 
-As you can see ```prob``` is a 1 times 1000 array, which gives the probability
+As you can see ```prob``` is a 1000 times 1 array, which gives the probability
 over the 1000 image classes of the input.
 
 We can extract the top-5 class index.
