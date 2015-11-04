@@ -101,7 +101,11 @@ model <- mx.mlp(train.x, train.y, hidden_node=10, out_node=2, out_activation="so
 ## [20] Train-accuracy=0.838095238095238
 ```
 
-Note that `mx.set.seed` is the correct function to control the random process in `mxnet`. You can see the accuracy in each round during training. It is also easy to make prediction and evaluate.
+Note that `mx.set.seed` is the correct function to control the random process in `mxnet`. 
+The reason that is that most of mxnet random number generator can run on different devices, such as GPU.
+We need to use massively parallel PRNG on GPU to get fast random number generations. It can also be quite costly to seed these PRNGs.
+So we introduced `mx.set.seed` for mxnet specific device random numbers.
+You can see the accuracy in each round during training. It is also easy to make prediction and evaluate.
 
 
 ```r
