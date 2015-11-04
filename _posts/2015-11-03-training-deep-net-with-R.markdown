@@ -8,19 +8,18 @@ tags: [mxnet, R]
 comments: true
 ---
 
-Deep learning has been an active field of reasearch for some years. However, the number of related packages in R is limited. There might be several reasons:
+Deep learning has been an active field of research for some years, there are breakthroughs in image and language understanding etc.
+However, there has yet been a good deep learning package  in R that comes state-of-art deep learning models,
+and the real GPU support to doing fast training on these models.
 
-- The training process of deep learning is usually very time consuming. People usually train a model on cluster of GPUs. However GPU computation is not popular in R yet.
-- If we want to use R to train a deep learning model, we might need to read the data into R. However R is not memory efficient enough, data operation in R is expesive.
-- The term "Deep Learning" actually means a field of neural network research. There are many models with different structures for different needs, it is a challenge to interface design.
+In this post, we introduce [MXNetR](https://github.com/dmlc/mxnet/R-package), a R package that brings fast GPU computation and state-of-art deep learning
+to the R community. MXNet allows you to flexibly configure state-of-art deep learning models backed by the fast CPU and GPU back-end.
+This post will cover the following topics:
 
-This blog post describes our new R package `mxnet` for deep learning tasks. This package is a wrapper of the deep learning library [`mxnet`](https://github.com/dmlc/mxnet). The package focuses on the above problems:
+- Train your first neural network in five minutes
+- Use MXNet for Handwritten Digits Classification Competition
+- Classify ***real world*** images using state-of-art deep learning models.
 
-- The architecture and computation is written in C++ efficiently, users can choose to train on CPU or GPU.
-- The C++ code can read and shuffle the data efficiently, users don't need to read the data into R when using the R interface.
-- `mxnet` has an easy-to-use system for network structure configuration, it is also wrapped so that R users can configure needed structure easily.
-
-Besides R, users also have choices of interfaces for python and julia. Here we will introduce the basics of the R package `mxnet`.
 
 ## Train your first neural network in five minutes
 
@@ -864,9 +863,13 @@ This time the main element is small and cannot stand out from the "noisy" backgr
 
 Now, why don't you take a photo around and ask `mxnet` to tell you what is included? Have some fun!
 
+## Try it out and Contribute
+You can find MXNet on [github](https://github.com/dmlc/mxnet/R-package). MXNet is built by a active community of users. 
+Please fork us on github and contribute your wisdom to make the project even better :)
+
 ## Acknowledgement
 
-The R package `mxnet` is built by Tianqi Chen, Qiang Kou and Tong He. We would also like to thank the [RcppCore Team](https://github.com/RcppCore) for their great helps to make it happen.
+The MXNet R team would like to thank the [RcppCore Team](https://github.com/RcppCore) for their great helps to make MXNetR happen.
 
 [1] Ioffe, Sergey, and Christian Szegedy. "Batch normalization: Accelerating deep network training by reducing internal covariate shift." arXiv preprint arXiv:1502.03167 (2015).
 
