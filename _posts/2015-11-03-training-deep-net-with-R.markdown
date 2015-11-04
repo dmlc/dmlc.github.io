@@ -866,7 +866,7 @@ Now, why don't you take a photo around and ask `mxnet` to tell you what is inclu
 You can find MXNet on [github](https://github.com/dmlc/mxnet/tree/master/R-package). Besides ```R```, MXNet also support ```python``` and ```Julia```,
 and allows interpolations of models and analysis results between different language bindings.
 MXNet is built by a active community of users. 
-Please fork us on github and contribute your wisdom to make the project even better :)
+Please fork the project on github and contribute your wisdom to make the project even better :)
 
 ## Acknowledgement
 We would like to thank the [RcppCore Team](https://github.com/RcppCore) for their great helps to make MXNetR happen.
