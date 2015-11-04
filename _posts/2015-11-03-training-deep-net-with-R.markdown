@@ -864,7 +864,9 @@ This time the main element is small and cannot stand out from the "noisy" backgr
 Now, why don't you take a photo around and ask `mxnet` to tell you what is included? Have some fun!
 
 ## Try it out and Contribute
-You can find MXNet on [github](https://github.com/dmlc/mxnet/R-package). MXNet is built by a active community of users. 
+You can find MXNet on [github](https://github.com/dmlc/mxnet/R-package). Besides ```R```, MXNet also support ```python``` and ```Julia```,
+and allows interpolations of models and analysis results between different language bindings.
+MXNet is built by a active community of users. 
 Please fork us on github and contribute your wisdom to make the project even better :)
 
 ## Acknowledgement
