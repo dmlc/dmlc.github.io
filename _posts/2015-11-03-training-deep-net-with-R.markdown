@@ -4,6 +4,7 @@ title:  "Deep Learning with MXNetR"
 date:   2015-11-03 13:17:00 -0800
 author: Tong He
 categories: rstats
+tags: rstats
 comments: true
 ---
 
