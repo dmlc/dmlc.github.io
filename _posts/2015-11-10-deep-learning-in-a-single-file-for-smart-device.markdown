@@ -50,6 +50,8 @@ Finally, we show an Android example, thanks to Leliana, [https://github.com/Leli
 
 By using amalgamation, we can easily port the prediction library to mobile devices,  with nearly no dependency. Compile on smart platform is no longer a painful task. After compiled library for smart platform, the last thing is call C-API in the target language (Jave/Swift).
 
+<img src="https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/apk/poolnet.png" height="488" width="274">
+
 Besides pre-trained Inception-BatchNorm network we provided two not bad pretrained models:
 
 We tested on Nexus 5:
