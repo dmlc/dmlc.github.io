@@ -16,6 +16,6 @@ url: "http://dmlc.ml"
 markdown: redcarpet
 
 redcarpet:
-  extensions: ["fenced_code_blocks"]
+  extensions: ["fenced_code_blocks", "tables"]
 
 
