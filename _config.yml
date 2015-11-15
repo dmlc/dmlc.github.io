@@ -14,6 +14,7 @@ url: "http://dmlc.ml"
 
 # Build settings
 markdown: redcarpet
+highlighter: pygments
 
 redcarpet:
   extensions: ["fenced_code_blocks", "no_intra_emphasis", "tables", "autolink", "strikethrough", "with_toc_data"]
