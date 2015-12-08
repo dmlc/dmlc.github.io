@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "An Image Classification shiny App using MXNetR"
-date:   2015-12-07 13:17:00 -0800
+title: "Build Online Image Classification Service with Shiny and MXNetR"
+date:   2015-12-08 13:17:00 -0800
 author: Qiang Kou
 categories: rstats
 comments: true
@@ -9,8 +9,7 @@ comments: true
 
 Early this week, Google announced its [Cloud Vision API](http://googlecloudplatform.blogspot.com/2015/12/Google-Cloud-Vision-API-changes-the-way-applications-understand-images.html), which can detect the content of an image.
 
-It is still in the preview stage and very few people can use it.
-But with the power of R and MXNet, you can try something very similar on your own laptop: an image classification shiny app.
+With the power of R and MXNet, you can try something very similar on your own laptop: an image classification shiny app.
 Thanks to the powerful shiny framework, it is implemented with no more than 150 lines of R code.
 
 ![center](https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/blog_mxnet_r_shiny/mxnetR.png)
@@ -101,4 +100,13 @@ result <- synsets[max.idx]
 ```
 
 
-If you met any problem, please just open [an issure](https://github.com/dmlc/mxnet/issues). And all PR will be truly appreciated!
+If you met any problem, please just open [an issure](https://github.com/dmlc/mxnet/issues). Any PR will be truly appreciated!
+If you find really interesting results, share it on Twitter with `#MXnet`!
+
+![center](https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/blog_mxnet_r_shiny/mxnetR3.png)
+
+I know it is not a Chihuahua, but very close.
+
+![center](https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/blog_mxnet_r_shiny/mxnetR4.png)
+
+A photo in my phone and just try yours!
