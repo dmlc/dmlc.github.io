@@ -1,0 +1,107 @@
+---
+layout: post
+title:  "News from XGBoost"
+date:   2015-10-27 17:40:42 -0400
+author: Bing Xu
+categories: mxnet
+comments: true
+---
+
+The result of 2016 John M. Chambers Statistical Software Award is announced. We are happy to know that the R package `xgboost` has won.
+
+From the very beginning of the work, our goal is to make a package that brings convenience and joy to the users. Thus we will introduce several details of `xgboost` that (we think) users would love to know.
+
+## Efficient Algorithm
+
+If you have experiences in training models on a large data set, then you probably agree that the time waiting for the result is boring. The training speed of an learning algorithm is important. This is determined by both algorithm and implementation. We paid attention to these issues when building `xgboost`, thus we are confident that `xgboost` is one of the fastest learning algorithm of gradient boosting algorithm. The reasons for the efficiency are:
+
+- The computational part is implemented in C++.
+- It can be multi-threaded on a single machine.
+- It preprocesses the data before the training algorithm.
+
+[speed comparison pic]
+
+The above plot is from here, using the dataset from the Higgs Boson Competition. It can be described from two aspects:
+
+- With only one thread, the effect of preprocessing and C++ is already obvious.
+- The multi-threading is almost linear with the number of threads, thus boosting the efficiency further.
+
+## Convenient Interface
+
+As the developers of `xgboost`, we are also heavy `xgboost` users ourselves. We value the experience on this tool. In the process of development, we try to shape the package to be user-friendly. Here are several details we like.
+
+***Customized Objective***
+
+`xgboost` can take customized objective. This means the model could be trained to optimize the objective defined by user. This is not often seen in other tools, since most of the algorithms are binded with a specific objective. With `xgboost`, one can train a model which maximize the work on the correct direction.
+
+***Using Early Stopping***
+
+A usual scenario is when we are not sure how many trees we need, we will firstly try some numbers and check the result. If the number we try is too small, we need to make it larger; If the number is too large, we are wasting time to wait for the termination. By setting the parameter `early_stopping`, `xgboost` will terminate the training process if the performance is getting worse in the iteration.
+
+***Continue Training***
+
+
+
+***Handle Missing Values***
+
+## Model Inspection
+
+The model used by `xgboost` is gradient boosting trees, therefore a model usually contains multiple tree models. A typical tree looks like this:
+
+A pic
+
+We can make an interpretation on the model easily. `xgboost` provides a function to plot the model so that we can have a direct impression on the result.
+
+However, what if we have more than one tree?
+
+Another pic
+
+It is starting to make things messy. It is not easy to tell a story with too many conditions, especially when they have the chance to be contradictory.
+
+***Multiple-in-one plot***
+
+In `xgboost`, we provide a function to ensemble several trees into a single one! This function is inspired by this blogpost: [https://wellecks.wordpress.com/2015/02/21/peering-into-the-black-box-visualizing-lambdamart/](https://wellecks.wordpress.com/2015/02/21/peering-into-the-black-box-visualizing-lambdamart/). This is done with the following observations:
+
+- Almost all the trees in an ensemble model have the same shape. If the maximum depth is determined, this holds for all the binary trees.
+- On each node there would be more than one feature that have appeared on this position. But we can describe it by the frequency of each feature thus make a frequenct table.
+
+Here is an example of an "ensembled" tree visualization.
+
+```r
+data(agaricus.train, package='xgboost')
+
+bst <- xgboost(data = agaricus.train$data, label = agaricus.train$label, max.depth = 15,
+                 eta = 1, nthread = 2, nround = 30, objective = "binary:logistic",
+                 min_child_weight = 50)
+
+p <- xgb.plot.multi.trees(model = bst, feature_names = agaricus.train$data@Dimnames[[2]], features.keep = 3)
+print(p)
+```
+
+3rd pic
+
+The text in the nodes indicates the distribution of the features selected at this position. If we hover our mouse on the nodes, we get hte information of the path.
+
+***Feature Importance***
+
+If the tree is too deep, or the number of features is large, then it is still gonna be difficult to find any useful patterns. One simplified way is to check feature importance instead. How do we define feature importance in `xgboost`?
+
+In `xgboost`, each split tries to find the best feature and splitting point to optimize the objective. We can calculate the gain on each node, and it is the contribution from the selected feature. In the end we look into all the trees, and sum up all the contribution for each feature and treat it as the importance. If the number of features is large, we can also do a clustering on features before we make the plot.
+
+***Deepness***
+
+There is more than one way to understand the structure of the trees, besides plotting them all. Since there are all binary trees, we can have a clear figure in mind if we get to know the depth of each leaf. This function is inspired by this blogpost: [http://aysent.github.io/2015/11/08/random-forest-leaf-visualization.html](http://aysent.github.io/2015/11/08/random-forest-leaf-visualization.html).
+
+Here are two plots summarizing the distribution of leaves according to the change of depth in the tree.
+
+4th pic
+
+The first plot shows the number of leaves per level of deepness. The second shows noramlized weighted cover per leaf (weighted number of instances). From this information, we can see that for the 5-th and 6-th level, there are actually not many leaves. To avoid overfitting, we can restrict the depth of trees to be 4.
+
+
+
+
+
+
+
+
