@@ -1,19 +1,17 @@
 ---
 layout: post
 title:  "News from XGBoost"
-date:   2015-10-27 17:40:42 -0400
-author: Bing Xu
-categories: mxnet
+date:   2016-03-01 21:10:42 -0800
+author: Tong He
+categories: xgboost
 comments: true
 ---
 
-The result of 2016 John M. Chambers Statistical Software Award is announced. We are happy to know that the R package `xgboost` has won.
-
-From the very beginning of the work, our goal is to make a package that brings convenience and joy to the users. Thus we will introduce several details of `xgboost` that (we think) users would love to know.
+The result of 2016 John M. Chambers Statistical Software Award is announced. We are happy to know that the R package `xgboost` has won. From the very beginning of the work, our goal is to make a package which brings convenience and joy to the users. Thus we will introduce several details of `xgboost` that (we think) users would love to know.
 
 ## Efficient Algorithm
 
-If you have experiences in training models on a large data set, then you probably agree that the time waiting for the result is boring. The training speed of an learning algorithm is important. This is determined by both algorithm and implementation. We paid attention to these issues when building `xgboost`, thus we are confident that `xgboost` is one of the fastest learning algorithm of gradient boosting algorithm. The reasons for the efficiency are:
+If you have experiences in training models on a large data set, then you probably agree that the time waiting for the result is boring. The training speed of an learning algorithm is important. This is determined by both algorithm and implementation. We pay attention to these issues when building `xgboost`, thus we are confident that `xgboost` is one of the fastest learning algorithm of gradient boosting algorithm. The reasons for the good efficiency are:
 
 - The computational part is implemented in C++.
 - It can be multi-threaded on a single machine.
@@ -28,21 +26,23 @@ The above plot is from here, using the dataset from the Higgs Boson Competition.
 
 ## Convenient Interface
 
-As the developers of `xgboost`, we are also heavy `xgboost` users ourselves. We value the experience on this tool. In the process of development, we try to shape the package to be user-friendly. Here are several details we like.
+As the developers of `xgboost`, we are also heavy users of `xgboost`. We value the experience on this tool. During the development, we try to shape the package to be user-friendly. Here are several details we would like to share.
 
 ***Customized Objective***
 
 `xgboost` can take customized objective. This means the model could be trained to optimize the objective defined by user. This is not often seen in other tools, since most of the algorithms are binded with a specific objective. With `xgboost`, one can train a model which maximize the work on the correct direction.
 
-***Using Early Stopping***
+***Early Stopping***
 
 A usual scenario is when we are not sure how many trees we need, we will firstly try some numbers and check the result. If the number we try is too small, we need to make it larger; If the number is too large, we are wasting time to wait for the termination. By setting the parameter `early_stopping`, `xgboost` will terminate the training process if the performance is getting worse in the iteration.
 
 ***Continue Training***
 
-
+Sometimes we might want to try to do 1000 iterations and check the result, then decide if we need another 1000 ones. Usually the second step could only be done by starting from the beginning, again. In `xgboost` users can continue the training on the previous model, thus the second step will cost you the time for the additional iterations only.
 
 ***Handle Missing Values***
+
+Missing value is commonly seen in real-world data sets. Handling missing values has no rule to apply to all cases, since there could be various reasons for the values to be missing. In `xgboost` we choose a soft way to handle missing values. When using a feature with missing values to do splitting, `xgboost` will assign a **direction** to the missing values instead of a numerical value. Specifically, `xgboost` guides all the data points with missing values to the left and right respectively, then choose the direction with a higher gain with regard to the objective.
 
 ## Model Inspection
 
