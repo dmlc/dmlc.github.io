@@ -1,0 +1,100 @@
+---
+layout: post
+title:  "News from XGBoost"
+date:   2016-03-08 14:05:00 -0800
+author: Tong He
+categories: xgboost
+comments: true
+---
+
+The result of 2016 John M. Chambers Statistical Software Award has been announced. We are happy to know that the R package `xgboost` has won. From the very beginning of the work, our goal is to make a package which brings convenience and joy to the users. Thus we will introduce several details of `xgboost` that (we think) users would love to know.
+
+## Efficient Algorithm
+
+If you have experiences in training models on a large data set, then you probably agree that waiting for the training to be done is boring. Time is a resource, so the training speed of an learning algorithm is important. This is determined by both algorithm and implementation. We pay attention to these issues when building `xgboost`, thus we are confident that `xgboost` is one of the fastest learning algorithm of gradient boosting algorithm. The reasons for the good efficiency are:
+
+- The computational part is implemented in C++.
+- It can be multi-threaded on a single machine.
+- It preprocesses the data before the training algorithm.
+
+![speed comparison pic](https://raw.githubusercontent.com/dmlc/web-data/master/xgboost/SpeedFigure.png)
+
+This figure is generated with the dataset from [the Higgs Boson Competition](https://www.kaggle.com/c/higgs-boson). It can be described from two aspects:
+
+- With only one thread, the effect of preprocessing and C++ is already obvious.
+- The multi-threading is almost linear with the number of threads, thus boosting the efficiency further.
+
+## Convenient Interface
+
+As the developers of `xgboost`, we are also heavy users of `xgboost`. We value the experience on this tool. During the development, we try to shape the package to be user-friendly. Here are several details we would like to share, please click the title to visit the sample code.
+
+[***Customized Objective***](https://github.com/dmlc/xgboost/blob/master/R-package/demo/custom_objective.R)
+
+`xgboost` can take customized objective. This means the model could be trained to optimize the objective defined by user. This is not often seen in other tools, since most of the algorithms are binded with a specific objective. With `xgboost`, one can train a model which maximize the work on the correct direction.
+
+[***Early Stopping***](https://github.com/dmlc/xgboost/blob/master/R-package/demo/early_stopping.R)
+
+A usual scenario is when we are not sure how many trees we need, we will firstly try some numbers and check the result. If the number we try is too small, we need to make it larger; If the number is too large, we are wasting time to wait for the termination. By setting the parameter `early_stopping`, `xgboost` will terminate the training process if the performance is getting worse in the iteration.
+
+[***Continue Training***](https://github.com/dmlc/xgboost/blob/master/R-package/demo/boost_from_prediction.R)
+
+Sometimes we might want to try to do 1000 iterations and check the result, then decide if we need another 1000 ones. Usually the second step could only be done by starting from the beginning, again. In `xgboost` users can continue the training on the previous model, thus the second step will cost you the time for the additional iterations only.
+
+***Handle Missing Values***
+
+Missing value is commonly seen in real-world data sets. Handling missing values has no rule to apply to all cases, since there could be various reasons for the values to be missing. In `xgboost` we choose a soft way to handle missing values. When using a feature with missing values to do splitting, `xgboost` will assign a **direction** to the missing values instead of a numerical value. Specifically, `xgboost` guides all the data points with missing values to the left and right respectively, then choose the direction with a higher gain with regard to the objective.
+
+To enable this feature, simply set the parameter `missing` to mark the missing value label.
+
+## Model Inspection
+
+The model used by `xgboost` is gradient boosting trees, therefore a model usually contains multiple tree models. A typical ensemble of two trees looks like this:
+
+![Pic for two trees](https://raw.githubusercontent.com/dmlc/web-data/master/xgboost/xgb.tree.png)
+
+We can make an interpretation on the model easily. `xgboost` provides a function `xgb.plot.tree` to plot the model so that we can have a direct impression on the result.
+
+However, what if we have way more trees?
+
+![Pic for ten trees](https://raw.githubusercontent.com/dmlc/web-data/master/xgboost/xgb.trees.png)
+
+It is starting to make things messy. We even have a hard time to inspect every detail on the plot. It is not easy to tell a story with too many conditions.
+
+***Multiple-in-one plot***
+
+In `xgboost`, we provide a function `xgb.plot.multi.trees` to ensemble several trees into a single one! This function is inspired by this blogpost: [https://wellecks.wordpress.com/2015/02/21/peering-into-the-black-box-visualizing-lambdamart/](https://wellecks.wordpress.com/2015/02/21/peering-into-the-black-box-visualizing-lambdamart/). This is done with the following observations:
+
+- Almost all the trees in an ensemble model have the same shape. If the maximum depth is determined, this holds for all the binary trees.
+- On each node there would be more than one feature that have appeared on this position. But we can describe it by the frequency of each feature thus make a frequenct table.
+
+Here is an example of an "ensembled" tree visualization.
+
+![Multiple trees in one plot](https://raw.githubusercontent.com/dmlc/web-data/master/xgboost/xgb.plot.multi.png)
+
+The text in the nodes indicates the distribution of the features selected at this position. If we hover our mouse on the nodes, we get hte information of the path.
+
+***Feature Importance***
+
+If the tree is too deep, or the number of features is large, then it is still gonna be difficult to find any useful patterns. One simplified way is to check feature importance instead. How do we define feature importance in `xgboost`?
+
+In `xgboost`, each split tries to find the best feature and splitting point to optimize the objective. We can calculate the gain on each node, and it is the contribution from the selected feature. In the end we look into all the trees, and sum up all the contribution for each feature and treat it as the importance. If the number of features is large, we can also do a clustering on features before we make the plot. Here's an example of the feature importance plot from the function `xgb.plot.importance`:
+
+![Importance](https://raw.githubusercontent.com/dmlc/web-data/master/xgboost/feature.importance.png)
+
+***Deepness***
+
+There is more than one way to understand the structure of the trees, besides plotting them all. Since there are all binary trees, we can have a clear figure in mind if we get to know the depth of each leaf. The function `xgb.plot.deepness` is inspired by this blogpost: [http://aysent.github.io/2015/11/08/random-forest-leaf-visualization.html](http://aysent.github.io/2015/11/08/random-forest-leaf-visualization.html).
+
+From the function `xgb.plot.deepness`, we can get two plots summarizing the distribution of leaves according to the change of depth in the tree.
+
+![Deepness](https://raw.githubusercontent.com/dmlc/web-data/master/xgboost/xgb.plot.deepness.png)
+
+The upper plot shows the number of leaves per level of deepness. The lower plot shows noramlized weighted cover per leaf (weighted sum of instances). From this information, we can see that for the 5-th and 6-th level, there are actually not many leaves. To avoid overfitting, we can restrict the depth of trees to be a small number.
+
+
+
+
+
+
+
+
