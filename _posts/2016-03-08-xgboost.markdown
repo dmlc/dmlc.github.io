@@ -130,12 +130,12 @@ Then we train the model as
 
 ```r
 model <- xgboost(data = train$data, label = train$label, 
-                 nrounds = 2, objective = loglossobj)
+                 nrounds = 2, objective = loglossobj, eval_metric = "error")
 ```
 
 ```
-## [0]	train-rmse:0.211701
-## [1]	train-rmse:0.643627
+## [0]	train-error:0.001228
+## [1]	train-error:0.001228
 ```
 
 The result should be equivalent to `objective = "binary:logistic"`.
@@ -165,7 +165,7 @@ bst <- xgb.cv(data = train$data, label = train$label, nfold = 5,
 ## Stopping. Best iteration: 7
 ```
 
-Here we are doing cross validation. `early.stop.round = 3` means if the performance is not getting better for 3 steps, then the program will stop. `maximize = FALSE` means our goal is not to maximize the evaluation, where the default evaluation metric for binary classification is lthe classification error rate. We can see that even we ask the model to train 20 trees, it stopped after the performance is perfect.
+Here we are doing cross validation. `early.stop.round = 3` means if the performance is not getting better for 3 steps, then the program will stop. `maximize = FALSE` means our goal is not to maximize the evaluation, where the default evaluation metric for binary classification is the classification error rate. We can see that even we ask the model to train 20 trees, it stopped after the performance is perfect.
 
 ***Continue Training***
 
