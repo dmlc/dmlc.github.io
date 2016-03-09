@@ -7,7 +7,7 @@ categories: xgboost
 comments: true
 ---
 
-## What is XGBoost
+## Introduction
 
 [XGBoost](https://github.com/dmlc/xgboost) is a library designed and optimized for boosting trees algorithms. Gradient boosting trees model is originally proposed by Friedman et al. The underlying algorithm of XGBoost is similar, specifically it is an extension of the classic gbm algorithm. By employing multi-threads and imposing regularization, XGBoost is able to utilize more computational power and get more accurate prediction. Please refer to [this tutorial](http://xgboost.readthedocs.org/en/latest/model.html) for the details of the model.
 
@@ -93,7 +93,7 @@ If you have experiences in training models on a large data set, then you probabl
 - It can be multi-threaded on a single machine.
 - It preprocesses the data before the training algorithm.
 
-![speed comparison pic](https://raw.githubusercontent.com/dmlc/web-data/master/xgboost/SpeedFigure.png)
+<img src="https://raw.githubusercontent.com/dmlc/web-data/master/xgboost/SpeedFigure.png" width="250px" /> 
 
 This figure is generated with the dataset from [the Higgs Boson Competition](https://www.kaggle.com/c/higgs-boson). It can be described from two aspects:
 
@@ -336,11 +336,11 @@ The upper plot shows the number of leaves per level of deepness. The lower plot 
 
 This blog post only brings you a glimpse on XGBoost, while there are a lot more exciting resources about it! Feel free to go through the list and look for whatever you like. 
 
-- The github repository of XGBoost: [https://github.com/dmlc/xgboost](https://github.com/dmlc/xgboost)
-- The comprehensive documentation site for XGBoost: [http://xgboost.readthedocs.org/en/latest/index.html](http://xgboost.readthedocs.org/en/latest/index.html)
-- An introduction to the gradient boosting model: [http://xgboost.readthedocs.org/en/latest/model.html](http://xgboost.readthedocs.org/en/latest/model.html)
-- Tutorials for the R package: [xgboost.readthedocs.org/en/latest/R-package/index.html](xgboost.readthedocs.org/en/latest/R-package/index.html)
-- Introduction of the Parameters: [http://xgboost.readthedocs.org/en/latest/parameter.html](http://xgboost.readthedocs.org/en/latest/parameter.html)
-- Awesome XGBoost, a curated list of examples, tutorials, blogs about XGBoost usecases: [https://github.com/dmlc/xgboost/tree/master/demo](https://github.com/dmlc/xgboost/tree/master/demo)
+- [The github repository of XGBoost](https://github.com/dmlc/xgboost)
+- [The comprehensive documentation site for XGBoostl](http://xgboost.readthedocs.org/en/latest/index.html)
+- [An introduction to the gradient boosting model](http://xgboost.readthedocs.org/en/latest/model.html)
+- [Tutorials for the R package](xgboost.readthedocs.org/en/latest/R-package/index.html)
+- [Introduction of the Parameters](http://xgboost.readthedocs.org/en/latest/parameter.html)
+- [Awesome XGBoost, a curated list of examples, tutorials, blogs about XGBoost usecases](https://github.com/dmlc/xgboost/tree/master/demo)
 
 If there is any question, please feel free to check out the [issue forum](https://github.com/dmlc/xgboost/issues).
