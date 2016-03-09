@@ -93,7 +93,7 @@ If you have experiences in training models on a large data set, then you probabl
 - It can be multi-threaded on a single machine.
 - It preprocesses the data before the training algorithm.
 
-<img src="https://raw.githubusercontent.com/dmlc/web-data/master/xgboost/SpeedFigure.png" width="250px" /> 
+<img src="https://raw.githubusercontent.com/dmlc/web-data/master/xgboost/SpeedFigure.png" width="450px" /> 
 
 This figure is generated with the dataset from [the Higgs Boson Competition](https://www.kaggle.com/c/higgs-boson). It can be described from two aspects:
 
