@@ -132,7 +132,7 @@ code {
     font-size: 14px;
     border: 1px solid $grey-color-light;
     border-radius: 3px;
-    background-color: #eef;
+    background-color: #f9f9f9;
 }
 
 code {
@@ -203,4 +203,20 @@ pre {
             fill: $grey-color;
         }
     }
+}
+
+table {
+  margin-bottom: 1rem;
+  width: 100%;
+  border: 1px solid #e5e5e5;
+  border-collapse: collapse;
+}
+td,
+th {
+  padding: .25rem .5rem;
+  border: 1px solid #e5e5e5;
+}
+tbody tr:nth-child(odd) td,
+tbody tr:nth-child(odd) th {
+  background-color: #f9f9f9;
 }
