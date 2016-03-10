@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Introduction to XGBoost R package"
-date:   2016-03-08 14:05:00 -0800
+date:   2016-03-10 07:05:00 -0800
 author: Tong He
 categories: rstats
 comments: true
@@ -13,7 +13,7 @@ comments: true
 
 One evidence of its accuracy is that XGBoost is used in more than half of the winning solutions in machine learning challenges hosted at [Kaggle](https://www.kaggle.com/). We have prepared [a (incomplete) list](https://github.com/dmlc/xgboost/tree/master/demo#machine-learning-challenge-winning-solutions) of winning solutions.
 
-There're various high-level interfaces. Currently there are interfaces of XGBoost in C++, R, python, Julia, Java and Scala. The core functions in XGBoost are implemented in C++, thus it is easy to share models among different interfaces. This post is going to focus on the R package `xgboost`, which has a friendly user interface and comprehensive documentation. Based on the statistics from the [RStudio CRAN mirror](http://cranlogs.r-pkg.org/badges/xgboost), The package has been downloaded for more than 4,000 times in the last month. 
+There're various high-level interfaces. Currently there are interfaces of XGBoost in C++, R, python, Julia, Java and Scala. The core functions in XGBoost are implemented in C++, thus it is easy to share models among different interfaces. This post is going to focus on the R package `xgboost`, which has a friendly user interface and comprehensive documentation. Based on the statistics from the [RStudio CRAN mirror](http://cranlogs.r-pkg.org/badges/xgboost), The package has been downloaded for more than 4,000 times in the last month.
 
 The R package `xgboost` has won the 2016 John M. Chambers Statistical Software Award. From the very beginning of the work, our goal is to make a package which brings convenience and joy to the users. Thus we will introduce several details of the R pacakge `xgboost` that (we think) users would love to know.
 
@@ -33,7 +33,7 @@ drat:::addRepo("dmlc")
 install.packages("xgboost", repos="http://dmlc.ml/drat/", type="source")
 ```
 
-In order to run a machine learning algorithm, we need a data set first. `xgboost` has a demo data set about mushrooms. This data set records biological attributes of different mushroom species, and the target is to predict whether it is poisonous. Users can load the data with 
+In order to run a machine learning algorithm, we need a data set first. `xgboost` has a demo data set about mushrooms. This data set records biological attributes of different mushroom species, and the target is to predict whether it is poisonous. Users can load the data with
 
 
 ```r
@@ -54,7 +54,7 @@ The simplest training command is as follows:
 
 
 ```r
-model <- xgboost(data = train$data, label = train$label, 
+model <- xgboost(data = train$data, label = train$label,
                  nrounds = 2, objective = "binary:logistic")
 ```
 
@@ -93,7 +93,7 @@ If you have experiences in training models on a large data set, then you probabl
 - It can be multi-threaded on a single machine.
 - It preprocesses the data before the training algorithm.
 
-<img src="https://raw.githubusercontent.com/dmlc/web-data/master/xgboost/SpeedFigure.png" width="450px" /> 
+<img src="https://raw.githubusercontent.com/dmlc/web-data/master/xgboost/SpeedFigure.png" width="450px" />
 
 This figure is generated with the dataset from [the Higgs Boson Competition](https://www.kaggle.com/c/higgs-boson). It can be described from two aspects:
 
@@ -108,7 +108,7 @@ As the developers of `xgboost`, we are also heavy users of `xgboost`. We value t
 
 `xgboost` can take customized objective. This means the model could be trained to optimize the objective defined by user. This is not often seen in other tools, since most of the algorithms are binded with a specific objective. With `xgboost`, one can train a model which maximize the work on the correct direction.
 
-Let's use log-likelihood as an demo. We define the following function to calculate the first and second order of gradient of the loss function: 
+Let's use log-likelihood as an demo. We define the following function to calculate the first and second order of gradient of the loss function:
 
 
 ```r
@@ -129,7 +129,7 @@ Then we train the model as
 
 
 ```r
-model <- xgboost(data = train$data, label = train$label, 
+model <- xgboost(data = train$data, label = train$label,
                  nrounds = 2, objective = loglossobj, eval_metric = "error")
 ```
 
@@ -171,7 +171,7 @@ Here we are doing cross validation. `early.stop.round = 3` means if the performa
 
 Sometimes we might want to try to do 1000 iterations and check the result, then decide if we need another 1000 ones. Usually the second step could only be done by starting from the beginning, again. In `xgboost` users can continue the training on the previous model, thus the second step will cost you the time for the additional iterations only. The theoratical reason that we are capable to do this is because each tree is only trained based the prediction result of the previous trees. Once we get the prediction by the current trees, we can start to train the next one.
 
-This feature involves with the internal data format of `xgboost`: `xgb.DMatrix`. An `xgb.DMatrix` object contains the features, target and other side informations, e.g. weights, missing values. 
+This feature involves with the internal data format of `xgboost`: `xgb.DMatrix`. An `xgb.DMatrix` object contains the features, target and other side informations, e.g. weights, missing values.
 
 First, let us define an `xgb.DMatrix` object for this data:
 
@@ -244,7 +244,7 @@ Then we only need to specify the missing value marker, `NA`, in our code:
 
 
 ```r
-model <- xgboost(data = dat, label = label, missing = NA, 
+model <- xgboost(data = dat, label = label, missing = NA,
                  nrounds = 2, objective = "binary:logistic")
 ```
 
@@ -260,7 +260,7 @@ Practically, the default value of `missing` is exactly `NA`, therefore we don't 
 The model used by `xgboost` is gradient boosting trees, therefore a model usually contains multiple tree models. A typical ensemble of two trees looks like this:
 
 ```r
-bst <- xgboost(data = train$data, label = train$label, max.depth = 2, 
+bst <- xgboost(data = train$data, label = train$label, max.depth = 2,
                eta = 1, nthread = 2, nround = 2, objective = "binary:logistic")
 xgb.plot.tree(feature_names = agaricus.train$data@Dimnames[[2]], model = bst)
 ```
@@ -272,7 +272,7 @@ We can make an interpretation on the model easily. `xgboost` provides a function
 However, what if we have way more trees?
 
 ```r
-bst <- xgboost(data = train$data, label = train$label, max.depth = 2, 
+bst <- xgboost(data = train$data, label = train$label, max.depth = 2,
                eta = 1, nthread = 2, nround = 10, objective = "binary:logistic")
 xgb.plot.tree(feature_names = agaricus.train$data@Dimnames[[2]], model = bst)
 ```
@@ -334,7 +334,7 @@ The upper plot shows the number of leaves per level of deepness. The lower plot 
 
 ## Further Readings
 
-This blog post only brings you a glimpse on XGBoost, while there are a lot more exciting resources about it! Feel free to go through the list and look for whatever you like. 
+This blog post only brings you a glimpse on XGBoost, while there are a lot more exciting resources about it! Feel free to go through the list and look for whatever you like.
 
 - [The github repository of XGBoost](https://github.com/dmlc/xgboost)
 - [The comprehensive documentation site for XGBoostl](http://xgboost.readthedocs.org/en/latest/index.html)
