@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Introduction to XGBoost R package"
+title:  "An Introduction to XGBoost R package"
 date:   2016-03-10 07:05:00 -0800
 author: Tong He
 categories: rstats
