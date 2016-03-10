@@ -53,6 +53,32 @@ val fc3 = Symbol.FullyConnected(name = "fc3")(Map("data" -> act2, "num_hidden" -
 val mlp = Symbol.SoftmaxOutput(name = "sm")(Map("data" -> fc3))
 ```
 
+You are able to construct other models with Scala. For example, Lenet, a more deeper network:
+
+```scala
+val data = Symbol.Variable("data")
+// first conv
+val conv1 = Symbol.Convolution()(Map("data" -> data, "kernel" -> "(5, 5)", "num_filter" -> 20))
+val tanh1 = Symbol.Activation()(Map("data" -> conv1, "act_type" -> "tanh"))
+val pool1 = Symbol.Pooling()(Map("data" -> tanh1, "pool_type" -> "max",
+                                 "kernel" -> "(2, 2)", "stride" -> "(2, 2)"))
+// second conv
+val conv2 = Symbol.Convolution()(Map("data" -> pool1, "kernel" -> "(5, 5)", "num_filter" -> 50))
+val tanh2 = Symbol.Activation()(Map("data" -> conv2, "act_type" -> "tanh"))
+val pool2 = Symbol.Pooling()(Map("data" -> tanh2, "pool_type" -> "max",
+                                 "kernel" -> "(2, 2)", "stride" -> "(2, 2)"))
+// first fullc
+val flatten = Symbol.Flatten()(Map("data" -> pool2))
+val fc1 = Symbol.FullyConnected()(Map("data" -> flatten, "num_hidden" -> 500))
+val tanh3 = Symbol.Activation()(Map("data" -> fc1, "act_type" -> "tanh"))
+// second fullc
+val fc2 = Symbol.FullyConnected()(Map("data" -> tanh3, "num_hidden" -> 10))
+// loss
+val lenet = Symbol.SoftmaxOutput(name = "softmax")(Map("data" -> fc2))
+```
+
+Of course it'll cost more time to train and test with deeper models.
+
 ### Dataset
 
 Now load the training data through IO module. Most of time, you need a piece of training data and a piece of validation data as well. Suppose that you have already downloaded and unpacked the [MNIST dataset](http://webdocs.cs.ualberta.ca/~bx3/data/mnist.zip):
@@ -81,14 +107,18 @@ val valDataIter = IO.MNISTIter(Map(
 
 ### Training and Prediction
 
-Choose proper training parameters and simply call `model.fit()`:
+Here we go! Choose proper parameters and use the `Builder` API to construct a trained model:
 
 ```scala
 import ml.dmlc.mxnet.optimizer.SGD
-// setup model
-val model = new FeedForward(mlp, Context.cpu(), numEpoch = 10,
-	optimizer = new SGD(learningRate = 0.1f, momentum = 0.9f, wd = 0.0001f))
-model.fit(trainDataIter, valDataIter)
+// setup model and fit the training set
+val model = FeedForward.newBuilder(mlp)
+      .setContext(Context.cpu())
+      .setNumEpoch(10)
+      .setOptimizer(new SGD(learningRate = 0.1f, momentum = 0.9f, wd = 0.0001f))
+      .setTrainData(trainDataIter)
+      .setEvalData(valDataIter)
+      .build()
 ```
 
 It shouldn't take too long for 'shallow' models like MLP. You can further do prediction using this model:
