@@ -115,7 +115,6 @@ We move forward to train the models:
 
 ```scala
 val xgboostModel = XGBoost.train(trainRDD, paramMap, numRound, numWorkers)
-
 ```
 
 The next step is to evaluate the model, you can either predict in local side or in a distributed fashion
@@ -134,7 +133,6 @@ xgboostModel.predict(new DMatrix(testSet.collect().iterator)
 
 // distributed prediction
 xgboostModel.predict(testSet)
-
 ```
 ### Flink example
 
@@ -148,7 +146,6 @@ Model Training can be done as follows
 
 ```scala
 val xgboostModel = XGBoost.train(trainData, paramMap, round)
-
 ```
 
 Training and prediction.
