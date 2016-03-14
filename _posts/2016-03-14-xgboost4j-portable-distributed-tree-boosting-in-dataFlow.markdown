@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  XGBoost4J: Portable Distributed Tree Boosting in DataFlow
+title:  XGBoost4J: Distributed XGboost in Spark, Flink and Dataflow
 date:   2016-03-14 12:00:00
 author: Nan Zhu, Tianqi Chen
 comments: true
