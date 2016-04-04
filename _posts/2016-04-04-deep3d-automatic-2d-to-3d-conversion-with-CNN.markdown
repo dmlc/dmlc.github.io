@@ -1,4 +1,12 @@
-# Deep3D: Automatic 2D-to-3D Video Conversion with CNNs
+--- 
+layout: post 
+title: "Deep3D: Automatic 2D-to-3D Video Conversion with CNNs"
+date:   2016-03-10 07:05:00 -0800 
+author: Junyuan Xie
+categories: rstats 
+comments: true 
+--- 
+
 
 ![alt text](https://raw.githubusercontent.com/piiswrong/deep3d/master/img/teaser.png)
 
