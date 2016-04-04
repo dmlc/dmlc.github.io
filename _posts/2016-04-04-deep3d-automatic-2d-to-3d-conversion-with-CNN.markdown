@@ -1,9 +1,9 @@
 --- 
 layout: post 
 title: "Deep3D: Automatic 2D-to-3D Video Conversion with CNNs"
-date:   2016-03-10 07:05:00 -0800 
+date:   2016-04-04 10:47:00 -0800 
 author: Junyuan Xie
-categories: rstats 
+categories: mxnet 
 comments: true 
 --- 
 
