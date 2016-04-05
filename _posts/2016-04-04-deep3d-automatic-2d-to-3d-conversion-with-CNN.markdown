@@ -54,8 +54,10 @@ Here are some visualizations of our internal depth representation to help you un
 
 Following each image, there are 4-by-3 maps of depth layers, ordered from near to far. You can see that objects that are near to you appear in the first depth maps and objects that are far away appear in the last ones. This shows that the internal depth representation is learning to infer depth from 2D images without been directly trained on it.
 
-## Code
+## Code & Paper
 This work is done with [MXNet](https://github.com/dmlc/mxnet), a flexible and efficient deep learning package. The trained model and a prediction script is in deep3d.ipynb. We will release the code for training shortly.
+
+This blog describes the method in [this](http://homes.cs.washington.edu/~jxie/pdf/deep3d.pdf) paper.
 
 
 
