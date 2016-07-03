@@ -17,9 +17,7 @@ Recently, Rasmi et.al proposed a new method to add dropout techniques from deep 
 We are glad to announce that DART is now supported in XGBoost, taking fully benefit of all xgboost optimizations to this new technique.
 
 ## Original paper
-Rashmi Korlakai Vinayak, Ran Gilad-Bachrach. "DART: Dropouts meet Multiple Additive Regression Trees."
-
-[JMLR](http://www.jmlr.org/proceedings/papers/v38/korlakaivinayak15.pdf)
+Rashmi Korlakai Vinayak, Ran Gilad-Bachrach. "DART: Dropouts meet Multiple Additive Regression Trees." [JMLR](http://www.jmlr.org/proceedings/papers/v38/korlakaivinayak15.pdf)
 
 ## Features
 - Drop trees in order to solve the over-fitting.
