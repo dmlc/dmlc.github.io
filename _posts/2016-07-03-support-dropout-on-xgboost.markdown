@@ -24,9 +24,10 @@ Rashmi Korlakai Vinayak, Ran Gilad-Bachrach. "DART: Dropouts meet Multiple Addit
 ## Features
 - Drop trees in order to solve the over-fitting.
   - Trivial trees (to correct trivial errors) may be prevented.
-- Slower than `gbtree`.
-  - `dart` does not support buffer in `Predict`.
-- Not get along with early stopping.
+
+Because the randomness introduced in the training, expect the following few difference.
+- Training can be slower than `gbtree` because the random dropout prevents usage of prediction buffer.
+- The early stop might not be stable, due to the randomness.
 
 ## How it works
 - In <img src="https://raw.githubusercontent.com/marugari/web-data/master/xgboost/dart/dart_m.png" height=9px> th training round, suppose <img src="https://raw.githubusercontent.com/marugari/web-data/master/xgboost/dart/dart_k.png" height=13px> trees are selected drop.
