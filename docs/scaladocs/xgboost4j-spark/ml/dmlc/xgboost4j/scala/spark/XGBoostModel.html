@@ -349,20 +349,20 @@
       </h4>
       <p class="shortcomment cmt">predict result given the test data (represented as DMatrix)
 </p>
-    </li><li name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel#predict" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="predict(testSet:org.apache.spark.rdd.RDD[org.apache.spark.mllib.linalg.Vector]):org.apache.spark.rdd.RDD[Array[Array[Float]]]"></a>
-      <a id="predict(RDD[Vector]):RDD[Array[Array[Float]]]"></a>
+    </li><li name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel#predict" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="predict(testSet:org.apache.spark.rdd.RDD[org.apache.spark.mllib.linalg.Vector],useExternalCache:Boolean):org.apache.spark.rdd.RDD[Array[Array[Float]]]"></a>
+      <a id="predict(RDD[Vector],Boolean):RDD[Array[Array[Float]]]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">predict</span><span class="params">(<span name="testSet">testSet: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[<span class="extype" name="org.apache.spark.mllib.linalg.Vector">Vector</span>]</span>)</span><span class="result">: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[<span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Float">Float</span>]]]</span>
+        <span class="name">predict</span><span class="params">(<span name="testSet">testSet: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[<span class="extype" name="org.apache.spark.mllib.linalg.Vector">Vector</span>]</span>, <span name="useExternalCache">useExternalCache: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>)</span><span class="result">: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[<span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Float">Float</span>]]]</span>
       </span>
       </h4>
-      <p class="shortcomment cmt">Predict result with the given testset (represented as RDD)
-</p>
+      <p class="shortcomment cmt">Predict result with the given testset (represented as RDD)</p><div class="fullcomment"><div class="comment cmt"><p>Predict result with the given testset (represented as RDD)</p></div><dl class="paramcmts block"><dt class="param">testSet</dt><dd class="cmt"><p>test set representd as RDD</p></dd><dt class="param">useExternalCache</dt><dd class="cmt"><p>whether to use external cache for the test set
+</p></dd></dl></div>
     </li><li name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel#saveModelAsHadoopFile" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="saveModelAsHadoopFile(modelPath:String):Unit"></a>
       <a id="saveModelAsHadoopFile(String):Unit"></a>
