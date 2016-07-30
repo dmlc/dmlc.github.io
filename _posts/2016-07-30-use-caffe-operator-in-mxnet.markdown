@@ -37,7 +37,7 @@ mlp = mx.symbol.SoftmaxOutput(data=fc3, name='softmax')
 Let's break it down. First `data = mx.symbol.Variable('data')` defines a Variable as placeholder for input.
 Then it's fed through Caffe's operators with `fc1  = mx.symbol.CaffeOp(data_0=data, num_weight=2, name='fc1', prototxt="layer{type:\"InnerProduct\" inner_product_param{num_output: 128} }")`.
 
-The inputs to caffe layer are named as data_i for i=0 ... num_data-1 as `num_data` is the number of inputs. You may skip the argument, as the example does, if its value is 1. `num_weight` is number of `blobs_`(weights) in caffe layer. The default value is 0, as many layers owns no weight. While `prototxt` is the caffe's layer configuration string. 
+The inputs to caffe op are named as data_i for i=0 ... num_data-1 as `num_data` is the number of inputs. You may skip the argument, as the example does, if its value is 1. `num_weight` is number of `blobs_`(weights). Its default value is 0, as many layers owns no weight. While `prototxt` is the caffe's layer configuration string.  
 
 We could also replace the last line by:
 ```Python
