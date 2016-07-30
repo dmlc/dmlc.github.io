@@ -7,7 +7,7 @@ categories: mxnet
 comments: true
 ---
 
-This blog demonstrates how to use Caffe operator in MXNet, including:
+This blog demonstrates two steps to use Caffe operator in MXNet, including:
 
 * How to install MXNet with Caffe support.
 
@@ -23,8 +23,8 @@ This blog demonstrates how to use Caffe operator in MXNet, including:
 * Run `make clean && make` to build with caffe support.
 
 ## Caffe Operators(Layers)
-Caffe's neural network operator and loss layers are supported by MXNet through `mxnet.symbol.CaffeOp` and `mxnet.symbol.CaffeLoss` symbol respectively.
-For example, the following code shows multi-layer perception network and lenet for classifying MNIST digits ([full code](https://github.com/dmlc/mxnet/blob/master/example/caffe/caffe_net.py):
+Caffe's neural network operator and loss layers are supported by MXNet through `mxnet.symbol.CaffeOp` and `mxnet.symbol.CaffeLoss` respectively.
+For example, the following code shows multi-layer perception network for classifying MNIST digits ([full code](https://github.com/dmlc/mxnet/blob/master/example/caffe/caffe_net.py)):
 ```Python
 data = mx.symbol.Variable('data')
 fc1  = mx.symbol.CaffeOp(data_0=data, num_weight=2, name='fc1', prototxt="layer{type:\"InnerProduct\" inner_product_param{num_output: 128} }")
@@ -46,13 +46,12 @@ mlp = mx.symbol.CaffeLoss(data=fc3, label=label, grad_scale=1, name='softmax', p
 ```
 to use loss funciton in caffe.
 
-## Use your own customized layers
-Running new caffe layer from mxnet is no difference than using regular caffe layers, through rules above. There's no need to add any code in mxnet.
-
-## Acknowledgements
-The author has many thanks to Minjie Wang, Tianqi Chen, Junyuan Xie and professor Zheng Zhang for their helpful advices on implementation and documentation.
+## Use your own customized operators
+Running new caffe operator from mxnet is no difference than using regular ones. As mxnet calls caffe's layer registry, there's no need to add any code in mxnet.
 
 ## Bio
-This feature is contributed by [Haoran Wang](https://github.com/HrWangChengdu).
+Caffe-plugin is contributed by [Haoran Wang](https://github.com/HrWangChengdu). 
 
-Haoran is a 1st-year master student of MCDS program at Carnegie Mellon University. He received his Bachelor degree of Computer Science from ACM Class at Shanghai Jiao Tong University.
+Haoran is a 1st-year master student of MCDS program at Carnegie Mellon University. He received his Bachelor degree in Computer Science from ACM Class at Shanghai Jiao Tong University.
+
+He has many thanks to Minjie Wang, Tianqi Chen, Junyuan Xie and Prof. Zheng Zhang for their helpful advices on implementation and documentation of caffe-plugin.
