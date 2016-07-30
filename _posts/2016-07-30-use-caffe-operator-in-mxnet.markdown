@@ -7,7 +7,11 @@ categories: mxnet
 comments: true
 ---
 
-This blog demonstrates two steps to use Caffe operator in MXNet, including:
+[Caffe](http://caffe.berkeleyvision.org/) has been a well-known and widely used deep learning framework. Now MXNet has supported calling most caffe operators(layers) and loss functions directly in its symbolic graph! Using own customized caffe layer is effortless.
+
+Besides Caffe, MXNet has already embedded torch modules([link](https://github.com/dmlc/mxnet/blob/master/docs/how_to/torch.md)).
+
+This blog demonstrates two steps to use Caffe op in MXNet:
 
 * How to install MXNet with Caffe support.
 
@@ -25,6 +29,8 @@ This blog demonstrates two steps to use Caffe operator in MXNet, including:
 ## Caffe Operator (Layer)
 Caffe's neural network operator and loss functions are supported by MXNet through `mxnet.symbol.CaffeOp` and `mxnet.symbol.CaffeLoss` respectively.
 For example, the following code shows multi-layer perception network for classifying MNIST digits ([full code](https://github.com/dmlc/mxnet/blob/master/example/caffe/caffe_net.py)):
+
+### Python
 ```Python
 data = mx.symbol.Variable('data')
 fc1  = mx.symbol.CaffeOp(data_0=data, num_weight=2, name='fc1', prototxt="layer{type:\"InnerProduct\" inner_product_param{num_output: 128} }")
@@ -34,16 +40,19 @@ act2 = mx.symbol.CaffeOp(data_0=fc2, prototxt="layer{type:\"TanH\"}")
 fc3 = mx.symbol.CaffeOp(data_0=act2, num_weight=2, name='fc3', prototxt="layer{type:\"InnerProduct\" inner_product_param{num_output: 10}}")
 mlp = mx.symbol.SoftmaxOutput(data=fc3, name='softmax')
 ```
+
 Let's break it down. First `data = mx.symbol.Variable('data')` defines a variable as placeholder for input.
 Then it's fed through Caffe operators with `fc1  = mx.symbol.CaffeOp(data_0=data, num_weight=2, name='fc1', prototxt="layer{type:\"InnerProduct\" inner_product_param{num_output: 128} }")`.
 
 The inputs to caffe op are named as data_i for i=0 ... num_data-1 as `num_data` is the number of inputs. You may skip the argument, as the example does, if its value is 1. While `num_weight` is number of `blobs_`(weights). Its default value is 0, as many ops maintain no weight. `prototxt` is the configuration string.
 
 We could also replace the last line by:
+
 ```Python
 label = mx.symbol.Variable('softmax_label')
 mlp = mx.symbol.CaffeLoss(data=fc3, label=label, grad_scale=1, name='softmax', prototxt="layer{type:\"SoftmaxWithLoss\"}")
 ```
+
 to use loss funciton in caffe.
 
 ## Use customized caffe operators
