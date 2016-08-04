@@ -7,7 +7,7 @@ categories: mxnet
 comments: true
 ---
 
-[Caffe](http://caffe.berkeleyvision.org/) has been a well-known and widely used deep learning framework. Now MXNet has supported calling most caffe operators(layers) and loss functions directly in its symbolic graph! Using own customized caffe layer is also effortless.
+[Caffe](http://caffe.berkeleyvision.org/) has been a well-known and widely-used deep learning framework. Now MXNet has supported calling most caffe operators(layers) and loss functions directly in its symbolic graph! Using one's own customized caffe layer is also effortless.
 
 Besides Caffe, MXNet has already embedded Torch modules and its tensor mathematical functions. ([link](https://github.com/dmlc/mxnet/blob/master/docs/how_to/torch.md))
 
@@ -53,7 +53,7 @@ label = mx.symbol.Variable('softmax_label')
 mlp = mx.symbol.CaffeLoss(data=fc3, label=label, grad_scale=1, name='softmax', prototxt="layer{type:\"SoftmaxWithLoss\"}")
 ```
 
-to use loss funciton in caffe.
+to use loss function in caffe.
 
 ## Use customized caffe operators
 Running customized operator from mxnet is no difference than using regular ones. There's no need to add any code in mxnet, as mxnet directly calls caffe layer registry.
