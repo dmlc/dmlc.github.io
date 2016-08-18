@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Recurrent Models and Examples with MXNetR"
-date:   2015-08-16 14:41:00 -0800
+date:   2016-08-18 18:41:00 -0800
 author: Yuqi Li
 categories: rstats
 comments: true
