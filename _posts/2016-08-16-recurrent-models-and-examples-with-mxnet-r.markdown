@@ -40,7 +40,7 @@ The main difference between three RNN models is that they have corresponding cel
 
 The Common RNN can be considered as feedforward networks with self-connected hidden layers. As Figure 1 shows, the key of the RNN is that it allows the previous inputs has influence on the current output by using the recurrent connection.
 
-<img src="../img/mxnet/rnn/unfolded_recurrent_network.png" align=center />
+<img src="http://dmlc.ml/img/mxnet/rnn/unfolded_recurrent_network.png" align=center />
  
 Given an input sequence `x` and the previous state `h`, a custom RNN cell produces the next states successively. Thus, there are two types of connections, the input to the hidden `i2h`, and the (previous) hidden to the hidden `h2h`. Then an optional batch normalization layer and nonlinear activation layer (e.g. tanh) are followed to generate the output states.
 
@@ -72,7 +72,7 @@ rnn <- function(num.hidden, indata, prev.state, param, seqidx,
 
 LSTM replace the cells in custom RNN with LSTM memory block. Figure 2 illustrates the architecture of an LSTM unit. 
 
-<img src="../img/mxnet/rnn/lstm.png" align=center />
+<img src="http://dmlc.ml/img/mxnet/rnn/lstm.png" align=center />
 
 It contains one memory cell and three multiplicative units, i.e., the input gate, the forget gate and the output gate. With the help of the memory cell and the gates, LSTM can store and learn long term dependencies across the whole sequence.
 
@@ -113,7 +113,7 @@ Instead of defining the gates and the memory cell independently, we compute them
 
 GRU is another variant model of RNN, which was proposed in 2014 [2]. Similar to LSTM unit, the GRU unit also aims to adaptively capture dependencies of different time scales by updating and reseting gate as shown in Figure 3.
 
-<img src="../img/mxnet/rnn/gru.png" align=center />
+<img src="http://dmlc.ml/img/mxnet/rnn/gru.png" align=center />
 
 The calculation of GRU is similar with the custom RNN and LSTM models. First, there are two types of connections for gates to be defined: `update.gate` decides how much the unit updates its activations and `reset.gate` which decides whether to forget the previously computed state. Then, the candidate activation `htrans` is computed using input data `x` and previous state `h` (`reset.gate` controls whether to forget the previous state). After getting `htrans`, use `update.gate` to decide the proportion of `htrans` and previous state `h` to calculate next state `h`.
 
