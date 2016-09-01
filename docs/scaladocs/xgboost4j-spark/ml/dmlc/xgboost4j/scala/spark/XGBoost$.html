@@ -2,9 +2,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
         <head>
-          <title>XGBoost - xgboost4j-spark 0.5 API - ml.dmlc.xgboost4j.scala.spark.XGBoost</title>
-          <meta name="description" content="XGBoost - xgboost4j - spark 0.5 API - ml.dmlc.xgboost4j.scala.spark.XGBoost" />
-          <meta name="keywords" content="XGBoost xgboost4j spark 0.5 API ml.dmlc.xgboost4j.scala.spark.XGBoost" />
+          <title>XGBoost - xgboost4j-spark 0.7 API - ml.dmlc.xgboost4j.scala.spark.XGBoost</title>
+          <meta name="description" content="XGBoost - xgboost4j - spark 0.7 API - ml.dmlc.xgboost4j.scala.spark.XGBoost" />
+          <meta name="keywords" content="XGBoost xgboost4j spark 0.7 API ml.dmlc.xgboost4j.scala.spark.XGBoost" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -348,20 +348,20 @@
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="ml.dmlc.xgboost4j.scala.spark.XGBoost#train" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="train(trainingData:org.apache.spark.rdd.RDD[org.apache.spark.mllib.regression.LabeledPoint],configMap:Map[String,Any],round:Int,nWorkers:Int,obj:ml.dmlc.xgboost4j.scala.ObjectiveTrait,eval:ml.dmlc.xgboost4j.scala.EvalTrait,useExternalMemory:Boolean):ml.dmlc.xgboost4j.scala.spark.XGBoostModel"></a>
-      <a id="train(RDD[org.apache.spark.mllib.regression.LabeledPoint],Map[String,Any],Int,Int,ObjectiveTrait,EvalTrait,Boolean):XGBoostModel"></a>
+      <a id="train(trainingData:org.apache.spark.rdd.RDD[org.apache.spark.mllib.regression.LabeledPoint],configMap:Map[String,Any],round:Int,nWorkers:Int,obj:ml.dmlc.xgboost4j.scala.ObjectiveTrait,eval:ml.dmlc.xgboost4j.scala.EvalTrait,useExternalMemory:Boolean,missing:Float):ml.dmlc.xgboost4j.scala.spark.XGBoostModel"></a>
+      <a id="train(RDD[org.apache.spark.mllib.regression.LabeledPoint],Map[String,Any],Int,Int,ObjectiveTrait,EvalTrait,Boolean,Float):XGBoostModel"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">train</span><span class="params">(<span name="trainingData">trainingData: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[<span class="extype" name="org.apache.spark.mllib.regression.LabeledPoint">org.apache.spark.mllib.regression.LabeledPoint</span>]</span>, <span name="configMap">configMap: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Any">Any</span>]</span>, <span name="round">round: <span class="extype" name="scala.Int">Int</span></span>, <span name="nWorkers">nWorkers: <span class="extype" name="scala.Int">Int</span></span>, <span name="obj">obj: <span class="extype" name="ml.dmlc.xgboost4j.scala.ObjectiveTrait">ObjectiveTrait</span> = <span class="symbol">null</span></span>, <span name="eval">eval: <span class="extype" name="ml.dmlc.xgboost4j.scala.EvalTrait">EvalTrait</span> = <span class="symbol">null</span></span>, <span name="useExternalMemory">useExternalMemory: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>)</span><span class="result">: <a href="XGBoostModel.html" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a></span>
+        <span class="name">train</span><span class="params">(<span name="trainingData">trainingData: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[<span class="extype" name="org.apache.spark.mllib.regression.LabeledPoint">org.apache.spark.mllib.regression.LabeledPoint</span>]</span>, <span name="configMap">configMap: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Any">Any</span>]</span>, <span name="round">round: <span class="extype" name="scala.Int">Int</span></span>, <span name="nWorkers">nWorkers: <span class="extype" name="scala.Int">Int</span></span>, <span name="obj">obj: <span class="extype" name="ml.dmlc.xgboost4j.scala.ObjectiveTrait">ObjectiveTrait</span> = <span class="symbol">null</span></span>, <span name="eval">eval: <span class="extype" name="ml.dmlc.xgboost4j.scala.EvalTrait">EvalTrait</span> = <span class="symbol">null</span></span>, <span name="useExternalMemory">useExternalMemory: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="missing">missing: <span class="extype" name="scala.Float">Float</span> = <span class="symbol">Float.NaN</span></span>)</span><span class="result">: <a href="XGBoostModel.html" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a></span>
       </span>
       </h4>
       <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">trainingData</dt><dd class="cmt"><p>the trainingset represented as RDD</p></dd><dt class="param">configMap</dt><dd class="cmt"><p>Map containing the configuration entries</p></dd><dt class="param">round</dt><dd class="cmt"><p>the number of iterations</p></dd><dt class="param">nWorkers</dt><dd class="cmt"><p>the number of xgboost workers, 0 by default which means that the number of
                 workers equals to the partition number of trainingData RDD</p></dd><dt class="param">obj</dt><dd class="cmt"><p>the user-defined objective function, null by default</p></dd><dt class="param">eval</dt><dd class="cmt"><p>the user-defined evaluation function, null by default</p></dd><dt class="param">useExternalMemory</dt><dd class="cmt"><p>indicate whether to use external memory cache, by setting this flag as
-                          true, the user may save the RAM cost for running XGBoost within Spark</p></dd><dt>returns</dt><dd class="cmt"><p>XGBoostModel when successful training
+                          true, the user may save the RAM cost for running XGBoost within Spark</p></dd><dt class="param">missing</dt><dd class="cmt"><p>the value represented the missing value in the dataset</p></dd><dt>returns</dt><dd class="cmt"><p>XGBoostModel when successful training
 </p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       

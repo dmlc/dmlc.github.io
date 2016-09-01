@@ -2,9 +2,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
         <head>
-          <title>java - xgboost4j 0.5 API - ml.dmlc.xgboost4j.java</title>
-          <meta name="description" content="java - xgboost4j 0.5 API - ml.dmlc.xgboost4j.java" />
-          <meta name="keywords" content="java xgboost4j 0.5 API ml.dmlc.xgboost4j.java" />
+          <title>java - xgboost4j 0.7 API - ml.dmlc.xgboost4j.java</title>
+          <meta name="description" content="java - xgboost4j 0.7 API - ml.dmlc.xgboost4j.java" />
+          <meta name="keywords" content="java xgboost4j 0.7 API ml.dmlc.xgboost4j.java" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -59,7 +59,7 @@
         <div id="types" class="types members">
               <h3>Type Members</h3>
               <ol><li name="ml.dmlc.xgboost4j.java.Booster" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="BoosterextendsSerializable"></a>
+      <a id="BoosterextendsSerializablewithKryoSerializable"></a>
       <a id="Booster:Booster"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -67,7 +67,7 @@
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <a href="Booster.html"><span class="name">Booster</span></a><span class="result"> extends <span class="extype" name="java.io.Serializable">Serializable</span></span>
+        <a href="Booster.html"><span class="name">Booster</span></a><span class="result"> extends <span class="extype" name="java.io.Serializable">Serializable</span> with <span class="extype" name="com.esotericsoftware.kryo.KryoSerializable">KryoSerializable</span></span>
       </span>
       </h4>
       
@@ -85,7 +85,7 @@
       </h4>
       
     </li><li name="ml.dmlc.xgboost4j.java.IEvaluation" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="IEvaluationextendsObject"></a>
+      <a id="IEvaluationextendsSerializable"></a>
       <a id="IEvaluation:IEvaluation"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -93,7 +93,7 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <a href="IEvaluation.html"><span class="name">IEvaluation</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+        <a href="IEvaluation.html"><span class="name">IEvaluation</span></a><span class="result"> extends <span class="extype" name="java.io.Serializable">Serializable</span></span>
       </span>
       </h4>
       
