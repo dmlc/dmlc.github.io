@@ -2,9 +2,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
         <head>
-          <title>XGBoostModel - xgboost4j-spark 0.5 API - ml.dmlc.xgboost4j.scala.spark.XGBoostModel</title>
-          <meta name="description" content="XGBoostModel - xgboost4j - spark 0.5 API - ml.dmlc.xgboost4j.scala.spark.XGBoostModel" />
-          <meta name="keywords" content="XGBoostModel xgboost4j spark 0.5 API ml.dmlc.xgboost4j.scala.spark.XGBoostModel" />
+          <title>XGBoostModel - xgboost4j-spark 0.7 API - ml.dmlc.xgboost4j.scala.spark.XGBoostModel</title>
+          <meta name="description" content="XGBoostModel - xgboost4j - spark 0.7 API - ml.dmlc.xgboost4j.scala.spark.XGBoostModel" />
+          <meta name="keywords" content="XGBoostModel xgboost4j spark 0.7 API ml.dmlc.xgboost4j.scala.spark.XGBoostModel" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -80,7 +80,7 @@
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(_booster:ml.dmlc.xgboost4j.scala.Booster)(implicitsc:org.apache.spark.SparkContext):ml.dmlc.xgboost4j.scala.spark.XGBoostModel"></a>
+      <a id="&lt;init&gt;(_booster:ml.dmlc.xgboost4j.scala.Booster):ml.dmlc.xgboost4j.scala.spark.XGBoostModel"></a>
       <a id="&lt;init&gt;:XGBoostModel"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -88,7 +88,7 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">XGBoostModel</span><span class="params">(<span name="_booster">_booster: <span class="extype" name="ml.dmlc.xgboost4j.scala.Booster">Booster</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="sc">sc: <span class="extype" name="org.apache.spark.SparkContext">SparkContext</span></span>)</span>
+        <span class="name">XGBoostModel</span><span class="params">(<span name="_booster">_booster: <span class="extype" name="ml.dmlc.xgboost4j.scala.Booster">Booster</span></span>)</span>
       </span>
       </h4>
       
@@ -191,7 +191,7 @@
         <span class="name">booster</span><span class="result">: <span class="extype" name="ml.dmlc.xgboost4j.scala.Booster">Booster</span></span>
       </span>
       </h4>
-      <p class="shortcomment cmt">get the booster instance of this model
+      <p class="shortcomment cmt">Get the booster instance of this model
 </p>
     </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a>
@@ -238,6 +238,22 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel#eval" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eval(evalDataset:org.apache.spark.rdd.RDD[org.apache.spark.mllib.regression.LabeledPoint],eval:ml.dmlc.xgboost4j.scala.EvalTrait,evalName:String,useExternalCache:Boolean):String"></a>
+      <a id="eval(RDD[org.apache.spark.mllib.regression.LabeledPoint],EvalTrait,String,Boolean):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eval</span><span class="params">(<span name="evalDataset">evalDataset: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[<span class="extype" name="org.apache.spark.mllib.regression.LabeledPoint">org.apache.spark.mllib.regression.LabeledPoint</span>]</span>, <span name="eval">eval: <span class="extype" name="ml.dmlc.xgboost4j.scala.EvalTrait">EvalTrait</span></span>, <span name="evalName">evalName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="useExternalCache">useExternalCache: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">evaluate XGBoostModel with a RDD-wrapped dataset
+</p><div class="fullcomment"><div class="comment cmt"><p>evaluate XGBoostModel with a RDD-wrapped dataset
+</p></div><dl class="paramcmts block"><dt class="param">evalDataset</dt><dd class="cmt"><p>the dataset used for evaluation</p></dd><dt class="param">eval</dt><dd class="cmt"><p>the customized evaluation function, can be null for using default in the model</p></dd><dt class="param">useExternalCache</dt><dd class="cmt"><p>if use external cache</p></dd><dt>returns</dt><dd class="cmt"><p>the average metric over all partitions
+</p></dd></dl></div>
     </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
       <a id="finalize():Unit"></a>
@@ -335,20 +351,22 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel#predict" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="predict(testSet:ml.dmlc.xgboost4j.scala.DMatrix):Array[Array[Float]]"></a>
-      <a id="predict(DMatrix):Array[Array[Float]]"></a>
+    </li><li name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel#predict" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="predict(testSet:org.apache.spark.rdd.RDD[org.apache.spark.mllib.linalg.DenseVector],missingValue:Float):org.apache.spark.rdd.RDD[Array[Array[Float]]]"></a>
+      <a id="predict(RDD[DenseVector],Float):RDD[Array[Array[Float]]]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">predict</span><span class="params">(<span name="testSet">testSet: <span class="extype" name="ml.dmlc.xgboost4j.scala.DMatrix">DMatrix</span></span>)</span><span class="result">: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Float">Float</span>]]</span>
+        <span class="name">predict</span><span class="params">(<span name="testSet">testSet: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[<span class="extype" name="org.apache.spark.mllib.linalg.DenseVector">DenseVector</span>]</span>, <span name="missingValue">missingValue: <span class="extype" name="scala.Float">Float</span></span>)</span><span class="result">: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[<span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Float">Float</span>]]]</span>
       </span>
       </h4>
-      <p class="shortcomment cmt">predict result given the test data (represented as DMatrix)
-</p>
+      <p class="shortcomment cmt">Predict result with the given test set (represented as RDD)
+</p><div class="fullcomment"><div class="comment cmt"><p>Predict result with the given test set (represented as RDD)
+</p></div><dl class="paramcmts block"><dt class="param">testSet</dt><dd class="cmt"><p>test set represented as RDD</p></dd><dt class="param">missingValue</dt><dd class="cmt"><p>the specified value to represent the missing value
+</p></dd></dl></div>
     </li><li name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel#predict" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="predict(testSet:org.apache.spark.rdd.RDD[org.apache.spark.mllib.linalg.Vector],useExternalCache:Boolean):org.apache.spark.rdd.RDD[Array[Array[Float]]]"></a>
       <a id="predict(RDD[Vector],Boolean):RDD[Array[Array[Float]]]"></a>
@@ -361,36 +379,41 @@
         <span class="name">predict</span><span class="params">(<span name="testSet">testSet: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[<span class="extype" name="org.apache.spark.mllib.linalg.Vector">Vector</span>]</span>, <span name="useExternalCache">useExternalCache: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>)</span><span class="result">: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[<span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Float">Float</span>]]]</span>
       </span>
       </h4>
-      <p class="shortcomment cmt">Predict result with the given testset (represented as RDD)</p><div class="fullcomment"><div class="comment cmt"><p>Predict result with the given testset (represented as RDD)</p></div><dl class="paramcmts block"><dt class="param">testSet</dt><dd class="cmt"><p>test set representd as RDD</p></dd><dt class="param">useExternalCache</dt><dd class="cmt"><p>whether to use external cache for the test set
+      <p class="shortcomment cmt">Predict result with the given test set (represented as RDD)
+</p><div class="fullcomment"><div class="comment cmt"><p>Predict result with the given test set (represented as RDD)
+</p></div><dl class="paramcmts block"><dt class="param">testSet</dt><dd class="cmt"><p>test set represented as RDD</p></dd><dt class="param">useExternalCache</dt><dd class="cmt"><p>whether to use external cache for the test set
 </p></dd></dl></div>
-    </li><li name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel#saveModelAsHadoopFile" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="saveModelAsHadoopFile(modelPath:String):Unit"></a>
-      <a id="saveModelAsHadoopFile(String):Unit"></a>
+    </li><li name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel#predictLeaves" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="predictLeaves(testSet:org.apache.spark.rdd.RDD[org.apache.spark.mllib.linalg.Vector]):org.apache.spark.rdd.RDD[Array[Array[Float]]]"></a>
+      <a id="predictLeaves(RDD[Vector]):RDD[Array[Array[Float]]]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">saveModelAsHadoopFile</span><span class="params">(<span name="modelPath">modelPath: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">predictLeaves</span><span class="params">(<span name="testSet">testSet: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[<span class="extype" name="org.apache.spark.mllib.linalg.Vector">Vector</span>]</span>)</span><span class="result">: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[<span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Float">Float</span>]]]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Predict leaf instances with the given test set (represented as RDD)
+</p><div class="fullcomment"><div class="comment cmt"><p>Predict leaf instances with the given test set (represented as RDD)
+</p></div><dl class="paramcmts block"><dt class="param">testSet</dt><dd class="cmt"><p>test set represented as RDD
+</p></dd></dl></div>
+    </li><li name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel#saveModelAsHadoopFile" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="saveModelAsHadoopFile(modelPath:String)(implicitsc:org.apache.spark.SparkContext):Unit"></a>
+      <a id="saveModelAsHadoopFile(String)(SparkContext):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">saveModelAsHadoopFile</span><span class="params">(<span name="modelPath">modelPath: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="sc">sc: <span class="extype" name="org.apache.spark.SparkContext">SparkContext</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4>
       <p class="shortcomment cmt">Save the model as to HDFS-compatible file system.</p><div class="fullcomment"><div class="comment cmt"><p>Save the model as to HDFS-compatible file system.
 </p></div><dl class="paramcmts block"><dt class="param">modelPath</dt><dd class="cmt"><p>The model path as in Hadoop path.
 </p></dd></dl></div>
-    </li><li name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel#sc" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="sc:org.apache.spark.SparkContext"></a>
-      <a id="sc:SparkContext"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier">implicit </span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">sc</span><span class="result">: <span class="extype" name="org.apache.spark.SparkContext">SparkContext</span></span>
-      </span>
-      </h4>
-      
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
