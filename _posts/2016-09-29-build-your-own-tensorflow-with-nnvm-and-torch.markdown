@@ -7,7 +7,7 @@ comments: true
 ---
 TL;DR   How to build your own TensorFlow with NNVM and Torch7
 
-This is a new interesting era of deep learning, with emergence trend of new system, hardware and computational model. The usecase for deep learning is more heterogeneous, and we need tailored learning system for our cars, mobiles and cloud services. The future of deep learning system is going to be more  heterogeneous, and we will find emergence need of different front-ends, backends and optimization techniques. Instead of building a monolithic solution to solve all these problems, how about adopt unix philosophy, build effective modules for learning 
+This is a new interesting era of deep learning, with emergence trend of new system, hardware and computational model. The usecase for deep learning is more heterogeneous, and we need tailored learning system for our cars, mobiles and cloud services. The future of deep learning system is going to be more  heterogeneous, and we will find emergence need of different front-ends, backends and optimization techniques. Instead of building a monolithic solution to solve all these problems, how about adopt unix philosophy, build effective modules for learning
 system, and assemble them together to build minimum and effective systems?
 
 We opensourced [NNVM](https://github.com/dmlc/nnvm) library a few weeks ago, as a step to build re-usable modules along multiple deep learning systems. Specifically, NNVM provides a common way to represent and optimize a computation graph and target multiple front-backends.
@@ -16,7 +16,7 @@ We opensourced [NNVM](https://github.com/dmlc/nnvm) library a few weeks ago, as 
 <img src="https://raw.githubusercontent.com/dmlc/web-data/master/nnvm/nnvm-layout.png" align=center />
 
 
-This sounds great, you may say, how about give a concrete example?  Of course any reasonable project need example code. Since NNVM is a library to help building deep learning systems, why not provide an example on building something real? So here comes TinyFlow.  Let us try something fun in this post and introduce how one can build a new deep learning system with [NNVM](https://github.com/dmlc/nnvm).  To put it short, TinyFlow is an “example code” for NNVM. It is of course a fully functioning deep learning system and even has some features that is not currently available in TensorFlow. 
+This sounds great, you may say, how about give a concrete example?  Of course any reasonable project need example code. Since NNVM is a library to help building deep learning systems, why not provide an example on building something real? So here comes TinyFlow.  Let us try something fun in this post and introduce how one can build a new deep learning system with [NNVM](https://github.com/dmlc/nnvm).  To put it short, TinyFlow is an “example code” for NNVM. It is of course a fully functioning deep learning system and even has some features that is not currently available in TensorFlow.
 
 The entire project takes around 2K lines of code, and can run the example code like the followings. You will find that everything is same as TensorFlow, except that in the first line, we import tinyflow instead.
 
@@ -104,6 +104,7 @@ Having operators is only part of the story, we still need to stitch the computat
 ## Interesting Features that are not in TensorFlow
 ### Automatic Variable Shape Inference
 One of the main pain point I had when using TF API is that we have to initialize the variables by giving their shape. This is quite inconvenient especially for deep networks, where the shape of weights in later layers depend on previous inputs.  By using the shape inference module in TinyFlow, we provide a simple new API
+
 ```python
 x = tf.placeholder(tf.float32)
 fc1 = tf.nn.linear(x, num_hidden=100, name="fc1", no_bias=False)
@@ -123,7 +124,8 @@ for v, name, shape in tf.infer_variable_shapes(
     print("shape[%s]=%s" % (name, str(shape)))
 sess.run(init_step)
 ```
-The idea is to provide the shape hints such as number of hidden layers in the operators, enable automatic creation of weight variables in these operators, and use ```tf.infer_variable_shapes``` to discover the shape of the variables in a network. 
+
+The idea is to provide the shape hints such as number of hidden layers in the operators, enable automatic creation of weight variables in these operators, and use ```tf.infer_variable_shapes``` to discover the shape of the variables in a network.
 
 All these features are provided by NNVM modules and we only need to expose them via the API.
 
@@ -139,11 +141,9 @@ We do not build every piece of TinyFlow from scratch. Instead, we explore how we
 So that the improvements we made to TinyFlow and NNVM not only affect this project, but also all the projects that uses NNVM as intermediate representation layer.
 
 ### Tutorial on How to Build Deep Learning System
-We intentionally keep the codebase small. However, it still elaborate many key concepts and optimizations that exists in major deep learning systems, such as computation graph, automatic differentiation, shape/type inference, memory optimization. 
+We intentionally keep the codebase small. However, it still elaborate many key concepts and optimizations that exists in major deep learning systems, such as computation graph, automatic differentiation, shape/type inference, memory optimization.
 TinyFlow is a perfect material to explain these concepts and teach students about how to build new deep learning systems.
 
 
 ## Show me the code
 You can find all the code in https://github.com/tqchen/tinyflow
-
-
