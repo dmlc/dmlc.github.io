@@ -146,5 +146,5 @@ TinyFlow is a perfect material to explain these concepts and teach students abou
 
 
 ## Show me the code
-You can find all the code in https://github.com/tqchen/tinyflow
-You can also checkout the code of NNVM at https://github.com/dmlc/nnvm
+- You can find all the code in https://github.com/tqchen/tinyflow
+- You can also checkout the code of NNVM at https://github.com/dmlc/nnvm
