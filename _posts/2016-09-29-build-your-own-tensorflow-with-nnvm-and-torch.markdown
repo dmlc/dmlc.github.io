@@ -93,9 +93,12 @@ end
     });
 
 ```
-
+### Why Ops from Torch 
 For a mature deep learning system like Tensorflow, MXNet, Caffe. The operators are usually implemented in C++. This consumes a major amount of effort. Since TinyFlow is a demonstration project on how deep learning system can be built, we choose Torch7 because it provides a rather complete set of operations and can be embedded into C++ backend with low cost. We also intentionally choose to avoid using [MXNet](https://github.com/dmlc/mxnet)  as backend, since MXNet already uses NNVM as intermediate layer, and it would be more fun to try something different.  The general design itself, however, does not bind the system to be Lua specific, and can execute other types of operators.
 
+It is actually also not a bad idea to embed Lua code for customized operators, so that we can reuse common piece that are available in the Torch community. We have provided a Torch plugin in [MXNet](https://github.com/dmlc/mxnet/blob/master/docs/how_to/torch.md) and it is quite helpful to some of our users. 
+
+### The System Stack
 Having operators is only part of the story, we still need to stitch the computation together, and provide code for shape/type inference and memory sharing. The functions such as FInferShape and FInplaceOption is registered to provide these information, then we reuse the memory optimization and shape/type inference module in NNVM to write the execution backend.  This is what the system stack looks like in TinyFlow.
 
 
