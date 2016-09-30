@@ -103,7 +103,7 @@ Having operators is only part of the story, we still need to stitch the computat
 
 ## Interesting Features that are not in TensorFlow
 ### Automatic Variable Shape Inference
-One of the main pain point I had when using TF API is that we have to initialize the variables by giving their shape. This is quite inconvenient especially for deep networks, where the shape of weights in later layers depend on previous inputs.  By using the shape inference module in TinyFlow, we provide a simple new API
+One of the main pain point I had when using TF API is that we have to initialize the variables by giving their shape. This is quite inconvenient especially for deep networks, where the shape of weights in later layers depend on previous inputs.  By using the shape inference module in TinyFlow, we provide a simple new API like the automatic variable shape inference provided in [MXNet](https://github.com/dmlc/mxnet)
 
 ```python
 x = tf.placeholder(tf.float32)
