@@ -138,7 +138,7 @@ TensorFlow uses a dynamic memory allocator to manage memory because it need to h
 
 We do not build every piece of TinyFlow from scratch. Instead, we explore how we can reuse common modules in deep learning systems such as operators from Torch7 and graph representation/optimizations from NNVM to quickly build a real deep learning system. We believe that such reusability and modularization in deep learning can help us to advance system faster, and build minimum but powerful system by putting useful parts together.
 
-So that the improvements we made to TinyFlow and NNVM not only affect this project, but also all the projects that uses NNVM as intermediate representation layer.
+So that the improvements we made to TinyFlow and NNVM not only affect this project, but also all the projects that uses NNVM as intermediate representation layer. We believe more module reuse between deep learning systems like NNVM would happen to move learning system building faster as a whole ecosystem.
 
 ### Tutorial on How to Build Deep Learning System
 We intentionally keep the codebase small. However, it still elaborate many key concepts and optimizations that exists in major deep learning systems, such as computation graph, automatic differentiation, shape/type inference, memory optimization.
@@ -147,3 +147,4 @@ TinyFlow is a perfect material to explain these concepts and teach students abou
 
 ## Show me the code
 You can find all the code in https://github.com/tqchen/tinyflow
+You can also checkout the code of NNVM at https://github.com/dmlc/nnvm
