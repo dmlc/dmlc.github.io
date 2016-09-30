@@ -94,12 +94,14 @@ end
 
 ```
 
-We choose Torch7 because it provides a rather complete set of operations and can be embedded into C++ backend with low cost. We also intentionally choose to avoid using [MXNet](https://github.com/dmlc/mxnet)  as backend, since MXNet already uses NNVM as intermediate layer, and it would be more fun to try something different.
+For a mature deep learning system like Tensorflow, MXNet, Caffe. The operators are usually implemented in C++. This consumes a major amount of effort. Since TinyFlow is a demonstration project on how deep learning system can be built, we choose Torch7 because it provides a rather complete set of operations and can be embedded into C++ backend with low cost. We also intentionally choose to avoid using [MXNet](https://github.com/dmlc/mxnet)  as backend, since MXNet already uses NNVM as intermediate layer, and it would be more fun to try something different.  The general design itself, however, does not bind the system to be Lua specific, and can execute other types of operators.
 
 Having operators is only part of the story, we still need to stitch the computation together, and provide code for shape/type inference and memory sharing. The functions such as FInferShape and FInplaceOption is registered to provide these information, then we reuse the memory optimization and shape/type inference module in NNVM to write the execution backend.  This is what the system stack looks like in TinyFlow.
 
 
 <img src="https://raw.githubusercontent.com/dmlc/web-data/master/nnvm/tf-stack.png" align=center />
+
+
 
 ## Interesting Features that are not in TensorFlow
 ### Automatic Variable Shape Inference
@@ -148,4 +150,4 @@ TinyFlow is a perfect material to explain these concepts and teach students abou
 ## Show me the code
 - You can find all the code in https://github.com/tqchen/tinyflow
 - You can also checkout the code of NNVM at https://github.com/dmlc/nnvm
-- You may want to learn more advanced features in MXNet at https://github.com/dmlc/mxnet 
+- We do have a more matured project called MXNet https://github.com/dmlc/mxnet which also uses NNVM as intermediate layer and targets multiple frontends.
