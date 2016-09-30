@@ -5,7 +5,7 @@ date:   2016-09-29 18:41:00 -0800
 author: Tianqi Chen
 comments: true
 ---
-TL;DR   How to build your own TensorFlow with NNVM and Torch7
+TL;DR Do something fun, How about build your own TensorFlow with NNVM and Torch7
 
 This is a new interesting era of deep learning, with emergence trend of new system, hardware and computational model. The usecase for deep learning is more heterogeneous, and we need tailored learning system for our cars, mobiles and cloud services. The future of deep learning system is going to be more  heterogeneous, and we will find emergence need of different front-ends, backends and optimization techniques. Instead of building a monolithic solution to solve all these problems, how about adopt unix philosophy, build effective modules for learning
 system, and assemble them together to build minimum and effective systems?
