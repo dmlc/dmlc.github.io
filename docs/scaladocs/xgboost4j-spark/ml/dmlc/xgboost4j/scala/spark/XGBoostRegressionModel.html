@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>XGBoostModel - xgboost4j-spark 0.7 API - ml.dmlc.xgboost4j.scala.spark.XGBoostModel</title>
-          <meta name="description" content="XGBoostModel - xgboost4j - spark 0.7 API - ml.dmlc.xgboost4j.scala.spark.XGBoostModel" />
-          <meta name="keywords" content="XGBoostModel xgboost4j spark 0.7 API ml.dmlc.xgboost4j.scala.spark.XGBoostModel" />
+          <title>XGBoostRegressionModel - xgboost4j-spark 0.7 API - ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel</title>
+          <meta name="description" content="XGBoostRegressionModel - xgboost4j - spark 0.7 API - ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel" />
+          <meta name="keywords" content="XGBoostRegressionModel xgboost4j spark 0.7 API ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -16,7 +16,7 @@
       <script type="text/javascript">
          if(top === self) {
             var url = '../../../../../index.html';
-            var hash = 'ml.dmlc.xgboost4j.scala.spark.XGBoostModel';
+            var hash = 'ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel';
             var anchor = window.location.hash;
             var anchor_opt = '';
             if (anchor.length >= 1)
@@ -30,10 +30,10 @@
       <div id="definition">
         <img alt="Class" src="../../../../../lib/class_big.png" />
         <p id="owner"><a href="../../../../package.html" class="extype" name="ml">ml</a>.<a href="../../../package.html" class="extype" name="ml.dmlc">dmlc</a>.<a href="../../package.html" class="extype" name="ml.dmlc.xgboost4j">xgboost4j</a>.<a href="../package.html" class="extype" name="ml.dmlc.xgboost4j.scala">scala</a>.<a href="package.html" class="extype" name="ml.dmlc.xgboost4j.scala.spark">spark</a></p>
-        <h1>XGBoostModel</h1><h3><span class="morelinks"><div>Related Doc:
+        <h1>XGBoostRegressionModel</h1><h3><span class="morelinks"><div>Related Doc:
             <a href="package.html" class="extype" name="ml.dmlc.xgboost4j.scala.spark">package spark</a>
           </div></span></h3><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -41,22 +41,19 @@
 
       <h4 id="signature" class="signature">
       <span class="modifier_kind">
-        <span class="modifier">abstract </span>
+        <span class="modifier"></span>
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <span class="name">XGBoostModel</span><span class="result"> extends <span class="extype" name="org.apache.spark.ml.PredictionModel">PredictionModel</span>[<span class="extype" name="org.apache.spark.ml.linalg.Vector">Vector</span>, <a href="" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a>] with <span class="extype" name="scala.Serializable">Serializable</span> with <span class="extype" name="org.apache.spark.ml.param.Params">Params</span></span>
+        <span class="name">XGBoostRegressionModel</span><span class="result"> extends <a href="XGBoostModel.html" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a></span>
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>the base class of <a href="XGBoostClassificationModel.html" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostClassificationModel">XGBoostClassificationModel</a> and <a href="XGBoostRegressionModel.html" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel">XGBoostRegressionModel</a>
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>class of XGBoost model used for regression task
 </p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><span class="extype" name="org.apache.spark.ml.PredictionModel">PredictionModel</span>[<span class="extype" name="org.apache.spark.ml.linalg.Vector">Vector</span>, <a href="" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a>], <span class="extype" name="org.apache.spark.ml.PredictorParams">PredictorParams</span>, <span class="extype" name="org.apache.spark.ml.param.shared.HasPredictionCol">HasPredictionCol</span>, <span class="extype" name="org.apache.spark.ml.param.shared.HasFeaturesCol">HasFeaturesCol</span>, <span class="extype" name="org.apache.spark.ml.param.shared.HasLabelCol">HasLabelCol</span>, <span class="extype" name="org.apache.spark.ml.Model">Model</span>[<a href="" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a>], <span class="extype" name="org.apache.spark.ml.Transformer">Transformer</span>, <span class="extype" name="org.apache.spark.ml.PipelineStage">PipelineStage</span>, <span class="extype" name="org.apache.spark.internal.Logging">Logging</span>, <span class="extype" name="org.apache.spark.ml.param.Params">Params</span>, <span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="org.apache.spark.ml.util.Identifiable">Identifiable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
-        </div><div class="toggleContainer block">
-            <span class="toggle">Known Subclasses</span>
-            <div class="subClasses hiddenContent"><a href="XGBoostClassificationModel.html" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostClassificationModel">XGBoostClassificationModel</a>, <a href="XGBoostRegressionModel.html" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel">XGBoostRegressionModel</a></div>
-          </div></div>
+          <div class="superTypes hiddenContent"><a href="XGBoostModel.html" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a>, <span class="extype" name="org.apache.spark.ml.PredictionModel">PredictionModel</span>[<span class="extype" name="org.apache.spark.ml.linalg.Vector">Vector</span>, <a href="XGBoostModel.html" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a>], <span class="extype" name="org.apache.spark.ml.PredictorParams">PredictorParams</span>, <span class="extype" name="org.apache.spark.ml.param.shared.HasPredictionCol">HasPredictionCol</span>, <span class="extype" name="org.apache.spark.ml.param.shared.HasFeaturesCol">HasFeaturesCol</span>, <span class="extype" name="org.apache.spark.ml.param.shared.HasLabelCol">HasLabelCol</span>, <span class="extype" name="org.apache.spark.ml.Model">Model</span>[<a href="XGBoostModel.html" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a>], <span class="extype" name="org.apache.spark.ml.Transformer">Transformer</span>, <span class="extype" name="org.apache.spark.ml.PipelineStage">PipelineStage</span>, <span class="extype" name="org.apache.spark.internal.Logging">Logging</span>, <span class="extype" name="org.apache.spark.ml.param.Params">Params</span>, <span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="org.apache.spark.ml.util.Identifiable">Identifiable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div></div>
         
 
       <div id="mbrsel">
@@ -73,7 +70,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel"><span>XGBoostModel</span></li><li class="in" name="org.apache.spark.ml.PredictionModel"><span>PredictionModel</span></li><li class="in" name="org.apache.spark.ml.PredictorParams"><span>PredictorParams</span></li><li class="in" name="org.apache.spark.ml.param.shared.HasPredictionCol"><span>HasPredictionCol</span></li><li class="in" name="org.apache.spark.ml.param.shared.HasFeaturesCol"><span>HasFeaturesCol</span></li><li class="in" name="org.apache.spark.ml.param.shared.HasLabelCol"><span>HasLabelCol</span></li><li class="in" name="org.apache.spark.ml.Model"><span>Model</span></li><li class="in" name="org.apache.spark.ml.Transformer"><span>Transformer</span></li><li class="in" name="org.apache.spark.ml.PipelineStage"><span>PipelineStage</span></li><li class="in" name="org.apache.spark.internal.Logging"><span>Logging</span></li><li class="in" name="org.apache.spark.ml.param.Params"><span>Params</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="org.apache.spark.ml.util.Identifiable"><span>Identifiable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel"><span>XGBoostRegressionModel</span></li><li class="in" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel"><span>XGBoostModel</span></li><li class="in" name="org.apache.spark.ml.PredictionModel"><span>PredictionModel</span></li><li class="in" name="org.apache.spark.ml.PredictorParams"><span>PredictorParams</span></li><li class="in" name="org.apache.spark.ml.param.shared.HasPredictionCol"><span>HasPredictionCol</span></li><li class="in" name="org.apache.spark.ml.param.shared.HasFeaturesCol"><span>HasFeaturesCol</span></li><li class="in" name="org.apache.spark.ml.param.shared.HasLabelCol"><span>HasLabelCol</span></li><li class="in" name="org.apache.spark.ml.Model"><span>Model</span></li><li class="in" name="org.apache.spark.ml.Transformer"><span>Transformer</span></li><li class="in" name="org.apache.spark.ml.PipelineStage"><span>PipelineStage</span></li><li class="in" name="org.apache.spark.internal.Logging"><span>Logging</span></li><li class="in" name="org.apache.spark.ml.param.Params"><span>Params</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="org.apache.spark.ml.util.Identifiable"><span>Identifiable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -92,19 +89,36 @@
         <div id="allMembers">
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
-              <ol><li name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(_booster:ml.dmlc.xgboost4j.scala.Booster):ml.dmlc.xgboost4j.scala.spark.XGBoostModel"></a>
-      <a id="&lt;init&gt;:XGBoostModel"></a>
+              <ol><li name="ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="&lt;init&gt;(uid:String):ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel"></a>
+      <a id="&lt;init&gt;:XGBoostRegressionModel"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">XGBoostModel</span><span class="params">(<span name="_booster">_booster: <span class="extype" name="ml.dmlc.xgboost4j.scala.Booster">Booster</span></span>)</span>
+        <span class="name">XGBoostRegressionModel</span><span class="params">(<span name="uid">uid: <span class="extype" name="scala.Predef.String">String</span></span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@&lt;init&gt;(_booster:ml.dmlc.xgboost4j.scala.Booster):ml.dmlc.xgboost4j.scala.spark.XGBoostModel" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@&lt;init&gt;(uid:String):ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="&lt;init&gt;(_booster:ml.dmlc.xgboost4j.scala.Booster):ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel"></a>
+      <a id="&lt;init&gt;:XGBoostRegressionModel"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">new</span>
+      </span>
+      <span class="symbol">
+        <span class="name">XGBoostRegressionModel</span><span class="params">(<span name="_booster">_booster: <span class="extype" name="ml.dmlc.xgboost4j.scala.Booster">Booster</span></span>)</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@&lt;init&gt;(_booster:ml.dmlc.xgboost4j.scala.Booster):ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -114,64 +128,10 @@
 
         
 
-        <div id="values" class="values members">
-              <h3>Abstract Value Members</h3>
-              <ol><li name="org.apache.spark.ml.Model#copy" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="copy(extra:org.apache.spark.ml.param.ParamMap):M"></a>
-      <a id="copy(ParamMap):XGBoostModel"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier">abstract </span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">copy</span><span class="params">(<span name="extra">extra: <span class="extype" name="org.apache.spark.ml.param.ParamMap">ParamMap</span></span>)</span><span class="result">: <a href="" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@copy(extra:org.apache.spark.ml.param.ParamMap):M" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Model → Transformer → PipelineStage → Params</dd></dl></div>
-    </li><li name="org.apache.spark.ml.PredictionModel#predict" visbl="prt" data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="predict(features:FeaturesType):Double"></a>
-      <a id="predict(Vector):Double"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier">abstract </span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">predict</span><span class="params">(<span name="features">features: <span class="extype" name="org.apache.spark.ml.linalg.Vector">Vector</span></span>)</span><span class="result">: <span class="extype" name="scala.Double">Double</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@predict(features:FeaturesType):Double" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd>PredictionModel</dd></dl></div>
-    </li><li name="org.apache.spark.ml.util.Identifiable#uid" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="uid:String"></a>
-      <a id="uid:String"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier">abstract </span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">uid</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@uid:String" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Identifiable</dd></dl></div>
-    </li></ol>
-            </div>
+        
 
         <div id="values" class="values members">
-              <h3>Concrete Value Members</h3>
+              <h3>Value Members</h3>
               <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="!=(x$1:Any):Boolean"></a>
       <a id="!=(Any):Boolean"></a>
@@ -184,7 +144,7 @@
         <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@!=(x$1:Any):Boolean" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -201,7 +161,7 @@
         <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@##():Int" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@##():Int" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -218,7 +178,7 @@
         <span class="name">$</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="param">param: <span class="extype" name="org.apache.spark.ml.param.Param">Param</span>[<span class="extype" name="org.apache.spark.ml.param.Params.$.T">T</span>]</span>)</span><span class="result">: <span class="extype" name="org.apache.spark.ml.param.Params.$.T">T</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@$[T](param:org.apache.spark.ml.param.Param[T]):T" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@$[T](param:org.apache.spark.ml.param.Param[T]):T" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -235,7 +195,7 @@
         <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@==(x$1:Any):Boolean" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@==(x$1:Any):Boolean" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -252,11 +212,11 @@
         <span class="name">_booster</span><span class="result">: <span class="extype" name="ml.dmlc.xgboost4j.scala.Booster">Booster</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@_booster:ml.dmlc.xgboost4j.scala.Booster" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@_booster:ml.dmlc.xgboost4j.scala.Booster" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="XGBoostModel.html" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a></dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -269,12 +229,12 @@
         <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@asInstanceOf[T0]:T0" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel#booster" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel#booster" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="booster:ml.dmlc.xgboost4j.scala.Booster"></a>
       <a id="booster:Booster"></a>
       <h4 class="signature">
@@ -286,24 +246,24 @@
         <span class="name">booster</span><span class="result">: <span class="extype" name="ml.dmlc.xgboost4j.scala.Booster">Booster</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@booster:ml.dmlc.xgboost4j.scala.Booster" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@booster:ml.dmlc.xgboost4j.scala.Booster" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="XGBoostModel.html" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a></dd></dl></div>
     </li><li name="org.apache.spark.ml.param.Params#clear" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clear(param:org.apache.spark.ml.param.Param[_]):Params.this.type"></a>
-      <a id="clear(Param[_]):XGBoostModel.this.type"></a>
+      <a id="clear(Param[_]):XGBoostRegressionModel.this.type"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier">final </span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">clear</span><span class="params">(<span name="param">param: <span class="extype" name="org.apache.spark.ml.param.Param">Param</span>[_]</span>)</span><span class="result">: <a href="" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a>.this.type</span>
+        <span class="name">clear</span><span class="params">(<span name="param">param: <span class="extype" name="org.apache.spark.ml.param.Param">Param</span>[_]</span>)</span><span class="result">: <a href="" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel">XGBoostRegressionModel</a>.this.type</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@clear(param:org.apache.spark.ml.param.Param[_]):Params.this.type" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@clear(param:org.apache.spark.ml.param.Param[_]):Params.this.type" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -320,7 +280,7 @@
         <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@clone():Object" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@clone():Object" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -331,6 +291,23 @@
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel#copy" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="copy(extra:org.apache.spark.ml.param.ParamMap):ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel"></a>
+      <a id="copy(ParamMap):XGBoostRegressionModel"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">copy</span><span class="params">(<span name="extra">extra: <span class="extype" name="org.apache.spark.ml.param.ParamMap">ParamMap</span></span>)</span><span class="result">: <a href="" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel">XGBoostRegressionModel</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@copy(extra:org.apache.spark.ml.param.ParamMap):ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel">XGBoostRegressionModel</a> → Model → Transformer → PipelineStage → Params</dd></dl></div>
     </li><li name="org.apache.spark.ml.param.Params#copyValues" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="copyValues[T&lt;:org.apache.spark.ml.param.Params](to:T,extra:org.apache.spark.ml.param.ParamMap):T"></a>
       <a id="copyValues[T&lt;:Params](T,ParamMap):T"></a>
@@ -343,7 +320,7 @@
         <span class="name">copyValues</span><span class="tparams">[<span name="T">T &lt;: <span class="extype" name="org.apache.spark.ml.param.Params">Params</span></span>]</span><span class="params">(<span name="to">to: <span class="extype" name="org.apache.spark.ml.param.Params.copyValues.T">T</span></span>, <span name="extra">extra: <span class="extype" name="org.apache.spark.ml.param.ParamMap">ParamMap</span></span>)</span><span class="result">: <span class="extype" name="org.apache.spark.ml.param.Params.copyValues.T">T</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@copyValues[T&lt;:org.apache.spark.ml.param.Params](to:T,extra:org.apache.spark.ml.param.ParamMap):T" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@copyValues[T&lt;:org.apache.spark.ml.param.Params](to:T,extra:org.apache.spark.ml.param.ParamMap):T" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -360,7 +337,7 @@
         <span class="name">defaultCopy</span><span class="tparams">[<span name="T">T &lt;: <span class="extype" name="org.apache.spark.ml.param.Params">Params</span></span>]</span><span class="params">(<span name="extra">extra: <span class="extype" name="org.apache.spark.ml.param.ParamMap">ParamMap</span></span>)</span><span class="result">: <span class="extype" name="org.apache.spark.ml.param.Params.defaultCopy.T">T</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@defaultCopy[T&lt;:org.apache.spark.ml.param.Params](extra:org.apache.spark.ml.param.ParamMap):T" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@defaultCopy[T&lt;:org.apache.spark.ml.param.Params](extra:org.apache.spark.ml.param.ParamMap):T" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -377,7 +354,7 @@
         <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -394,7 +371,7 @@
         <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@equals(x$1:Any):Boolean" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@equals(x$1:Any):Boolean" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -411,14 +388,14 @@
         <span class="name">eval</span><span class="params">(<span name="evalDataset">evalDataset: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[<span class="extype" name="org.apache.spark.ml.feature.LabeledPoint">org.apache.spark.ml.feature.LabeledPoint</span>]</span>, <span name="evalName">evalName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="evalFunc">evalFunc: <span class="extype" name="ml.dmlc.xgboost4j.scala.EvalTrait">EvalTrait</span> = <span class="symbol">null</span></span>, <span name="iter">iter: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">1</span></span>, <span name="useExternalCache">useExternalCache: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@eval(evalDataset:org.apache.spark.rdd.RDD[org.apache.spark.ml.feature.LabeledPoint],evalName:String,evalFunc:ml.dmlc.xgboost4j.scala.EvalTrait,iter:Int,useExternalCache:Boolean):String" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@eval(evalDataset:org.apache.spark.rdd.RDD[org.apache.spark.ml.feature.LabeledPoint],evalName:String,evalFunc:ml.dmlc.xgboost4j.scala.EvalTrait,iter:Int,useExternalCache:Boolean):String" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">evaluate XGBoostModel with a RDD-wrapped dataset</p><div class="fullcomment"><div class="comment cmt"><p>evaluate XGBoostModel with a RDD-wrapped dataset</p><p>NOTE: you have to specify value of either eval or iter; when you specify both, this method
 adopts the default eval metric of model
 </p></div><dl class="paramcmts block"><dt class="param">evalDataset</dt><dd class="cmt"><p>the dataset used for evaluation</p></dd><dt class="param">evalName</dt><dd class="cmt"><p>the name of evaluation</p></dd><dt class="param">evalFunc</dt><dd class="cmt"><p>the customized evaluation function, null by default to use the default metric
-            of model</p></dd><dt class="param">iter</dt><dd class="cmt"><p>the current iteration, -1 to be null to use customized evaluation functions</p></dd><dt>returns</dt><dd class="cmt"><p>the average metric over all partitions</p></dd></dl></div>
+            of model</p></dd><dt class="param">iter</dt><dd class="cmt"><p>the current iteration, -1 to be null to use customized evaluation functions</p></dd><dt>returns</dt><dd class="cmt"><p>the average metric over all partitions</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="XGBoostModel.html" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a></dd></dl></div>
     </li><li name="org.apache.spark.ml.param.Params#explainParam" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="explainParam(param:org.apache.spark.ml.param.Param[_]):String"></a>
       <a id="explainParam(Param[_]):String"></a>
@@ -431,7 +408,7 @@ adopts the default eval metric of model
         <span class="name">explainParam</span><span class="params">(<span name="param">param: <span class="extype" name="org.apache.spark.ml.param.Param">Param</span>[_]</span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@explainParam(param:org.apache.spark.ml.param.Param[_]):String" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@explainParam(param:org.apache.spark.ml.param.Param[_]):String" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -448,7 +425,7 @@ adopts the default eval metric of model
         <span class="name">explainParams</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@explainParams():String" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@explainParams():String" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -465,7 +442,7 @@ adopts the default eval metric of model
         <span class="name">extractParamMap</span><span class="params">()</span><span class="result">: <span class="extype" name="org.apache.spark.ml.param.ParamMap">ParamMap</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@extractParamMap():org.apache.spark.ml.param.ParamMap" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@extractParamMap():org.apache.spark.ml.param.ParamMap" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -482,7 +459,7 @@ adopts the default eval metric of model
         <span class="name">extractParamMap</span><span class="params">(<span name="extra">extra: <span class="extype" name="org.apache.spark.ml.param.ParamMap">ParamMap</span></span>)</span><span class="result">: <span class="extype" name="org.apache.spark.ml.param.ParamMap">ParamMap</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@extractParamMap(extra:org.apache.spark.ml.param.ParamMap):org.apache.spark.ml.param.ParamMap" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@extractParamMap(extra:org.apache.spark.ml.param.ParamMap):org.apache.spark.ml.param.ParamMap" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -499,7 +476,7 @@ adopts the default eval metric of model
         <span class="name">featuresCol</span><span class="result">: <span class="extype" name="org.apache.spark.ml.param.Param">Param</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@featuresCol:org.apache.spark.ml.param.Param[String]" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@featuresCol:org.apache.spark.ml.param.Param[String]" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -516,7 +493,7 @@ adopts the default eval metric of model
         <span class="name">featuresDataType</span><span class="result">: <span class="extype" name="org.apache.spark.sql.types.DataType">DataType</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@featuresDataType:org.apache.spark.sql.types.DataType" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@featuresDataType:org.apache.spark.sql.types.DataType" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -533,7 +510,7 @@ adopts the default eval metric of model
         <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@finalize():Unit" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@finalize():Unit" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -556,7 +533,7 @@ adopts the default eval metric of model
         <span class="name">get</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="param">param: <span class="extype" name="org.apache.spark.ml.param.Param">Param</span>[<span class="extype" name="org.apache.spark.ml.param.Params.get.T">T</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="org.apache.spark.ml.param.Params.get.T">T</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@get[T](param:org.apache.spark.ml.param.Param[T]):Option[T]" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@get[T](param:org.apache.spark.ml.param.Param[T]):Option[T]" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -573,7 +550,7 @@ adopts the default eval metric of model
         <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@getClass():Class[_]" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@getClass():Class[_]" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -590,7 +567,7 @@ adopts the default eval metric of model
         <span class="name">getDefault</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="param">param: <span class="extype" name="org.apache.spark.ml.param.Param">Param</span>[<span class="extype" name="org.apache.spark.ml.param.Params.getDefault.T">T</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="org.apache.spark.ml.param.Params.getDefault.T">T</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@getDefault[T](param:org.apache.spark.ml.param.Param[T]):Option[T]" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@getDefault[T](param:org.apache.spark.ml.param.Param[T]):Option[T]" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -607,7 +584,7 @@ adopts the default eval metric of model
         <span class="name">getFeaturesCol</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@getFeaturesCol:String" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@getFeaturesCol:String" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -624,7 +601,7 @@ adopts the default eval metric of model
         <span class="name">getLabelCol</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@getLabelCol:String" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@getLabelCol:String" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -641,7 +618,7 @@ adopts the default eval metric of model
         <span class="name">getOrDefault</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="param">param: <span class="extype" name="org.apache.spark.ml.param.Param">Param</span>[<span class="extype" name="org.apache.spark.ml.param.Params.getOrDefault.T">T</span>]</span>)</span><span class="result">: <span class="extype" name="org.apache.spark.ml.param.Params.getOrDefault.T">T</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@getOrDefault[T](param:org.apache.spark.ml.param.Param[T]):T" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@getOrDefault[T](param:org.apache.spark.ml.param.Param[T]):T" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -658,7 +635,7 @@ adopts the default eval metric of model
         <span class="name">getParam</span><span class="params">(<span name="paramName">paramName: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="org.apache.spark.ml.param.Param">Param</span>[<span class="extype" name="scala.Any">Any</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@getParam(paramName:String):org.apache.spark.ml.param.Param[Any]" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@getParam(paramName:String):org.apache.spark.ml.param.Param[Any]" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -675,7 +652,7 @@ adopts the default eval metric of model
         <span class="name">getPredictionCol</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@getPredictionCol:String" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@getPredictionCol:String" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -692,7 +669,7 @@ adopts the default eval metric of model
         <span class="name">hasDefault</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="param">param: <span class="extype" name="org.apache.spark.ml.param.Param">Param</span>[<span class="extype" name="org.apache.spark.ml.param.Params.hasDefault.T">T</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@hasDefault[T](param:org.apache.spark.ml.param.Param[T]):Boolean" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@hasDefault[T](param:org.apache.spark.ml.param.Param[T]):Boolean" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -709,7 +686,7 @@ adopts the default eval metric of model
         <span class="name">hasParam</span><span class="params">(<span name="paramName">paramName: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@hasParam(paramName:String):Boolean" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@hasParam(paramName:String):Boolean" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -726,7 +703,7 @@ adopts the default eval metric of model
         <span class="name">hasParent</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@hasParent:Boolean" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@hasParent:Boolean" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -743,13 +720,13 @@ adopts the default eval metric of model
         <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@hashCode():Int" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@hashCode():Int" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="org.apache.spark.internal.Logging#initializeLogIfNecessary" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="initializeLogIfNecessary(isInterpreter:Boolean):Unit"></a>
+      <a id="initializeLogIfNecessary(isInterpreter:&lt;?&gt;):Unit"></a>
       <a id="initializeLogIfNecessary(Boolean):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -760,7 +737,7 @@ adopts the default eval metric of model
         <span class="name">initializeLogIfNecessary</span><span class="params">(<span name="isInterpreter">isInterpreter: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@initializeLogIfNecessary(isInterpreter:Boolean):Unit" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@initializeLogIfNecessary(isInterpreter:Boolean):Unit" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -777,7 +754,7 @@ adopts the default eval metric of model
         <span class="name">isDefined</span><span class="params">(<span name="param">param: <span class="extype" name="org.apache.spark.ml.param.Param">Param</span>[_]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@isDefined(param:org.apache.spark.ml.param.Param[_]):Boolean" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@isDefined(param:org.apache.spark.ml.param.Param[_]):Boolean" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -794,7 +771,7 @@ adopts the default eval metric of model
         <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -811,7 +788,7 @@ adopts the default eval metric of model
         <span class="name">isSet</span><span class="params">(<span name="param">param: <span class="extype" name="org.apache.spark.ml.param.Param">Param</span>[_]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@isSet(param:org.apache.spark.ml.param.Param[_]):Boolean" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@isSet(param:org.apache.spark.ml.param.Param[_]):Boolean" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -828,7 +805,7 @@ adopts the default eval metric of model
         <span class="name">isTraceEnabled</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@isTraceEnabled():Boolean" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@isTraceEnabled():Boolean" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -845,7 +822,7 @@ adopts the default eval metric of model
         <span class="name">labelCol</span><span class="result">: <span class="extype" name="org.apache.spark.ml.param.Param">Param</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@labelCol:org.apache.spark.ml.param.Param[String]" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@labelCol:org.apache.spark.ml.param.Param[String]" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -862,13 +839,13 @@ adopts the default eval metric of model
         <span class="name">log</span><span class="result">: <span class="extype" name="org.slf4j.Logger">Logger</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@log:org.slf4j.Logger" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@log:org.slf4j.Logger" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd>Logging</dd></dl></div>
     </li><li name="org.apache.spark.internal.Logging#logDebug" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="logDebug(msg:=&gt;String,throwable:Throwable):Unit"></a>
+      <a id="logDebug(msg:&lt;?&gt;,throwable:&lt;?&gt;):Unit"></a>
       <a id="logDebug(⇒String,Throwable):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -879,13 +856,13 @@ adopts the default eval metric of model
         <span class="name">logDebug</span><span class="params">(<span name="msg">msg: ⇒ <span class="extype" name="scala.Predef.String">String</span></span>, <span name="throwable">throwable: <span class="extype" name="scala.Throwable">Throwable</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@logDebug(msg:=&gt;String,throwable:Throwable):Unit" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@logDebug(msg:=&gt;String,throwable:Throwable):Unit" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd>Logging</dd></dl></div>
     </li><li name="org.apache.spark.internal.Logging#logDebug" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="logDebug(msg:=&gt;String):Unit"></a>
+      <a id="logDebug(msg:&lt;?&gt;):Unit"></a>
       <a id="logDebug(⇒String):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -896,13 +873,13 @@ adopts the default eval metric of model
         <span class="name">logDebug</span><span class="params">(<span name="msg">msg: ⇒ <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@logDebug(msg:=&gt;String):Unit" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@logDebug(msg:=&gt;String):Unit" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd>Logging</dd></dl></div>
     </li><li name="org.apache.spark.internal.Logging#logError" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="logError(msg:=&gt;String,throwable:Throwable):Unit"></a>
+      <a id="logError(msg:&lt;?&gt;,throwable:&lt;?&gt;):Unit"></a>
       <a id="logError(⇒String,Throwable):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -913,13 +890,13 @@ adopts the default eval metric of model
         <span class="name">logError</span><span class="params">(<span name="msg">msg: ⇒ <span class="extype" name="scala.Predef.String">String</span></span>, <span name="throwable">throwable: <span class="extype" name="scala.Throwable">Throwable</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@logError(msg:=&gt;String,throwable:Throwable):Unit" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@logError(msg:=&gt;String,throwable:Throwable):Unit" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd>Logging</dd></dl></div>
     </li><li name="org.apache.spark.internal.Logging#logError" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="logError(msg:=&gt;String):Unit"></a>
+      <a id="logError(msg:&lt;?&gt;):Unit"></a>
       <a id="logError(⇒String):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -930,13 +907,13 @@ adopts the default eval metric of model
         <span class="name">logError</span><span class="params">(<span name="msg">msg: ⇒ <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@logError(msg:=&gt;String):Unit" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@logError(msg:=&gt;String):Unit" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd>Logging</dd></dl></div>
     </li><li name="org.apache.spark.internal.Logging#logInfo" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="logInfo(msg:=&gt;String,throwable:Throwable):Unit"></a>
+      <a id="logInfo(msg:&lt;?&gt;,throwable:&lt;?&gt;):Unit"></a>
       <a id="logInfo(⇒String,Throwable):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -947,13 +924,13 @@ adopts the default eval metric of model
         <span class="name">logInfo</span><span class="params">(<span name="msg">msg: ⇒ <span class="extype" name="scala.Predef.String">String</span></span>, <span name="throwable">throwable: <span class="extype" name="scala.Throwable">Throwable</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@logInfo(msg:=&gt;String,throwable:Throwable):Unit" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@logInfo(msg:=&gt;String,throwable:Throwable):Unit" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd>Logging</dd></dl></div>
     </li><li name="org.apache.spark.internal.Logging#logInfo" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="logInfo(msg:=&gt;String):Unit"></a>
+      <a id="logInfo(msg:&lt;?&gt;):Unit"></a>
       <a id="logInfo(⇒String):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -964,7 +941,7 @@ adopts the default eval metric of model
         <span class="name">logInfo</span><span class="params">(<span name="msg">msg: ⇒ <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@logInfo(msg:=&gt;String):Unit" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@logInfo(msg:=&gt;String):Unit" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -981,13 +958,13 @@ adopts the default eval metric of model
         <span class="name">logName</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@logName:String" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@logName:String" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd>Logging</dd></dl></div>
     </li><li name="org.apache.spark.internal.Logging#logTrace" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="logTrace(msg:=&gt;String,throwable:Throwable):Unit"></a>
+      <a id="logTrace(msg:&lt;?&gt;,throwable:&lt;?&gt;):Unit"></a>
       <a id="logTrace(⇒String,Throwable):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -998,13 +975,13 @@ adopts the default eval metric of model
         <span class="name">logTrace</span><span class="params">(<span name="msg">msg: ⇒ <span class="extype" name="scala.Predef.String">String</span></span>, <span name="throwable">throwable: <span class="extype" name="scala.Throwable">Throwable</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@logTrace(msg:=&gt;String,throwable:Throwable):Unit" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@logTrace(msg:=&gt;String,throwable:Throwable):Unit" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd>Logging</dd></dl></div>
     </li><li name="org.apache.spark.internal.Logging#logTrace" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="logTrace(msg:=&gt;String):Unit"></a>
+      <a id="logTrace(msg:&lt;?&gt;):Unit"></a>
       <a id="logTrace(⇒String):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -1015,7 +992,7 @@ adopts the default eval metric of model
         <span class="name">logTrace</span><span class="params">(<span name="msg">msg: ⇒ <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@logTrace(msg:=&gt;String):Unit" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@logTrace(msg:=&gt;String):Unit" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -1032,7 +1009,7 @@ adopts the default eval metric of model
         <span class="name">logWarning</span><span class="params">(<span name="msg">msg: ⇒ <span class="extype" name="scala.Predef.String">String</span></span>, <span name="throwable">throwable: <span class="extype" name="scala.Throwable">Throwable</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@logWarning(msg:=&gt;String,throwable:Throwable):Unit" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@logWarning(msg:=&gt;String,throwable:Throwable):Unit" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -1049,7 +1026,7 @@ adopts the default eval metric of model
         <span class="name">logWarning</span><span class="params">(<span name="msg">msg: ⇒ <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@logWarning(msg:=&gt;String):Unit" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@logWarning(msg:=&gt;String):Unit" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -1066,7 +1043,7 @@ adopts the default eval metric of model
         <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -1083,7 +1060,7 @@ adopts the default eval metric of model
         <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@notify():Unit" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@notify():Unit" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -1100,7 +1077,7 @@ adopts the default eval metric of model
         <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@notifyAll():Unit" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@notifyAll():Unit" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -1117,7 +1094,7 @@ adopts the default eval metric of model
         <span class="name">numFeatures</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@numFeatures:Int" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@numFeatures:Int" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -1140,7 +1117,7 @@ adopts the default eval metric of model
         <span class="name">params</span><span class="result">: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="org.apache.spark.ml.param.Param">Param</span>[_]]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@params:Array[org.apache.spark.ml.param.Param[_]]" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@params:Array[org.apache.spark.ml.param.Param[_]]" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -1154,14 +1131,31 @@ adopts the default eval metric of model
         <span class="kind">var</span>
       </span>
       <span class="symbol">
-        <span class="name">parent</span><span class="result">: <span class="extype" name="org.apache.spark.ml.Estimator">Estimator</span>[<a href="" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a>]</span>
+        <span class="name">parent</span><span class="result">: <span class="extype" name="org.apache.spark.ml.Estimator">Estimator</span>[<a href="XGBoostModel.html" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@parent:org.apache.spark.ml.Estimator[M]" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@parent:org.apache.spark.ml.Estimator[M]" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Model</dd></dl></div>
+    </li><li name="ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel#predict" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="predict(features:org.apache.spark.ml.linalg.Vector):Double"></a>
+      <a id="predict(Vector):Double"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">predict</span><span class="params">(<span name="features">features: <span class="extype" name="org.apache.spark.ml.linalg.Vector">Vector</span></span>)</span><span class="result">: <span class="extype" name="scala.Double">Double</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@predict(features:org.apache.spark.ml.linalg.Vector):Double" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel">XGBoostRegressionModel</a> → PredictionModel</dd></dl></div>
     </li><li name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel#predict" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="predict(testSet:org.apache.spark.rdd.RDD[org.apache.spark.ml.linalg.Vector],useExternalCache:Boolean):org.apache.spark.rdd.RDD[Array[Array[Float]]]"></a>
       <a id="predict(RDD[Vector],Boolean):RDD[Array[Array[Float]]]"></a>
@@ -1174,13 +1168,13 @@ adopts the default eval metric of model
         <span class="name">predict</span><span class="params">(<span name="testSet">testSet: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[<span class="extype" name="org.apache.spark.ml.linalg.Vector">Vector</span>]</span>, <span name="useExternalCache">useExternalCache: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>)</span><span class="result">: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[<span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Float">Float</span>]]]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@predict(testSet:org.apache.spark.rdd.RDD[org.apache.spark.ml.linalg.Vector],useExternalCache:Boolean):org.apache.spark.rdd.RDD[Array[Array[Float]]]" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@predict(testSet:org.apache.spark.rdd.RDD[org.apache.spark.ml.linalg.Vector],useExternalCache:Boolean):org.apache.spark.rdd.RDD[Array[Array[Float]]]" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">Predict result with the given test set (represented as RDD)
 </p><div class="fullcomment"><div class="comment cmt"><p>Predict result with the given test set (represented as RDD)
-</p></div><dl class="paramcmts block"><dt class="param">testSet</dt><dd class="cmt"><p>test set represented as RDD</p></dd><dt class="param">useExternalCache</dt><dd class="cmt"><p>whether to use external cache for the test set</p></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">testSet</dt><dd class="cmt"><p>test set represented as RDD</p></dd><dt class="param">useExternalCache</dt><dd class="cmt"><p>whether to use external cache for the test set</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="XGBoostModel.html" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a></dd></dl></div>
     </li><li name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel#predict" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="predict(testSet:org.apache.spark.rdd.RDD[org.apache.spark.ml.linalg.DenseVector],missingValue:Float):org.apache.spark.rdd.RDD[Array[Array[Float]]]"></a>
       <a id="predict(RDD[DenseVector],Float):RDD[Array[Array[Float]]]"></a>
@@ -1193,13 +1187,13 @@ adopts the default eval metric of model
         <span class="name">predict</span><span class="params">(<span name="testSet">testSet: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[<span class="extype" name="org.apache.spark.ml.linalg.DenseVector">DenseVector</span>]</span>, <span name="missingValue">missingValue: <span class="extype" name="scala.Float">Float</span></span>)</span><span class="result">: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[<span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Float">Float</span>]]]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@predict(testSet:org.apache.spark.rdd.RDD[org.apache.spark.ml.linalg.DenseVector],missingValue:Float):org.apache.spark.rdd.RDD[Array[Array[Float]]]" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@predict(testSet:org.apache.spark.rdd.RDD[org.apache.spark.ml.linalg.DenseVector],missingValue:Float):org.apache.spark.rdd.RDD[Array[Array[Float]]]" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">Predict result with the given test set (represented as RDD)
 </p><div class="fullcomment"><div class="comment cmt"><p>Predict result with the given test set (represented as RDD)
-</p></div><dl class="paramcmts block"><dt class="param">testSet</dt><dd class="cmt"><p>test set represented as RDD</p></dd><dt class="param">missingValue</dt><dd class="cmt"><p>the specified value to represent the missing value</p></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">testSet</dt><dd class="cmt"><p>test set represented as RDD</p></dd><dt class="param">missingValue</dt><dd class="cmt"><p>the specified value to represent the missing value</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="XGBoostModel.html" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a></dd></dl></div>
     </li><li name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel#predictLeaves" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="predictLeaves(testSet:org.apache.spark.rdd.RDD[org.apache.spark.ml.linalg.Vector]):org.apache.spark.rdd.RDD[Array[Array[Float]]]"></a>
       <a id="predictLeaves(RDD[Vector]):RDD[Array[Array[Float]]]"></a>
@@ -1212,13 +1206,13 @@ adopts the default eval metric of model
         <span class="name">predictLeaves</span><span class="params">(<span name="testSet">testSet: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[<span class="extype" name="org.apache.spark.ml.linalg.Vector">Vector</span>]</span>)</span><span class="result">: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[<span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Float">Float</span>]]]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@predictLeaves(testSet:org.apache.spark.rdd.RDD[org.apache.spark.ml.linalg.Vector]):org.apache.spark.rdd.RDD[Array[Array[Float]]]" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@predictLeaves(testSet:org.apache.spark.rdd.RDD[org.apache.spark.ml.linalg.Vector]):org.apache.spark.rdd.RDD[Array[Array[Float]]]" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">Predict leaf instances with the given test set (represented as RDD)
 </p><div class="fullcomment"><div class="comment cmt"><p>Predict leaf instances with the given test set (represented as RDD)
-</p></div><dl class="paramcmts block"><dt class="param">testSet</dt><dd class="cmt"><p>test set represented as RDD</p></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">testSet</dt><dd class="cmt"><p>test set represented as RDD</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="XGBoostModel.html" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a></dd></dl></div>
     </li><li name="org.apache.spark.ml.param.shared.HasPredictionCol#predictionCol" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="predictionCol:org.apache.spark.ml.param.Param[String]"></a>
       <a id="predictionCol:Param[String]"></a>
@@ -1231,7 +1225,7 @@ adopts the default eval metric of model
         <span class="name">predictionCol</span><span class="result">: <span class="extype" name="org.apache.spark.ml.param.Param">Param</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@predictionCol:org.apache.spark.ml.param.Param[String]" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@predictionCol:org.apache.spark.ml.param.Param[String]" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -1248,11 +1242,11 @@ adopts the default eval metric of model
         <span class="name">produceRowRDD</span><span class="params">(<span name="testSet">testSet: <span class="extype" name="org.apache.spark.sql.Dataset">Dataset</span>[_]</span>, <span name="outputMargin">outputMargin: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="predLeaf">predLeaf: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>)</span><span class="result">: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[<span class="extype" name="org.apache.spark.sql.Row">Row</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@produceRowRDD(testSet:org.apache.spark.sql.Dataset[_],outputMargin:Boolean,predLeaf:Boolean):org.apache.spark.rdd.RDD[org.apache.spark.sql.Row]" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@produceRowRDD(testSet:org.apache.spark.sql.Dataset[_],outputMargin:Boolean,predLeaf:Boolean):org.apache.spark.rdd.RDD[org.apache.spark.sql.Row]" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="XGBoostModel.html" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a></dd></dl></div>
     </li><li name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel#saveModelAsHadoopFile" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="saveModelAsHadoopFile(modelPath:String)(implicitsc:org.apache.spark.SparkContext):Unit"></a>
       <a id="saveModelAsHadoopFile(String)(SparkContext):Unit"></a>
@@ -1265,98 +1259,98 @@ adopts the default eval metric of model
         <span class="name">saveModelAsHadoopFile</span><span class="params">(<span name="modelPath">modelPath: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="sc">sc: <span class="extype" name="org.apache.spark.SparkContext">SparkContext</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@saveModelAsHadoopFile(modelPath:String)(implicitsc:org.apache.spark.SparkContext):Unit" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@saveModelAsHadoopFile(modelPath:String)(implicitsc:org.apache.spark.SparkContext):Unit" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">Save the model as to HDFS-compatible file system.</p><div class="fullcomment"><div class="comment cmt"><p>Save the model as to HDFS-compatible file system.
-</p></div><dl class="paramcmts block"><dt class="param">modelPath</dt><dd class="cmt"><p>The model path as in Hadoop path.</p></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt class="param">modelPath</dt><dd class="cmt"><p>The model path as in Hadoop path.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="XGBoostModel.html" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a></dd></dl></div>
     </li><li name="org.apache.spark.ml.param.Params#set" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="set(paramPair:org.apache.spark.ml.param.ParamPair[_]):Params.this.type"></a>
-      <a id="set(ParamPair[_]):XGBoostModel.this.type"></a>
+      <a id="set(ParamPair[_]):XGBoostRegressionModel.this.type"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier">final </span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">set</span><span class="params">(<span name="paramPair">paramPair: <span class="extype" name="org.apache.spark.ml.param.ParamPair">ParamPair</span>[_]</span>)</span><span class="result">: <a href="" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a>.this.type</span>
+        <span class="name">set</span><span class="params">(<span name="paramPair">paramPair: <span class="extype" name="org.apache.spark.ml.param.ParamPair">ParamPair</span>[_]</span>)</span><span class="result">: <a href="" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel">XGBoostRegressionModel</a>.this.type</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@set(paramPair:org.apache.spark.ml.param.ParamPair[_]):Params.this.type" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@set(paramPair:org.apache.spark.ml.param.ParamPair[_]):Params.this.type" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd>Params</dd></dl></div>
     </li><li name="org.apache.spark.ml.param.Params#set" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="set(param:String,value:Any):Params.this.type"></a>
-      <a id="set(String,Any):XGBoostModel.this.type"></a>
+      <a id="set(String,Any):XGBoostRegressionModel.this.type"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier">final </span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">set</span><span class="params">(<span name="param">param: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="value">value: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a>.this.type</span>
+        <span class="name">set</span><span class="params">(<span name="param">param: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="value">value: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel">XGBoostRegressionModel</a>.this.type</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@set(param:String,value:Any):Params.this.type" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@set(param:String,value:Any):Params.this.type" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd>Params</dd></dl></div>
     </li><li name="org.apache.spark.ml.param.Params#set" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="set[T](param:org.apache.spark.ml.param.Param[T],value:T):Params.this.type"></a>
-      <a id="set[T](Param[T],T):XGBoostModel.this.type"></a>
+      <a id="set[T](Param[T],T):XGBoostRegressionModel.this.type"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier">final </span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">set</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="param">param: <span class="extype" name="org.apache.spark.ml.param.Param">Param</span>[<span class="extype" name="org.apache.spark.ml.param.Params.set.T">T</span>]</span>, <span name="value">value: <span class="extype" name="org.apache.spark.ml.param.Params.set.T">T</span></span>)</span><span class="result">: <a href="" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a>.this.type</span>
+        <span class="name">set</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="param">param: <span class="extype" name="org.apache.spark.ml.param.Param">Param</span>[<span class="extype" name="org.apache.spark.ml.param.Params.set.T">T</span>]</span>, <span name="value">value: <span class="extype" name="org.apache.spark.ml.param.Params.set.T">T</span></span>)</span><span class="result">: <a href="" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel">XGBoostRegressionModel</a>.this.type</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@set[T](param:org.apache.spark.ml.param.Param[T],value:T):Params.this.type" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@set[T](param:org.apache.spark.ml.param.Param[T],value:T):Params.this.type" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Params</dd></dl></div>
     </li><li name="org.apache.spark.ml.param.Params#setDefault" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="setDefault(paramPairs:org.apache.spark.ml.param.ParamPair[_]*):Params.this.type"></a>
-      <a id="setDefault(ParamPair[_]*):XGBoostModel.this.type"></a>
+      <a id="setDefault(ParamPair[_]*):XGBoostRegressionModel.this.type"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier">final </span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">setDefault</span><span class="params">(<span name="paramPairs">paramPairs: <span class="extype" name="org.apache.spark.ml.param.ParamPair">ParamPair</span>[_]*</span>)</span><span class="result">: <a href="" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a>.this.type</span>
+        <span class="name">setDefault</span><span class="params">(<span name="paramPairs">paramPairs: <span class="extype" name="org.apache.spark.ml.param.ParamPair">ParamPair</span>[_]*</span>)</span><span class="result">: <a href="" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel">XGBoostRegressionModel</a>.this.type</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@setDefault(paramPairs:org.apache.spark.ml.param.ParamPair[_]*):Params.this.type" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@setDefault(paramPairs:org.apache.spark.ml.param.ParamPair[_]*):Params.this.type" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd>Params</dd></dl></div>
     </li><li name="org.apache.spark.ml.param.Params#setDefault" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="setDefault[T](param:org.apache.spark.ml.param.Param[T],value:T):Params.this.type"></a>
-      <a id="setDefault[T](Param[T],T):XGBoostModel.this.type"></a>
+      <a id="setDefault[T](Param[T],T):XGBoostRegressionModel.this.type"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier">final </span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">setDefault</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="param">param: <span class="extype" name="org.apache.spark.ml.param.Param">Param</span>[<span class="extype" name="org.apache.spark.ml.param.Params.setDefault.T">T</span>]</span>, <span name="value">value: <span class="extype" name="org.apache.spark.ml.param.Params.setDefault.T">T</span></span>)</span><span class="result">: <a href="" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a>.this.type</span>
+        <span class="name">setDefault</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="param">param: <span class="extype" name="org.apache.spark.ml.param.Param">Param</span>[<span class="extype" name="org.apache.spark.ml.param.Params.setDefault.T">T</span>]</span>, <span name="value">value: <span class="extype" name="org.apache.spark.ml.param.Params.setDefault.T">T</span></span>)</span><span class="result">: <a href="" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel">XGBoostRegressionModel</a>.this.type</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@setDefault[T](param:org.apache.spark.ml.param.Param[T],value:T):Params.this.type" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@setDefault[T](param:org.apache.spark.ml.param.Param[T],value:T):Params.this.type" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd>Params</dd></dl></div>
-    </li><li name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel#setExternalMemory" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel#setExternalMemory" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="setExternalMemory(value:Boolean):ml.dmlc.xgboost4j.scala.spark.XGBoostModel"></a>
       <a id="setExternalMemory(Boolean):XGBoostModel"></a>
       <h4 class="signature">
@@ -1365,14 +1359,14 @@ adopts the default eval metric of model
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">setExternalMemory</span><span class="params">(<span name="value">value: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a></span>
+        <span class="name">setExternalMemory</span><span class="params">(<span name="value">value: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="XGBoostModel.html" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@setExternalMemory(value:Boolean):ml.dmlc.xgboost4j.scala.spark.XGBoostModel" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@setExternalMemory(value:Boolean):ml.dmlc.xgboost4j.scala.spark.XGBoostModel" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="XGBoostModel.html" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a></dd></dl></div>
     </li><li name="org.apache.spark.ml.PredictionModel#setFeaturesCol" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="setFeaturesCol(value:String):M"></a>
       <a id="setFeaturesCol(String):XGBoostModel"></a>
@@ -1382,15 +1376,15 @@ adopts the default eval metric of model
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">setFeaturesCol</span><span class="params">(<span name="value">value: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a></span>
+        <span class="name">setFeaturesCol</span><span class="params">(<span name="value">value: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="XGBoostModel.html" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@setFeaturesCol(value:String):M" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@setFeaturesCol(value:String):M" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>PredictionModel</dd></dl></div>
-    </li><li name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel#setLabelCol" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel#setLabelCol" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="setLabelCol(name:String):ml.dmlc.xgboost4j.scala.spark.XGBoostModel"></a>
       <a id="setLabelCol(String):XGBoostModel"></a>
       <h4 class="signature">
@@ -1399,14 +1393,14 @@ adopts the default eval metric of model
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">setLabelCol</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a></span>
+        <span class="name">setLabelCol</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="XGBoostModel.html" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@setLabelCol(name:String):ml.dmlc.xgboost4j.scala.spark.XGBoostModel" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@setLabelCol(name:String):ml.dmlc.xgboost4j.scala.spark.XGBoostModel" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="XGBoostModel.html" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a></dd></dl></div>
     </li><li name="org.apache.spark.ml.Model#setParent" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="setParent(parent:org.apache.spark.ml.Estimator[M]):M"></a>
       <a id="setParent(Estimator[XGBoostModel]):XGBoostModel"></a>
@@ -1416,10 +1410,10 @@ adopts the default eval metric of model
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">setParent</span><span class="params">(<span name="parent">parent: <span class="extype" name="org.apache.spark.ml.Estimator">Estimator</span>[<a href="" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a>]</span>)</span><span class="result">: <a href="" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a></span>
+        <span class="name">setParent</span><span class="params">(<span name="parent">parent: <span class="extype" name="org.apache.spark.ml.Estimator">Estimator</span>[<a href="XGBoostModel.html" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a>]</span>)</span><span class="result">: <a href="XGBoostModel.html" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@setParent(parent:org.apache.spark.ml.Estimator[M]):M" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@setParent(parent:org.apache.spark.ml.Estimator[M]):M" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -1433,10 +1427,10 @@ adopts the default eval metric of model
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">setPredictionCol</span><span class="params">(<span name="value">value: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a></span>
+        <span class="name">setPredictionCol</span><span class="params">(<span name="value">value: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="XGBoostModel.html" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@setPredictionCol(value:String):M" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@setPredictionCol(value:String):M" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -1453,7 +1447,7 @@ adopts the default eval metric of model
         <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -1470,7 +1464,7 @@ adopts the default eval metric of model
         <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@toString():String" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@toString():String" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -1487,7 +1481,7 @@ adopts the default eval metric of model
         <span class="name">transform</span><span class="params">(<span name="testSet">testSet: <span class="extype" name="org.apache.spark.sql.Dataset">Dataset</span>[_]</span>)</span><span class="result">: <span class="extype" name="org.apache.spark.sql.DataFrame">DataFrame</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@transform(testSet:org.apache.spark.sql.Dataset[_]):org.apache.spark.sql.DataFrame" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@transform(testSet:org.apache.spark.sql.Dataset[_]):org.apache.spark.sql.DataFrame" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -1495,7 +1489,7 @@ adopts the default eval metric of model
 NOTE: the prediction results is kept as the original format of xgboost
 </p><div class="fullcomment"><div class="comment cmt"><p>produces the prediction results and append as an additional column in the original dataset
 NOTE: the prediction results is kept as the original format of xgboost
-</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>the original dataframe with an additional column containing prediction results</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a> → PredictionModel → Transformer</dd></dl></div>
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>the original dataframe with an additional column containing prediction results</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="XGBoostModel.html" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a> → PredictionModel → Transformer</dd></dl></div>
     </li><li name="org.apache.spark.ml.Transformer#transform" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="transform(dataset:org.apache.spark.sql.Dataset[_],paramMap:org.apache.spark.ml.param.ParamMap):org.apache.spark.sql.DataFrame"></a>
       <a id="transform(Dataset[_],ParamMap):DataFrame"></a>
@@ -1508,7 +1502,7 @@ NOTE: the prediction results is kept as the original format of xgboost
         <span class="name">transform</span><span class="params">(<span name="dataset">dataset: <span class="extype" name="org.apache.spark.sql.Dataset">Dataset</span>[_]</span>, <span name="paramMap">paramMap: <span class="extype" name="org.apache.spark.ml.param.ParamMap">ParamMap</span></span>)</span><span class="result">: <span class="extype" name="org.apache.spark.sql.DataFrame">DataFrame</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@transform(dataset:org.apache.spark.sql.Dataset[_],paramMap:org.apache.spark.ml.param.ParamMap):org.apache.spark.sql.DataFrame" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@transform(dataset:org.apache.spark.sql.Dataset[_],paramMap:org.apache.spark.ml.param.ParamMap):org.apache.spark.sql.DataFrame" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -1531,7 +1525,7 @@ NOTE: the prediction results is kept as the original format of xgboost
         <span class="name">transform</span><span class="params">(<span name="dataset">dataset: <span class="extype" name="org.apache.spark.sql.Dataset">Dataset</span>[_]</span>, <span name="firstParamPair">firstParamPair: <span class="extype" name="org.apache.spark.ml.param.ParamPair">ParamPair</span>[_]</span>, <span name="otherParamPairs">otherParamPairs: <span class="extype" name="org.apache.spark.ml.param.ParamPair">ParamPair</span>[_]*</span>)</span><span class="result">: <span class="extype" name="org.apache.spark.sql.DataFrame">DataFrame</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@transform(dataset:org.apache.spark.sql.Dataset[_],firstParamPair:org.apache.spark.ml.param.ParamPair[_],otherParamPairs:org.apache.spark.ml.param.ParamPair[_]*):org.apache.spark.sql.DataFrame" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@transform(dataset:org.apache.spark.sql.Dataset[_],firstParamPair:org.apache.spark.ml.param.ParamPair[_],otherParamPairs:org.apache.spark.ml.param.ParamPair[_]*):org.apache.spark.sql.DataFrame" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -1544,8 +1538,8 @@ NOTE: the prediction results is kept as the original format of xgboost
                 <span class="name">@varargs</span><span class="args">()</span>
               
         </dd></dl></div>
-    </li><li name="org.apache.spark.ml.PredictionModel#transformImpl" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="transformImpl(dataset:org.apache.spark.sql.Dataset[_]):org.apache.spark.sql.DataFrame"></a>
+    </li><li name="ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel#transformImpl" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="transformImpl(testSet:org.apache.spark.sql.Dataset[_]):org.apache.spark.sql.DataFrame"></a>
       <a id="transformImpl(Dataset[_]):DataFrame"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -1553,14 +1547,14 @@ NOTE: the prediction results is kept as the original format of xgboost
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">transformImpl</span><span class="params">(<span name="dataset">dataset: <span class="extype" name="org.apache.spark.sql.Dataset">Dataset</span>[_]</span>)</span><span class="result">: <span class="extype" name="org.apache.spark.sql.DataFrame">DataFrame</span></span>
+        <span class="name">transformImpl</span><span class="params">(<span name="testSet">testSet: <span class="extype" name="org.apache.spark.sql.Dataset">Dataset</span>[_]</span>)</span><span class="result">: <span class="extype" name="org.apache.spark.sql.DataFrame">DataFrame</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@transformImpl(dataset:org.apache.spark.sql.Dataset[_]):org.apache.spark.sql.DataFrame" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@transformImpl(testSet:org.apache.spark.sql.Dataset[_]):org.apache.spark.sql.DataFrame" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd>PredictionModel</dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel">XGBoostRegressionModel</a> → <a href="XGBoostModel.html" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a> → PredictionModel</dd></dl></div>
     </li><li name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel#transformLeaf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="transformLeaf(testSet:org.apache.spark.sql.Dataset[_]):org.apache.spark.sql.DataFrame"></a>
       <a id="transformLeaf(Dataset[_]):DataFrame"></a>
@@ -1573,13 +1567,13 @@ NOTE: the prediction results is kept as the original format of xgboost
         <span class="name">transformLeaf</span><span class="params">(<span name="testSet">testSet: <span class="extype" name="org.apache.spark.sql.Dataset">Dataset</span>[_]</span>)</span><span class="result">: <span class="extype" name="org.apache.spark.sql.DataFrame">DataFrame</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@transformLeaf(testSet:org.apache.spark.sql.Dataset[_]):org.apache.spark.sql.DataFrame" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@transformLeaf(testSet:org.apache.spark.sql.Dataset[_]):org.apache.spark.sql.DataFrame" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <p class="shortcomment cmt">append leaf index of each row as an additional column in the original dataset
 </p><div class="fullcomment"><div class="comment cmt"><p>append leaf index of each row as an additional column in the original dataset
-</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>the original dataframe with an additional column containing prediction results</p></dd></dl></div>
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>the original dataframe with an additional column containing prediction results</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="XGBoostModel.html" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a></dd></dl></div>
     </li><li name="org.apache.spark.ml.PredictionModel#transformSchema" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="transformSchema(schema:org.apache.spark.sql.types.StructType):org.apache.spark.sql.types.StructType"></a>
       <a id="transformSchema(StructType):StructType"></a>
@@ -1592,7 +1586,7 @@ NOTE: the prediction results is kept as the original format of xgboost
         <span class="name">transformSchema</span><span class="params">(<span name="schema">schema: <span class="extype" name="org.apache.spark.sql.types.StructType">StructType</span></span>)</span><span class="result">: <span class="extype" name="org.apache.spark.sql.types.StructType">StructType</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@transformSchema(schema:org.apache.spark.sql.types.StructType):org.apache.spark.sql.types.StructType" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@transformSchema(schema:org.apache.spark.sql.types.StructType):org.apache.spark.sql.types.StructType" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -1609,7 +1603,7 @@ NOTE: the prediction results is kept as the original format of xgboost
         <span class="name">transformSchema</span><span class="params">(<span name="schema">schema: <span class="extype" name="org.apache.spark.sql.types.StructType">StructType</span></span>, <span name="logging">logging: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <span class="extype" name="org.apache.spark.sql.types.StructType">StructType</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@transformSchema(schema:org.apache.spark.sql.types.StructType,logging:Boolean):org.apache.spark.sql.types.StructType" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@transformSchema(schema:org.apache.spark.sql.types.StructType,logging:Boolean):org.apache.spark.sql.types.StructType" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -1617,7 +1611,24 @@ NOTE: the prediction results is kept as the original format of xgboost
                 <span class="name">@DeveloperApi</span><span class="args">()</span>
               
         </dd></dl></div>
-    </li><li name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel#useExternalMemory" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel#uid" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="uid:String"></a>
+      <a id="uid:String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">uid</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@uid:String" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel">XGBoostRegressionModel</a> → Identifiable</dd></dl></div>
+    </li><li name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel#useExternalMemory" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="useExternalMemory:org.apache.spark.ml.param.Param[Boolean]"></a>
       <a id="useExternalMemory:Param[Boolean]"></a>
       <h4 class="signature">
@@ -1629,13 +1640,13 @@ NOTE: the prediction results is kept as the original format of xgboost
         <span class="name">useExternalMemory</span><span class="result">: <span class="extype" name="org.apache.spark.ml.param.Param">Param</span>[<span class="extype" name="scala.Boolean">Boolean</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@useExternalMemory:org.apache.spark.ml.param.Param[Boolean]" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@useExternalMemory:org.apache.spark.ml.param.Param[Boolean]" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="XGBoostModel.html" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a></dd></dl></div>
     </li><li name="org.apache.spark.ml.PredictorParams#validateAndTransformSchema" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="validateAndTransformSchema(schema:org.apache.spark.sql.types.StructType,fitting:Boolean,featuresDataType:org.apache.spark.sql.types.DataType):org.apache.spark.sql.types.StructType"></a>
+      <a id="validateAndTransformSchema(schema:&lt;?&gt;,fitting:&lt;?&gt;,featuresDataType:&lt;?&gt;):org.apache.spark.sql.types.StructType"></a>
       <a id="validateAndTransformSchema(StructType,Boolean,DataType):StructType"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -1646,7 +1657,7 @@ NOTE: the prediction results is kept as the original format of xgboost
         <span class="name">validateAndTransformSchema</span><span class="params">(<span name="schema">schema: <span class="extype" name="org.apache.spark.sql.types.StructType">StructType</span></span>, <span name="fitting">fitting: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="featuresDataType">featuresDataType: <span class="extype" name="org.apache.spark.sql.types.DataType">DataType</span></span>)</span><span class="result">: <span class="extype" name="org.apache.spark.sql.types.StructType">StructType</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@validateAndTransformSchema(schema:org.apache.spark.sql.types.StructType,fitting:Boolean,featuresDataType:org.apache.spark.sql.types.DataType):org.apache.spark.sql.types.StructType" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@validateAndTransformSchema(schema:org.apache.spark.sql.types.StructType,fitting:Boolean,featuresDataType:org.apache.spark.sql.types.DataType):org.apache.spark.sql.types.StructType" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -1663,7 +1674,7 @@ NOTE: the prediction results is kept as the original format of xgboost
         <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@wait():Unit" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@wait():Unit" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -1686,7 +1697,7 @@ NOTE: the prediction results is kept as the original format of xgboost
         <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -1709,7 +1720,7 @@ NOTE: the prediction results is kept as the original format of xgboost
         <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@wait(x$1:Long):Unit" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@wait(x$1:Long):Unit" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -1739,7 +1750,7 @@ NOTE: the prediction results is kept as the original format of xgboost
         <span class="name deprecated" title="Deprecated: (Since version 2.0.0) Will be removed in 2.1.0. Checks should be merged into transformSchema.">validateParams</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostModel@validateParams():Unit" title="Permalink" target="_top">
+      <a href="../../../../../index.html#ml.dmlc.xgboost4j.scala.spark.XGBoostRegressionModel@validateParams():Unit" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -1752,8 +1763,10 @@ NOTE: the prediction results is kept as the original format of xgboost
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="org.apache.spark.ml.PredictionModel">
-              <h3>Inherited from <span class="extype" name="org.apache.spark.ml.PredictionModel">PredictionModel</span>[<span class="extype" name="org.apache.spark.ml.linalg.Vector">Vector</span>, <a href="" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a>]</h3>
+        <div class="parent" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">
+              <h3>Inherited from <a href="XGBoostModel.html" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a></h3>
+            </div><div class="parent" name="org.apache.spark.ml.PredictionModel">
+              <h3>Inherited from <span class="extype" name="org.apache.spark.ml.PredictionModel">PredictionModel</span>[<span class="extype" name="org.apache.spark.ml.linalg.Vector">Vector</span>, <a href="XGBoostModel.html" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a>]</h3>
             </div><div class="parent" name="org.apache.spark.ml.PredictorParams">
               <h3>Inherited from <span class="extype" name="org.apache.spark.ml.PredictorParams">PredictorParams</span></h3>
             </div><div class="parent" name="org.apache.spark.ml.param.shared.HasPredictionCol">
@@ -1763,7 +1776,7 @@ NOTE: the prediction results is kept as the original format of xgboost
             </div><div class="parent" name="org.apache.spark.ml.param.shared.HasLabelCol">
               <h3>Inherited from <span class="extype" name="org.apache.spark.ml.param.shared.HasLabelCol">HasLabelCol</span></h3>
             </div><div class="parent" name="org.apache.spark.ml.Model">
-              <h3>Inherited from <span class="extype" name="org.apache.spark.ml.Model">Model</span>[<a href="" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a>]</h3>
+              <h3>Inherited from <span class="extype" name="org.apache.spark.ml.Model">Model</span>[<a href="XGBoostModel.html" class="extype" name="ml.dmlc.xgboost4j.scala.spark.XGBoostModel">XGBoostModel</a>]</h3>
             </div><div class="parent" name="org.apache.spark.ml.Transformer">
               <h3>Inherited from <span class="extype" name="org.apache.spark.ml.Transformer">Transformer</span></h3>
             </div><div class="parent" name="org.apache.spark.ml.PipelineStage">
