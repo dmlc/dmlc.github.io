@@ -295,7 +295,7 @@ Now we’ve create three passes for NNVM! After we get the symbolic graph, we ju
 ## Test Out The Implementation in TinyFlow
 
 
-We use TinyFlow as a test case to demonstrate how this can be applied to a new deep learning framework. [TinyFLow](https://github.com/tqchen/tinyflow) is a showcase to demonstrate how to use NNVM to build a clean, minimum and powerful computation graph-based deep learning system with same API as TensorFlow. The whole system is only 2K lines of code with CPU and GPU support.
+We use [TinyFlow](https://github.com/dmlc/dmlc.github.io.git) as a test case to demonstrate how this can be applied to a new deep learning framework. TinyFlow is a showcase to demonstrate how to use NNVM to build a clean, minimum and powerful computation graph-based deep learning system with same API as TensorFlow. The whole system is only 2K lines of code with CPU and GPU support.
 
 
 The original TinyFlow utilizes Torch for its operator backend.  In this blog, we will explore how to add fusion and RTC features on TinyFlow, alongside with the Torch-backend
@@ -390,7 +390,7 @@ There still are lots of work to do in the future, like the AST class should be e
 ## Show Me the Code
 
 
-- All the code can be found in https://github.com/dmlc/nnvm-fusion.
+- All the code can be found in NNVM-Fusion at https://github.com/dmlc/nnvm-fusion
 - You can also checkout the code of NNVM at https://github.com/dmlc/nnvm
 - We choose TinyFlow(https://github.com/tqchen/tinyflow) as the experimental platform, and it only requires 220 lines code for embedding this feature.
 
