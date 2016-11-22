@@ -292,7 +292,7 @@ NNVM_REGISTER_PASS(RTCGen)
 Now we’ve create three passes for NNVM! After we get the symbolic graph, we just need to do `ApplyPass(graph, {"Fusion", "CodeGen", “RTCGen”})` on the original graph, then a new graph with some patterns fused and CUDA kernels generated.
 
 
-## Test out the implementation in TinyFlow
+## Test Out The Implementation in TinyFlow
 
 
 We use TinyFlow as a test case to demonstrate how this can be applied to a new deep learning framework. [TinyFLow](https://github.com/tqchen/tinyflow) is a showcase to demonstrate how to use NNVM to build a clean, minimum and powerful computation graph-based deep learning system with same API as TensorFlow. The whole system is only 2K lines of code with CPU and GPU support.
