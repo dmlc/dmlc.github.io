@@ -60,6 +60,7 @@ The algorithm also switches between two modes. The first mode processes node gro
 
 ## How do I use it?
 To use the GPU algorithm add the single parameter:
+
 ```python
 # Python example
 param['updater'] = 'grow_gpu'
