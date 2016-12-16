@@ -1,21 +1,21 @@
 ---
 layout: post
-title:  "GPU Accelerated Xgboost"
+title:  "GPU Accelerated XGBoost"
 date:   2016-12-14 00.00.00 -0800
 author: Rory Mitchell
 ---
 
-# GPU Accelerated Xgboost
+# GPU Accelerated XGBoost
 
-Decision tree learning and gradient boosting have until recently been the domain of multicore CPUs. Here we showcase a new plugin providing GPU acceleration for the [Xgboost library](https://github.com/dmlc/xgboost). The plugin provides significant speedups over multicore CPUs for large datasets.
+Decision tree learning and gradient boosting have until recently been the domain of multicore CPUs. Here we showcase a new plugin providing GPU acceleration for the [XGBoost library](https://github.com/dmlc/xgboost). The plugin provides significant speedups over multicore CPUs for large datasets.
 
 The plugin can be found at:
 https://github.com/dmlc/xgboost/tree/master/plugin/updater_gpu
 
-Before talking about the GPU plugin we briefly explain the xgboost algorithm.
+Before talking about the GPU plugin we briefly explain the XGBoost algorithm.
 
-## Xgboost for classification and regression
-Xgboost is a powerful tool for solving classification and regression problems in a supervised learning setting. It is an implementation of a generalised [gradient boosting](https://en.wikipedia.org/wiki/Gradient_boosting) algorithm designed to offer high-performance, multicore scalability and distributed machine scalability. 
+## XGBoost for classification and regression
+XGBoost is a powerful tool for solving classification and regression problems in a supervised learning setting. It is an implementation of a generalised [gradient boosting](https://en.wikipedia.org/wiki/Gradient_boosting) algorithm designed to offer high-performance, multicore scalability and distributed machine scalability. 
 
 The gradient boosting algorithm is an [ensemble learning](https://en.wikipedia.org/wiki/Ensemble_learning) technique that builds many predictive models. Together these smaller models produce much stronger predictions than any single model alone. In particular for gradient boosting, we create these smaller models sequentially, where each new model directly addresses the weaknesses in the previous models.
 
@@ -26,14 +26,14 @@ While many types of models can be used in a boosting algorithm, in practice we a
 Given an ensemble of more than one tree we can combine the predictions to obtain a stronger prediction.
 ![](https://raw.githubusercontent.com/dmlc/web-data/master/xgboost/model/twocart.png)
 
-It is not uncommon to use xgboost to create several thousand models such as the above, with each model incrementally improving the result from the previous models.
+It is not uncommon to use XGBoost to create several thousand models such as the above, with each model incrementally improving the result from the previous models.
 
 You may ask why should I care about gradient boosting when machine learning seems to be all about deep learning? The answer is that it works very well for structured data.
 
-Xgboost has become so successful with the Kaggle data science community, to the point of ["winning practically every competition in the structured data category"](https://www.import.io/post/how-to-win-a-kaggle-competition/).
+XGBoost has become so successful with the Kaggle data science community, to the point of ["winning practically every competition in the structured data category"](https://www.import.io/post/how-to-win-a-kaggle-competition/).
 
 ## GPU Acceleration
-Machine learning tasks with xgboost can take many hours to run. To achieve state-of-the-art prediction results we often want to create thousands of trees and test out many different parameter combinations. It would be nice if users could put their powerful and otherwise idle graphics cards to use accelerating this task.
+Machine learning tasks with XGBoost can take many hours to run. To achieve state-of-the-art prediction results we often want to create thousands of trees and test out many different parameter combinations. It would be nice if users could put their powerful and otherwise idle graphics cards to use accelerating this task.
 
 GPUs launch many thousands of parallel threads at a time and can provide significant speedups for many compute intensive tasks that can be formulated as a parallel algorithm.
 
@@ -54,7 +54,7 @@ We also tested the Titan X against a server with 2x Xeon E5-2695v2 CPUs (24 core
 ![](https://github.com/dmlc/web-data/raw/master/xgboost/gpu/yahooltr_xeon_titan.png)
 
 ## How does it work?
-The xgboost algorithm requires scanning across gradient/hessian values and using these partial sums to evaluate the quality of splits at every possible split in the training set. The GPU xgboost algorithm makes use of fast parallel prefix sum operations to scan through all possible splits as well as parallel radix sorting to repartition data. It builds a decision tree for a given boosting iteration one level at a time, processing the entire dataset concurrently on the GPU.
+The XGBoost algorithm requires scanning across gradient/hessian values and using these partial sums to evaluate the quality of splits at every possible split in the training set. The GPU XGBoost algorithm makes use of fast parallel prefix sum operations to scan through all possible splits as well as parallel radix sorting to repartition data. It builds a decision tree for a given boosting iteration one level at a time, processing the entire dataset concurrently on the GPU.
 
 The algorithm also switches between two modes. The first mode processes node groups in interleaved order using specialised multiscan/multireduce operations. This provides better performance at lower levels in the tree  when there are fewer leaf nodes. At later levels we switched to using radix sort to repartition the data and perform more conventional scan/reduce operations.
 
@@ -65,12 +65,12 @@ To use the GPU algorithm add the single parameter:
 param['updater'] = 'grow_gpu'
 ```
 
-Xgboost must be built from source using the cmake build system, following the instructions [here](https://github.com/dmlc/xgboost/tree/master/plugin/updater_gpu).
+XGBoost must be built from source using the cmake build system, following the instructions [here](https://github.com/dmlc/xgboost/tree/master/plugin/updater_gpu).
 
 The plug-in may be used through the Python or CLI interfaces at this time. [A demo is available](https://github.com/dmlc/xgboost/tree/master/demo/gpu_acceleration) showing how to use the GPU algorithm to accelerate a cross validation task on a large dataset.
 
 ## About the author
-The Xgboost GPU plugin is contributed by [Rory Mitchell](https://github.com/RAMitchell). The project was a part of a Masters degree dissertation at Waikato University.
+The XGBoost GPU plugin is contributed by [Rory Mitchell](https://github.com/RAMitchell). The project was a part of a Masters degree dissertation at Waikato University.
 
-Many thanks to the xgboost authors and contributors!
+Many thanks to the XGBoost authors and contributors!
 
