@@ -5,7 +5,10 @@ date:   2016-12-14 00.00.00 -0800
 author: Rory Mitchell
 ---
 
-# GPU Accelerated XGBoost
+***Update 2016/12/23:***
+Some of our benchmarks were incorrect due to a wrong compiler flag. These have all been updated below.
+
+---
 
 Decision tree learning and gradient boosting have until recently been the domain of multicore CPUs. Here we showcase a new plugin providing GPU acceleration for the [XGBoost library](https://github.com/dmlc/xgboost). The plugin provides significant speedups over multicore CPUs for large datasets.
 
@@ -41,15 +44,15 @@ Luckily the decision tree construction algorithm may be formulated in parallel, 
 
 
 ## How fast is it?
-The following benchmarks show a performance comparison of GPUs against multicore CPUs for 500 boosting iterations. The new Pascal Titan X shows some nice performance improvements of up to 9.4x as compared to an i7 CPU. The Titan is also able to process the entire 10M row Higgs dataset in its 12GB of memory. 
+The following benchmarks show a performance comparison of GPUs against multicore CPUs for 500 boosting iterations. The new Pascal Titan X shows some nice performance improvements of up to 5.57x as compared to an i7 CPU. The Titan is also able to process the entire 10M row Higgs dataset in its 12GB of memory. 
 
 Dataset | Instances | Features | i7-6700K | Titan X (pascal) | Speedup
 --- | --- | --- | --- | --- | --- 
-Yahoo LTR | 473,134 | 700 | 3738 | 507 | 7.37
-Higgs | 10,500,000 | 28 | 31352 | 4173 | 7.51
-Bosch | 1,183,747 | 968 | 9460 | 1009 | 9.38
+Yahoo LTR | 473,134 | 700 | 877 | 277 | 3.16
+Higgs | 10,500,000 | 28 | 14504 | 3052 | 4.75
+Bosch | 1,183,747 | 968 | 3294 | 591 | 5.57
 
-We also tested the Titan X against a server with 2x Xeon E5-2695v2 CPUs (24 cores in total) on the Yahoo learning to rank dataset. The CPUs outperform the GPU by about 1.5x when using all available cores. This is still a nice result however considering the Titan X costs $1200 and the 2x Xeon CPUs cost almost $5000.
+We also tested the Titan X against a server with 2x Xeon E5-2695v2 CPUs (24 cores in total) on the Yahoo learning to rank dataset. The GPU outperforms the CPUs by about 1.2x. This is a nice result considering the Titan X costs $1200 and the 2x Xeon CPUs cost almost $5000.
 
 ![](https://github.com/dmlc/web-data/raw/master/xgboost/gpu/yahooltr_xeon_titan.png)
 
@@ -60,7 +63,6 @@ The algorithm also switches between two modes. The first mode processes node gro
 
 ## How do I use it?
 To use the GPU algorithm add the single parameter:
-
 ```python
 # Python example
 param['updater'] = 'grow_gpu'
