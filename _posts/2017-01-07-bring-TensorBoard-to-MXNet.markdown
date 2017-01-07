@@ -11,7 +11,7 @@ With proper visualization, we could have a better understanding of the mechanism
  * Visualizing the dynamics under the gradients of a layer with histogram, you know your network is live or dead(gradient).
  * By interpreting the embedding features from a layer, using t-SNE for high-dimensional data visualization, you get intuitions from its representation power.
 
-There are way more techniques in visualizing neural networks than the above. So that’s why we want to build a handy tool for our MXNet users.
+There are way more techniques in visualizing neural networks than the above. So that’s why we want to build a handy tool for our MXNet users. Note that this package could be used in any Python project.
 
 Thanks to the community, we already have [TensorBoard](https://www.tensorflow.org/versions/master/how_tos/graph_viz/index.html)  and it’s easy-to-use and meets most daily use cases. However, TensorBoard is built together with TensorFlow and we have to come up a way to make a stand-alone version for general visualization purpose.
 
@@ -190,7 +190,9 @@ It provides an `installer.sh` to automate this process for you, and you might wa
 
 ## How to use?
 
-We create a tutorial to understand the vanish gradient problem through visualization under `docs/tutorial/`
+We create a [tutorial](https://github.com/dmlc/tensorboard/blob/master/docs/tutorial/understanding-vanish-gradient.ipynb) to understand the vanish gradient problem through visualization, in which we compare the effect of different `initialization` and `activation`:
+
+![Dashboard](https://github.com/zihaolucky/tensorboard/raw/data/docs/tutorial/mnist/pic2.png)
 
 ## Future works
 * Add this component as submodule in MXNet.
