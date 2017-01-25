@@ -6,7 +6,7 @@ First put the markdown format post in `_posts/` in format
 Preview in local:
 
 ```
-$ gem install jekyll
+$ gem install jekyll pygments.rb redcarpet
 $ jekyll s
 ```
 
