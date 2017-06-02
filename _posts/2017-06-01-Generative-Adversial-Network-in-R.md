@@ -30,7 +30,7 @@ require("readr")
 require("mxnet")
 ```
 
-The full demo is comprised of the two following scripts available on [GitHub](https://github.com/jeremiedb/gan_example): 
+The full demo is comprised of the two following scripts available on [GitHub](https://github.com/dmlc/mxnet/tree/master/example/gan/blog_R_cgan): 
 
 - `CGAN_mnist_setup.R`: prepare data and define the model structure
 - `CGAN_train.R`: execute the training
@@ -41,7 +41,7 @@ The MNIST dataset is available on [Kaggle](https://www.kaggle.com/c/digit-recogn
 
 ```r
 train <- read_csv('data/train.csv')
-train<- data.matrix(train)
+train <- data.matrix(train)
 
 train_data <- train[,-1]
 train_data <- t(train_data/255*2-1)
@@ -79,14 +79,18 @@ The training process of the discriminator is most obvious: the loss is simple a 
 
 ```r
 ### Train loop on fake
-mx.exec.update.arg.arrays(exec_D, arg.arrays = list(data=D_data_fake, digit=D_digit_fake, label=mx.nd.array(rep(0, batch_size))), match.name=TRUE)
+mx.exec.update.arg.arrays(exec_D, arg.arrays = 
+  list(data=D_data_fake, digit=D_digit_fake, label=mx.nd.array(rep(0, batch_size))), 
+  match.name=TRUE)
 mx.exec.forward(exec_D, is.train=T)
 mx.exec.backward(exec_D)
 update_args_D<- updater_D(weight = exec_D$ref.arg.arrays, grad = exec_D$ref.grad.arrays)
 mx.exec.update.arg.arrays(exec_D, update_args_D, skip.null=TRUE)
 
 ### Train loop on real
-mx.exec.update.arg.arrays(exec_D, arg.arrays = list(data=D_data_real, digit=D_digit_real, label=mx.nd.array(rep(1, batch_size))), match.name=TRUE)
+mx.exec.update.arg.arrays(exec_D, arg.arrays = 
+  list(data=D_data_real, digit=D_digit_real, label=mx.nd.array(rep(1, batch_size))), 
+  match.name=TRUE)
 mx.exec.forward(exec_D, is.train=T)
 mx.exec.backward(exec_D)
 update_args_D<- updater_D(weight = exec_D$ref.arg.arrays, grad = exec_D$ref.grad.arrays)
@@ -99,15 +103,20 @@ This requires to backpropagate the gradients up to the input data of the discrim
 
 ```r
 ### Update Generator weights - use a seperate executor for writing data gradients
-exec_D_back<- mxnet:::mx.symbol.bind(symbol = D_sym, arg.arrays = exec_D$arg.arrays, aux.arrays = exec_D$aux.arrays, grad.reqs = rep("write", length(exec_D$arg.arrays)), ctx = devices)
+exec_D_back <- mxnet:::mx.symbol.bind(symbol = D_sym, 
+  arg.arrays = exec_D$arg.arrays, 
+  aux.arrays = exec_D$aux.arrays, grad.reqs = rep("write", length(exec_D$arg.arrays)), 
+  ctx = devices)
 
-mx.exec.update.arg.arrays(exec_D_back, arg.arrays = list(data=D_data_fake, digit=D_digit_fake, label=mx.nd.array(rep(1, batch_size))), match.name=TRUE)
+mx.exec.update.arg.arrays(exec_D_back, arg.arrays = 
+  list(data=D_data_fake, digit=D_digit_fake, label=mx.nd.array(rep(1, batch_size))), 
+  match.name=TRUE)
 mx.exec.forward(exec_D_back, is.train=T)
 mx.exec.backward(exec_D_back)
-D_grads<- exec_D_back$ref.grad.arrays$data
+D_grads <- exec_D_back$ref.grad.arrays$data
 mx.exec.backward(exec_G, out_grads=D_grads)
 
-update_args_G<- updater_G(weight = exec_G$ref.arg.arrays, grad = exec_G$ref.grad.arrays)
+update_args_G <- updater_G(weight = exec_G$ref.arg.arrays, grad = exec_G$ref.grad.arrays)
 mx.exec.update.arg.arrays(exec_G, update_args_G, skip.null=TRUE)
 ```
 
@@ -148,11 +157,11 @@ Once the model is trained, synthetic images of the desired digit can be produced
 Here we will generate fake "9": 
 
 ```r
-digit<- mx.nd.array(rep(9, times=batch_size))
-data<- mx.nd.one.hot(indices = digit, depth = 10)
-data<- mx.nd.reshape(data = data, shape = c(1,1,-1, batch_size))
+digit <- mx.nd.array(rep(9, times=batch_size))
+data <- mx.nd.one.hot(indices = digit, depth = 10)
+data <- mx.nd.reshape(data = data, shape = c(1,1,-1, batch_size))
 
-exec_G<- mx.simple.bind(symbol = G_sym, data=data_shape_G, ctx = devices, grad.req = "null")
+exec_G <- mx.simple.bind(symbol = G_sym, data=data_shape_G, ctx = devices, grad.req = "null")
 mx.exec.update.arg.arrays(exec_G, G_arg_params, match.name=TRUE)
 mx.exec.update.arg.arrays(exec_G, list(data=data), match.name=TRUE)
 mx.exec.update.aux.arrays(exec_G, G_aux_params, match.name=TRUE)
