@@ -15,7 +15,7 @@ A Generative Adversial Model simultaneously trains two models: a generator that 
 
 The CGAN is a conditional variation of the GAN where the generator is instructed to generate a real sample having specific characteristics rather than a generic sample from full distribution. Such condition could be the label associated with an image like in this tutorial or a more detailed tag as shown in the example below: 
 
-![](https://raw.githubusercontent.com/dmlc/dmlc.github.io/master/img/mxnet/dcgan/dcgan_network.jpg)
+![](https://raw.githubusercontent.com/dmlc/dmlc.github.io/master/img/mxnet/dcgan/cgan_network.jpg)
 
 Image credit: [Scott Reed](https://github.com/reedscot/icml2016)
 
