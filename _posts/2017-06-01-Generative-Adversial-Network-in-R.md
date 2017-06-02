@@ -15,7 +15,7 @@ A Generative Adversial Model simultaneously trains two models: a generator that 
 
 The CGAN is a conditional variation of the GAN where the generator is instructed to generate a real sample having specific characteristics rather than a generic sample from full distribution. Such condition could be the label associated with an image like in this tutorial or a more detailed tag as shown in the example below: 
 
-![](https://raw.githubusercontent.com/dmlc/dmlc.github.io/master/img/mxnet/dcgan/cgan_network.jpg)
+![](https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/blog_R_cgan/cgan_network.jpg)
 
 Image credit: [Scott Reed](https://github.com/reedscot/icml2016)
 
@@ -63,7 +63,7 @@ The noise vector provides the building blocks to the Generator model, which will
 The information on the label for which to generate a fake sample is provided by a one-hot encoding of the label indices that is appended to the random noise. For MNIST, the 0-9 indices are therefore converted into a binary vector of length 10. More complex applications would require embeddings rather than simple one-hot to encode the condition. 
 
 
-![](https://raw.githubusercontent.com/dmlc/dmlc.github.io/master/img/mxnet/dcgan/Generator.png)
+![](https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/blog_R_cgan/Generator.png)
 
 ### Discriminator
 
@@ -71,13 +71,13 @@ The discriminator attempts to distinguish between fake samples produced by the g
 
 In a conditional GAN, the labels associated with the samples are also provided to the Discriminator. In this demo, this information is again provided as a hot-hot encoding of the label that is broadcast to match the image dimensions (10 -> 28x28x10). 
 
-![](https://raw.githubusercontent.com/dmlc/dmlc.github.io/master/img/mxnet/dcgan/Discriminator.png)
+![](https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/blog_R_cgan/Discriminator.png)
 
 ### Training logic
 
 The training process of the discriminator is most obvious: the loss is simple a binary TRUE/FALSE response and that loss is propagated back into the CNN network. It can therefore be understood as a simple binary classification problem. 
 
-```
+```r
 ### Train loop on fake
 mx.exec.update.arg.arrays(exec_D, arg.arrays = list(data=D_data_fake, digit=D_digit_fake, label=mx.nd.array(rep(0, batch_size))), match.name=TRUE)
 mx.exec.forward(exec_D, is.train=T)
@@ -97,7 +97,7 @@ The generator loss comes from the backpropagation of the the discriminator loss 
 
 This requires to backpropagate the gradients up to the input data of the discriminator (whereas this input gradient is typically ignored in vanilla feedforward network).  
 
-```
+```r
 ### Update Generator weights - use a seperate executor for writing data gradients
 exec_D_back<- mxnet:::mx.symbol.bind(symbol = D_sym, arg.arrays = exec_D$arg.arrays, aux.arrays = exec_D$aux.arrays, grad.reqs = rep("write", length(exec_D$arg.arrays)), ctx = devices)
 
@@ -117,7 +117,7 @@ The above training steps are executed in the `CGAN_train.R` script.
 
 During training, the [imager](http://dahtah.github.io/imager/) package facilitates the visual quality assessment of the fake samples. 
 
-```
+```r
 if (iteration==1 | iteration %% 100==0){
   par(mfrow=c(3,3), mar=c(0.1,0.1,0.1,0.1))
   for (i in 1:9) {
@@ -131,15 +131,15 @@ Below are samples obtained at different stage of the training.
 
 Starting from noise: 
 
-![](https://raw.githubusercontent.com/dmlc/dmlc.github.io/master/img/mxnet/dcgan/CGAN_1.png)
+![](https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/blog_R_cgan/CGAN_1.png)
 
 Slowly getting it - iteration 200: 
 
-![](https://raw.githubusercontent.com/dmlc/dmlc.github.io/master/img/mxnet/dcgan/CGAN_200.png)
+![](https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/blog_R_cgan/CGAN_200.png)
 
 Generate specified digit images on demand - iteration 2400: 
 
-![](https://raw.githubusercontent.com/dmlc/dmlc.github.io/master/img/mxnet/dcgan/CGAN_2400.png)
+![](https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/blog_R_cgan/CGAN_2400.png)
 
 ### Inference
 
@@ -147,7 +147,7 @@ Once the model is trained, synthetic images of the desired digit can be produced
 
 Here we will generate fake "9": 
 
-```
+```r
 digit<- mx.nd.array(rep(9, times=batch_size))
 data<- mx.nd.one.hot(indices = digit, depth = 10)
 data<- mx.nd.reshape(data = data, shape = c(1,1,-1, batch_size))
@@ -160,7 +160,7 @@ mx.exec.update.aux.arrays(exec_G, G_aux_params, match.name=TRUE)
 mx.exec.forward(exec_G, is.train=F)
 ```
 
-![](https://raw.githubusercontent.com/dmlc/dmlc.github.io/master/img/mxnet/dcgan/CGAN_infer_9.png)
+![](https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/blog_R_cgan/CGAN_infer_9.png)
 
 Further details of the CGAN methodology can be found in the paper [Generative Adversarial Text to Image Synthesis](https://arxiv.org/abs/1605.05396). 
 
