@@ -13,7 +13,7 @@ description: > # this means to ignore newlines
 url: "http://dmlc.ml"
 
 # Build settings
-markdown: redcarpet
+kramdown: redcarpet
 highlighter: pygments
 
 redcarpet:
