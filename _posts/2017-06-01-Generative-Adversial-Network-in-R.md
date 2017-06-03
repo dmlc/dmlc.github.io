@@ -30,7 +30,7 @@ require("readr")
 require("mxnet")
 ```
 
-The full demo is comprised of the two following scripts available on [GitHub](https://github.com/dmlc/mxnet/tree/master/example/gan/blog_R_cgan): 
+The full demo is comprised of the two following scripts available on [GitHub](https://github.com/dmlc/mxnet/tree/master/example/gan/CGAN_mnist_R): 
 
 - `CGAN_mnist_setup.R`: prepare data and define the model structure
 - `CGAN_train.R`: execute the training
