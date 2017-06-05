@@ -1,17 +1,17 @@
 ---
 layout: post
-title: "Conditional Generative Adversial Network with MXNet R package"
+title: "Conditional Generative Adversarial Network with MXNet R package"
 date:   2017-06-01
 author: Jeremie Desgagne-Bouchard
 categories: rstats
 comments: true
 ---
 
-This tutorial shows how to build and train a Conditional Generative Adversial Network (CGAN) on MNIST images. 
+This tutorial shows how to build and train a Conditional Generative Adversarial Network (CGAN) on MNIST images. 
 
 ### How GAN works
 
-A Generative Adversial Model simultaneously trains two models: a generator that learns to output fake samples from an unknown distribution and a discriminator that learns to distinguish fake from real samples. 
+A Generative Adversarial Model simultaneously trains two models: a generator that learns to output fake samples from an unknown distribution and a discriminator that learns to distinguish fake from real samples. 
 
 The CGAN is a conditional variation of the GAN where the generator is instructed to generate a real sample having specific characteristics rather than a generic sample from full distribution. Such condition could be the label associated with an image like in this tutorial or a more detailed tag as shown in the example below: 
 
