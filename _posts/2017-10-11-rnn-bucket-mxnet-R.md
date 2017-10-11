@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "RNN made easy with MXNet R"
-date:   2017-09-18
+date:   2017-10-11
 author: Jeremie Desgagne-Bouchard
 categories: rstats
 comments: true
@@ -75,8 +75,9 @@ For bucketing, a list of symbols is defined, one for each bucket length. During 
 ``` r
 symbol_single <- rnn.graph(config = "seq-to-one", cell.type = "lstm", 
                            num.rnn.layer = 1, num.embed = 2, num.hidden = 4, 
-                           num.label = 2, input.size = vocab, dropout = 0.5, 
-                           ignore_label = -1, output_last_state = F, masking = T)
+                           num.decode = 2, input.size = vocab, dropout = 0.5, 
+                           ignore_label = -1, loss_output = "softmax",
+                           output_last_state = F, masking = T)
 ```
 
 ``` r
@@ -84,12 +85,12 @@ bucket_list <- unique(c(train.data.bucket$bucket.names, eval.data.bucket$bucket.
 
 symbol_buckets <- sapply(bucket_list, function(seq) {
   rnn.graph(config = "seq-to-one", cell.type = "lstm", 
-            num.rnn.layer = 1, num.embed = 2, num.hidden = 4, num.label = 2, 
-            input.size = vocab, dropout = 0.5, ignore_label = -1,
-            output_last_state = F, masking = T)
-})
+                   num.rnn.layer = 1, num.embed = 2, num.hidden = 4, 
+                   num.decode = 2, input.size = vocab, dropout = 0.5, 
+                   ignore_label = -1, loss_output = "softmax",
+                   output_last_state = F, masking = T)})
 
-graph.viz(symbol_buckets[[1]], type = "graph", direction = "LR", 
+graph.viz(symbol_single, type = "graph", direction = "LR", 
           graph.height.px = 50, graph.width.px = 800, shape=c(64, 5))
 ```
 
@@ -100,14 +101,14 @@ The representation of an unrolled RNN typically assumes a fixed length sequence.
 Train the model
 ---------------
 
-First the non bucketed model is trained for 5 epochs:
+First the non bucketed model is trained for 6 epochs:
 
 ``` r
 devices <- mx.gpu(0)
 
 initializer <- mx.init.Xavier(rnd_type = "gaussian", factor_type = "avg", magnitude = 2.5)
 
-optimizer <- mx.opt.create("rmsprop", learning.rate = 1e-3, gamma1 = 0.95, gamma2 = 0.95, 
+optimizer <- mx.opt.create("rmsprop", learning.rate = 1e-3, gamma1 = 0.95, gamma2 = 0.92, 
                            wd = 1e-4, clip_gradient = 5, rescale.grad=1/batch.size)
 
 logger <- mx.metric.logger()
@@ -126,7 +127,7 @@ system.time(
 ```
 
     ##    user  system elapsed 
-    ## 161.372  20.650 172.173
+    ## 205.214  17.253 210.265
 
 ![](https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/blog_mxnet_R_rnn_bucket/logger1-1.png)
 
@@ -137,7 +138,7 @@ devices <- mx.gpu(0)
 
 initializer <- mx.init.Xavier(rnd_type = "gaussian", factor_type = "avg", magnitude = 2.5)
 
-optimizer <- mx.opt.create("rmsprop", learning.rate = 1e-3, gamma1 = 0.95, gamma2 = 0.95, 
+optimizer <- mx.opt.create("rmsprop", learning.rate = 1e-3, gamma1 = 0.95, gamma2 = 0.92, 
                            wd = 1e-4, clip_gradient = 5, rescale.grad=1/batch.size)
 
 logger <- mx.metric.logger()
@@ -156,15 +157,11 @@ system.time(
 ```
 
     ##    user  system elapsed 
-    ##  96.690  15.855  99.760
-
-``` r
-mx.model.save(model, prefix = "models/model_sentiment_lstm", iteration = 5)
-```
+    ## 129.578  11.500 125.120
 
 ![](https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/blog_mxnet_R_rnn_bucket/logger2-1.png)
 
-The speedup is substantial, around 100 sec. instead of 175 sec., a 40% speedup with little effort.
+The speedup is substantial, around 125 sec. instead of 210 sec., a 40% speedup with little effort.
 
 Plot word embeddings
 --------------------
@@ -172,6 +169,8 @@ Plot word embeddings
 Word representation can be visualized by looking at the assigned weights in any of the embedding dimensions. Here, we look simultaneously at the two embeddings learnt in the LSTM model.
 
 ![](https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/blog_mxnet_R_rnn_bucket/embed-1.png)
+
+Since the model attempts to predict the sentiment, it's no surprise that the 2 dimensions into which each word is projected appear correlated with words' polarity. Positive words are associated with lower X1 values ("great", "excellent"), while the most negative words appear at the far right ("terrible", "worst"). By representing words of similar meaning with features of values, embedding much facilitates the remaining classification task for the network.  
 
 Inference on test data
 ----------------------
@@ -184,12 +183,12 @@ batch.size <- 64
 
 corpus_bucketed_test <- readRDS(file = "data/corpus_bucketed_test.rds")
 
-test.data <- mx.io.bucket.iter(buckets = corpus_bucketed_test$buckets, batch.size = batch.size, 
-                               data.mask.element = 0, shuffle = FALSE)
+test.data <- mx.io.bucket.iter(buckets = corpus_bucketed_test$buckets, 
+                              batch.size = batch.size, 
+                              data.mask.element = 0, shuffle = FALSE)
 ```
 
 ``` r
-model <- mx.model.load(prefix = "models/model_sentiment_lstm", iteration = 5)
 infer <- mx.infer.buckets(infer.data = test.data, model = model, ctx = ctx)
 
 pred_raw <- t(as.array(infer))
@@ -201,6 +200,6 @@ roc <- roc(predictions = pred_raw[, 2], labels = factor(label))
 auc <- auc(roc)
 ```
 
-Accuracy: 88.3%
+Accuracy: 87.6%
 
-AUC: 0.9512
+AUC: 0.9436
