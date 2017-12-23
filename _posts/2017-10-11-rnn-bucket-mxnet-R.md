@@ -7,7 +7,7 @@ categories: rstats
 comments: true
 ---
 
-This tutorial presents an example of application of RNN to text classification using padded and bucketed data to efficiently handle sequences of varying lengths. Some functionalities require running on a GPU with CUDA.
+This tutorial presents an example of application of RNN to text classification using padded and bucketed data to efficiently handle sequences of varying lengths. Some functionalities require running on a CUDA enabled GPU. 
 
 Example based on sentiment analysis on the [IMDB data](http://ai.stanford.edu/~amaas/data/sentiment/).
 
@@ -45,7 +45,7 @@ To illustrate the benefit of bucketing, two datasets are created:
 -   `corpus_single_train.rds`: no bucketing, all samples are padded/trimmed to 600 words.
 -   `corpus_bucketed_train.rds`: samples split into 5 buckets of length 100, 150, 250, 400 and 600.
 
-Below is the example of the assignation of the bucketed data and labels into `mx.io.bucket.iter` iterator. This iterator behaves essentially the same as the `mx.io.arrayiter` except that is pushes samples coming from the different buckets along with a bucketID to identify the appropriate network to use.
+Below is the example of the assignation of the bucketed data and labels into `mx.io.bucket.iter` iterator. This iterator behaves essentially the same as the `mx.io.arrayiter` except that is pushes samples coming from the different buckets along with a bucketID to identify the appropriate symbolic graph to use.
 
 ``` r
 corpus_bucketed_train <- readRDS(file = "data/corpus_bucketed_train.rds")
@@ -68,14 +68,14 @@ eval.data.bucket <- mx.io.bucket.iter(buckets = corpus_bucketed_test$buckets,
 Define the architecture
 -----------------------
 
-Below are the graph representations of a seq-to-one architecture with LSTM cells. Note that input data is of shape `batch.size X seq.length` while the output of the RNN operator is of shape `hidden.features X batch.size X seq.length`.
+Below are the graph representations of a seq-to-one architecture with LSTM cells. Note that input data is of shape `seq.length X batch.size` while the RNN operator requires input of shape `hidden.features X batch.size X seq.length`, requiring to swap axis.
 
 For bucketing, a list of symbols is defined, one for each bucket length. During training, at each batch the appropriate symbol is bound according to the bucketID provided by the iterator.
 
 ``` r
-symbol_single <- rnn.graph(config = "seq-to-one", cell.type = "lstm", 
-                           num.rnn.layer = 1, num.embed = 2, num.hidden = 4, 
-                           num.decode = 2, input.size = vocab, dropout = 0.5, 
+symbol_single <- rnn.graph(config = "seq-to-one", cell_type = "lstm", 
+                           num_rnn_layer = 1, num_embed = 2, num_hidden = 4, 
+                           num_decode = 2, input_size = vocab, dropout = 0.5, 
                            ignore_label = -1, loss_output = "softmax",
                            output_last_state = F, masking = T)
 ```
@@ -84,11 +84,11 @@ symbol_single <- rnn.graph(config = "seq-to-one", cell.type = "lstm",
 bucket_list <- unique(c(train.data.bucket$bucket.names, eval.data.bucket$bucket.names))
 
 symbol_buckets <- sapply(bucket_list, function(seq) {
-  rnn.graph(config = "seq-to-one", cell.type = "lstm", 
-                   num.rnn.layer = 1, num.embed = 2, num.hidden = 4, 
-                   num.decode = 2, input.size = vocab, dropout = 0.5, 
-                   ignore_label = -1, loss_output = "softmax",
-                   output_last_state = F, masking = T)})
+  rnn.graph(config = "seq-to-one", cell_type = "lstm", 
+            num_rnn_layer = 1, num_embed = 2, num_hidden = 4, 
+            num_decode = 2, input_size = vocab, dropout = 0.5, 
+            ignore_label = -1, loss_output = "softmax",
+            output_last_state = F, masking = T)})
 
 graph.viz(symbol_single, type = "graph", direction = "LR", 
           graph.height.px = 50, graph.width.px = 800, shape=c(64, 5))
@@ -118,7 +118,7 @@ batch.end.callback <- mx.callback.log.train.metric(period = 50)
 system.time(
   model <- mx.model.buckets(symbol = symbol_single,
                             train.data = train.data.single, eval.data = eval.data.single,
-                            num.round = 5, ctx = devices, verbose = FALSE,
+                            num.round = 6, ctx = devices, verbose = FALSE,
                             metric = mx.metric.accuracy, optimizer = optimizer,  
                             initializer = initializer,
                             batch.end.callback = NULL, 
@@ -148,7 +148,7 @@ batch.end.callback <- mx.callback.log.train.metric(period = 50)
 system.time(
   model <- mx.model.buckets(symbol = symbol_buckets,
                             train.data = train.data.bucket, eval.data = eval.data.bucket,
-                            num.round = 5, ctx = devices, verbose = FALSE,
+                            num.round = 6, ctx = devices, verbose = FALSE,
                             metric = mx.metric.accuracy, optimizer = optimizer,  
                             initializer = initializer,
                             batch.end.callback = NULL, 
@@ -170,12 +170,12 @@ Word representation can be visualized by looking at the assigned weights in any 
 
 ![](https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/blog_mxnet_R_rnn_bucket/embed-1.png)
 
-Since the model attempts to predict the sentiment, it's no surprise that the 2 dimensions into which each word is projected appear correlated with words' polarity. Positive words are associated with lower X1 values ("great", "excellent"), while the most negative words appear at the far right ("terrible", "worst"). By representing words of similar meaning with features of values, embedding much facilitates the remaining classification task for the network.  
+Since the model attempts to predict the sentiment, it's no surprise that the 2 dimensions into which each word is projected appear correlated with words' polarity. Positive words are associated with lower X1 values ("great", "excellent"), while the most negative words appear at the far right ("terrible", "worst"). By representing words of similar meaning with features of similar values, embedding much facilitates the remaining classification task for the network.  
 
 Inference on test data
 ----------------------
 
-The utility function `mx.infer.buckets` has been added to simplify inference on RNN with bucketed data.
+The utility function `mx.infer.rnn` has been added to simplify inference on RNN with bucketed data.
 
 ``` r
 ctx <- mx.gpu(0)
@@ -189,7 +189,7 @@ test.data <- mx.io.bucket.iter(buckets = corpus_bucketed_test$buckets,
 ```
 
 ``` r
-infer <- mx.infer.buckets(infer.data = test.data, model = model, ctx = ctx)
+infer <- mx.infer.rnn(infer.data = test.data, model = model, ctx = ctx)
 
 pred_raw <- t(as.array(infer))
 pred <- max.col(pred_raw, tie = "first") - 1
