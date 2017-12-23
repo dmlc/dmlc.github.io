@@ -68,7 +68,7 @@ eval.data.bucket <- mx.io.bucket.iter(buckets = corpus_bucketed_test$buckets,
 Define the architecture
 -----------------------
 
-Below are the graph representations of a seq-to-one architecture with LSTM cells. Note that input data is of shape `seq.length X batch.size` while the RNN operator requires input of of shape `hidden.features X batch.size X seq.length`, requiring to swap axis.
+Below are the graph representations of a seq-to-one architecture with LSTM cells. Note that input data is of shape `seq.length X batch.size` while the RNN operator requires input of shape `hidden.features X batch.size X seq.length`, requiring to swap axis.
 
 For bucketing, a list of symbols is defined, one for each bucket length. During training, at each batch the appropriate symbol is bound according to the bucketID provided by the iterator.
 
